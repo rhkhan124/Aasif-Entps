@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<script src='file:///android_asset/app.js'></script>
+<link href="css/all.css" rel="stylesheet">
+
+<link href="css/bootstrap-grid.css" rel="stylesheet">
+<link href="css/bootstrap-grid.css.map" rel="stylesheet">
+<link href="css/bootstrap-grid.min.css" rel="stylesheet">
+<link href="css/bootstrap-grid.min.css.map" rel="stylesheet">
+
+<link href="css/bootstrap-grid.rtl.css" rel="stylesheet">
+<link href="css/bootstrap-grid.rtl.css.map" rel="stylesheet">
+<link href="css/bootstrap-grid.rtl.min.css" rel="stylesheet">
+<link href="css/bootstrap-grid.rtl.min.css.map" rel="stylesheet">
+
+<link href="css/bootstrap-reboot.css" rel="stylesheet">
+<link href="css/bootstrap-reboot.css.map" rel="stylesheet">
+<link href="css/bootstrap-reboot.min.css" rel="stylesheet">
+<link href="css/bootstrap-reboot.min.css.map" rel="stylesheet">
+
+<link href="css/bootstrap-reboot.rtl.css" rel="stylesheet">
+<link href="css/bootstrap-reboot.rtl.css.map" rel="stylesheet">
+<link href="css/bootstrap-reboot.rtl.min.css" rel="stylesheet">
+<link href="css/bootstrap-reboot.rtl.min.css.map" rel="stylesheet">
+
+<link href="css/bootstrap-utilities.css" rel="stylesheet">
+<link href="css/bootstrap-utilities.css.map" rel="stylesheet">
+<link href="css/bootstrap-utilities.min.css" rel="stylesheet">
+<link href="css/bootstrap-utilities.min.css.map" rel="stylesheet">
+
+<link href="css/bootstrap-utilities.rtl.css" rel="stylesheet">
+<link href="css/bootstrap-utilities.rtl.css.map" rel="stylesheet">
+<link href="css/bootstrap-utilities.rtl.min.css" rel="stylesheet">
+<link href="css/bootstrap-utilities.rtl.min.css.map" rel="stylesheet">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap.css.map" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap.min.css.map" rel="stylesheet">
+
+<link href="css/bootstrap.rtl.css" rel="stylesheet">
+<link href="css/bootstrap.rtl.css.map" rel="stylesheet">
+<link href="css/bootstrap.rtl.min.css" rel="stylesheet">
+<link href="css/bootstrap.rtl.min.css.map" rel="stylesheet">    
+
+<script src="js/all.js"></script>
+
+<script src="js/bootstrap.bundle.js"></script>
+<script src="js/bootstrap.bundle.js.map"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/bootstrap.bundle.min.js.map"></script>
+
+<script src="js/bootstrap.esm.js"></script>
+<script src="js/bootstrap.esm.js.map"></script>
+<script src="js/bootstrap.esm.min.js"></script>
+<script src="js/bootstrap.esm.min.js.map"></script>
+
+<script src="js/bootstrap.js"></script>
+<script src="js/bootstrap.js.map"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap.min.js.map"></script>
+
+
+</head>
+<script>            
+var themeColor = app.LoadText( "themeColor" );
+var color = JSON.parse(themeColor);
+var c1=color.c1;
+var c2=color.c2;
+var c3=color.c3;
+var c4=color.c4;
+var c5=color.c5;
+var c6=color.c6;
+var mytheme =app.LoadText( "mytheme" );
+if (mytheme=="1")
+{
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" .fullBody{"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),"
++"radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"height:100%;width:100%;margin:0;position:absolute;}"
++".mycontainer{"
++"position:relative;"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%) "
++", radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"box-shadow:4px 4px 4px #"+c3+",-4px -4px 4px #"+c2+";"
++"font-weight:bold;}"
++".myinput{"
++"margin:auto;"
++"border:none;"
++"background:#"+c1+";"
++"outline:none;"
++"box-shadow:inset 5px 5px 5px #"+c3+", inset -5px -5px 5px #"+c2+";"
++"}"
++".mybutton{"
++"border:none;"
++"box-shadow:5px 5px 5px #"+c3+", -5px -5px 5px #"+c2+";"
++"outline:none;"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%) "
++", radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"font-weight:bold;font-family:times;}"
++".mybutton:hover{"
++"box-shadow:1px 1px 5px #"+c3+",  -1px -1px 5px #"+c2+";"
++"}"
++".FAA{color:#"+c4+";}"
++".FB{color:#"+c5+";}"
++".FC{color:#"+c6+";}";
+var size=app.LoadText("size").split(",");
+for (i = 0; i < size.length; i++) {
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" .F"+i+"{font-size:"+size[i]+"px;} ";
+}
+}
+else
+{
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" body{"
++"background:#"+c1+";"
++"}"
++".mycontainer{"
++"position:relative;"
++"background:#"+c1+";"
++"box-shadow:4px 4px 4px #"+c3+",-4px -4px 4px #"+c2+";"
++"}"
++".myinput{"
++"margin:auto;"
++"border:none;"
++"background:#"+c1+";"
++"outline:none;"
++"box-shadow:inset 5px 5px 5px #"+c3+", inset -5px -5px 5px #"+c2+";"
++"}"
++".mybutton{"
++"border:none;"
++"box-shadow:5px 5px 5px #"+c3+", -5px -5px 5px #"+c2+";"
++"outline:none;"
++"background:#"+c1+"; " 
++"}"
++".mybutton:hover{"
++"box-shadow:1px 1px 5px #"+c3+",  -1px -1px 5px #"+c2+";"
++"}"
++".FAA{color:#"+app.LoadText("fontA")+";}"
++".FB{color:#"+app.LoadText("fontB")+";}"
++".FC{color:#"+app.LoadText("fontC")+";}";
+var size=app.LoadText("size").split(",");
+for (i = 0; i < size.length; i++) {
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" .F"+i+"{font-size:"+size[i]+"px;} ";
+}
+}
+
+//app.Alert(document.getElementById("mystyle").innerHTML);
+</script>

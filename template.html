@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<script src='file:///android_asset/app.js'></script>
+<link href="boostrap/css/bootstrap1.css" rel="stylesheet">
+
+    <link href="boostrap/css/bootstrap1.css" rel="stylesheet">
+    <link href="boostrap/css/dat.css" rel="stylesheet">
+    <link href="boostrap/css/date2.css" rel="stylesheet">
+
+    
+    <link href="boostrap/css/bootstrap2.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap3.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap4.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap5.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap6.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap7.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap8.css" rel="stylesheet">
+    <link href="boostrap/css/swiper.min.css" rel="stylesheet">
+    
+    <link href="boostrap/fonts/glyphicons-halflings-regular.eot" rel="stylesheet">
+    <link href="boostrap/fonts/glyphicons-halflings-regular.svg" rel="stylesheet">
+    <link href="boostrap/fonts/glyphicons-halflings-regular.ttf" rel="stylesheet">
+    <link href="boostrap/fonts/glyphicons-halflings-regular.woff" rel="stylesheet">
+    <link href="boostrap/fonts/glyphicons-halflings-regular.woff2" rel="stylesheet">
+    <script src="boostrap/js/swiper.min.js"></script>
+    <script src="boostrap/js/jquery.js"></script>
+    <script src="boostrap/js/date.js"></script>
+    <script src="boostrap/js/date2.js"></script>
+    <script src="boostrap/js/bootstrap.js" type="text/javascript" >
+<script src="uploadFile.js"></script>
+
+
+</head>
+<style id="mystyle">
+.Cinput{
+height:40px;
+width:100%;
+}
+.Cbutton
+{
+height:40px;
+width:40px;
+}
+input{
+width:100%;
+height:40px;
+border:none;
+outline:none;
+background:none;
+font-weight:bold;
+font-family:times;
+padding-left:10px;
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  width:100%;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+</style>
+<script>  
+app.SaveText("Change","index.html");
+var themeColor = app.LoadText( "themeColor" );
+var color = JSON.parse(themeColor);
+var c1=color.c1;
+var c2=color.c2;
+var c3=color.c3;
+var c4=color.c4;
+var c5=color.c5;
+var c6=color.c6;
+var mytheme =app.LoadText( "mytheme" );
+if (mytheme=="1")
+{
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" .fullBody{"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),"
++"radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"height:100%;width:100%;margin:0;position:absolute;}"
++".mycontainer{"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%) "
++", radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"box-shadow:4px 4px 4px #"+c3+",-4px -4px 4px #"+c2+";"
++"font-weight:bold;}"
++".myinput{"
++"border:none;"
++"background:#"+c1+";"
++"outline:none;"
++"box-shadow:inset 5px 5px 5px #"+c3+", inset -5px -5px 5px #"+c2+";"
++"}"
++".mybutton{"
++"border:none;"
++"box-shadow:5px 5px 5px #"+c3+", -5px -5px 5px #"+c2+";"
++"outline:none;"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%) "
++", radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"font-weight:bold;font-family:times;}"
++".mybutton:hover{"
++"box-shadow:1px 1px 5px #"+c3+",  -1px -1px 5px #"+c2+";"
++"}"
++".FAA{color:#"+app.LoadText("fontA")+";}"
++".FB{color:#"+app.LoadText("fontB")+";}"
++".FC{color:#"+app.LoadText("fontC")+";}";
+var size=app.LoadText("size").split(",");
+for (i = 0; i < size.length; i++) {
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" .F"+size[i]+"{font-size:"+size[i]+"px;} ";
+}
+}
+else
+{
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" body{"
++"background:#"+c1+";"
++"}"
++".mycontainer{"
++"background:#"+c1+";"
++"box-shadow:4px 4px 4px #"+c3+",-4px -4px 4px #"+c2+";"
++"}"
++".myinput{"
++"border:none;"
++"background:#E6E6E6;"
++"outline:none;"
++"box-shadow:inset 5px 5px 5px #"+c3+", inset -5px -5px 5px #"+c2+";"
++"}"
++".mytext{text-shadow: 2px 2px 2px #"+c3+", -2px -2px 2px #"+c2+";}"
++".mytext2{text-shadow: 1px 1px 1px #"+c3+", -1px -1px 1px #"+c2+";}"
++".mybutton{"
++"border:none;"
++"box-shadow:5px 5px 5px #"+c3+", -5px -5px 5px #"+c2+";"
++"outline:none;"
++"background:#"+c1+"; " 
++"}"
++".mybutton:hover{"
++"box-shadow:1px 1px 5px #"+c3+",  -1px -1px 5px #"+c2+";"
++"}"
++".FAA{color:#"+app.LoadText("fontA")+";}"
++".FB{color:#"+app.LoadText("fontB")+";}"
++".FC{color:#"+app.LoadText("fontC")+";}";
+var size=app.LoadText("size").split(",");
+for (i = 0; i < size.length; i++) {
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" .F"+size[i]+"{font-size:"+size[i]+"px;} ";
+}
+}
+</script>
+
+<body style="font-size:100%;">
+<script>
+var FF = 0;
+document.write('<table border="1"style="90%">');
+for (i = 0; i < size.length; i++) {
+FF = FF+1;
+document.write('<tr><td><div style="font-size:'+size[i]+'px;padding-left:30px;">A</div></td><td><div style="font-size:'+FF+'em;padding-left:30px;">A</div></td></tr>');
+}
+document.write('</table>');
+</script>
+
+
+
+</body>

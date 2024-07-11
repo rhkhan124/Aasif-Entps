@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<script src='file:///android_asset/app.js'></script>
+<link href="css/all.css" rel="stylesheet">
+
+    <link href="boostrap/css/bootstrap2.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap3.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap4.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap5.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap6.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap7.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap8.css" rel="stylesheet">
+    <link href="boostrap/css/swiper.min.css" rel="stylesheet">
+
+<script src="js/all.js"></script>
+    <script src="boostrap/js/jquery.js"></script>
+    <script src="boostrap/js/date.js"></script>
+    <script src="boostrap/js/date2.js"></script>
+    <script src="boostrap/js/bootstrap.js" type="text/javascript" ></script>
+
+<style id="mystyle">
+body{
+height:100%;
+}
+.mcontainer{
+display:inline-block;
+margin:auto;
+border-radius:20px;
+padding-bottom:14px;
+width:94%;
+margin-top:20px;
+}
+.dropcontainer{
+display:inline-block;
+margin:auto;
+border-radius:5px;
+width:96%;
+margin-top:10px;
+height:60px;
+}
+.dropdown-menu
+{
+height:350px;
+width:100%;  
+border:none;
+outline:none;
+background:none;
+}
+.mydrop
+{
+height:350px;
+width:100%;
+overflow:scroll;     
+}
+
+
+button:hover{
+box-shadow:1px 1px 5px grey,  -1px -1px 5px white;
+
+}
+
+
+input{
+width:100%;
+height:60px;
+border:none;
+outline:none;
+background:none;
+font-weight:bold;
+font-family:times;
+padding-left:10px;
+}
+
+@mixin nonselect {
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+	cursor: default;
+}
+.listitem{
+height:70px;
+width:96%;
+margin-left:2%;
+margin-top:5px;
+}
+.mybar{
+height:10px;
+width:100%;
+}
+  select option { 
+color: black;
+font-weight:bold;
+ }
+ .g{
+ border:1px solid white;
+  height: 38px;
+  width: 25px;
+  border-radius: 50%;
+ text-align:center;
+ vertical-align:center;
+ background-color:green;
+ font-weight:bold;
+ color:white;
+ }
+ .h
+ {
+     border:1px solid white;
+  height: 38px;
+  width: 25px;
+  border-radius: 50%;
+ text-align:center;
+ vertical-align:center;
+ background-color:white;
+ font-weight:bold;
+ color:black; 
+ }
+  .i
+ {
+     border:1px solid white;
+  height: 38px;
+  width: 25px;
+  border-radius: 50%;
+ text-align:center;
+ vertical-align:center;
+ background-color:#f23dbc;
+ font-weight:bold;
+ color:white; 
+ }
+ 
+ 
+ 
+ .modalf {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 112; /* Sit on top */
+  padding-top: 50px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width:100%;
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+}
+
+/* modalf Content */
+.modalf-content {
+
+}
+li {
+    border: 3px solid white;
+    border-bottom: 0;
+   }
+  rh:hover { 
+   background-color:red; 
+   }
+   
+   
+ 
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 20px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 20px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+</style>
+
+
+</head>
+
+
+    
+<script>  
+app.SaveText("Change","exit");
+var themeColor = app.LoadText( "themeColor" );
+var color = JSON.parse(themeColor);
+var c1=color.c1;
+var c2=color.c2;
+var c3=color.c3;
+var c4=color.c4;
+var c5=color.c5;
+var c6=color.c6;
+var mytheme =app.LoadText( "mytheme" );
+if (mytheme=="1")
+{
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" .fullBody{"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),"
++"radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"height:100%;width:100%;margin:0;position:absolute;}"
++".mycontainer{"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%) "
++", radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"box-shadow:4px 4px 4px #"+c3+",-4px -4px 4px #"+c2+";"
++"font-weight:bold;}"
+
++".mycontainer2{"
++"position:absolute;"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%) "
++", radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"box-shadow:4px 4px 4px #"+c3+",-4px -4px 4px #"+c2+";"
++"font-weight:bold;}"
++".myinput{"
++"position:relative;"
++"border:none;"
++"background:#"+c1+";"
++"outline:none;"
++"box-shadow:inset 5px 5px 5px #"+c3+", inset -5px -5px 5px #"+c2+";"
++"}"
++".myinput2{"
++"border:none;"
++"background:#"+c1+";"
++"outline:none;"
++"box-shadow:inset 2px 2px 2px #"+c3+", inset -2px -2px 2px #"+c2+";"
++"}"
++".mybutton{"
++"border:none;"
++"box-shadow:5px 5px 5px #"+c3+", -5px -5px 5px #"+c2+";"
++"outline:none;"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%) "
++", radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"font-weight:bold;font-family:times;}"
++".mybutton:hover{"
++"box-shadow:1px 1px 5px #"+c3+",  -1px -1px 5px #"+c2+";"
++"}"
++".FAA{color:#"+app.LoadText("fontA")+";}"
++".FB{color:#"+app.LoadText("fontB")+";}"
++".FC{color:#"+app.LoadText("fontC")+";}";
+var size=app.LoadText("size").split(",");
+for (i = 0; i < size.length; i++) {
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" .F"+i+"{font-size:"+size[i]+"px;} ";
+}
+}
+else
+{
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" body{"
++"background:#"+c1+";"
++"}"
++".mycontainer{"
++"position:relative;"
++"background:#"+c1+";"
++"box-shadow:4px 4px 4px #"+c3+",-4px -4px 4px #"+c2+";"
++"}"
++".mycontainer2{"
++"background:#"+c1+";"
++"box-shadow:4px 4px 4px #"+c3+",-4px -4px 4px #"+c2+";"
++"}"
++".myinput{"
++"position:relative;"
++"border:none;"
++"background:#E6E6E6;"
++"outline:none;"
++"box-shadow:inset 5px 5px 5px #"+c3+", inset -5px -5px 5px #"+c2+";"
++"}"
++".myinput2{"
++"border:none;"
++"background:#E6E6E6;"
++"outline:none;"
++"box-shadow:inset 2px 2px 2px #"+c3+", inset -2px -2px 2px #"+c2+";"
++"}"
++".mybutton{"
++"border:none;"
++"box-shadow:5px 5px 5px #"+c3+", -5px -5px 5px #"+c2+";"
++"outline:none;"
++"background:#"+c1+"; " 
++"}"
++".mybutton:hover{"
++"box-shadow:1px 1px 5px #"+c3+",  -1px -1px 5px #"+c2+";"
++"}"
++".FAA{color:#"+app.LoadText("fontA")+";}"
++".FB{color:#"+app.LoadText("fontB")+";}"
++".FC{color:#"+app.LoadText("fontC")+";}";
+var size=app.LoadText("size").split(",");
+for (i = 0; i < size.length; i++) {
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" .F"+i+"{font-size:"+size[i]+"px;} ";
+}
+}
+
+
+//app.Alert(document.getElementById("mystyle").innerHTML );
+</script><body ondragstart="return false" onselectstart="return false" style="width:100%;height:100%;overflow-x:hidden;">
+<div class="fullbody">
+<div style="margin:2%;overflow:scroll;height:100%;" class="myinput" >
+
+<div style="width:96%;margin:2%;">
+<div class="mycontainer" style="width:96%;margin:2%;" >
+<table style="width:100%;font-weight:bold;font-family:times;"  class="F14" >
+<tr>
+<td style="width:50%;border-right: 1px solid black;border-bottom: 1px solid black;" >
+<table style="width:100%;">
+<tr style="height:30px;">
+<td style="width:50%;text-align:center;">My Paid</td>
+<td style="width:50%;text-align:center;" id="data1" >00</td>
+</tr>
+</table>
+</td>
+<td style="border-bottom: 1px solid black;" >
+<table style="width:100%;">
+<tr style="height:30px;">
+<td style="width:50%;text-align:center;">My Salary</td>
+<td style="width:50%;text-align:center;"  id="data2" >00</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="height:30px;">
+<td colspan="2" >
+<table style="width:100%;">
+<tr>
+<td style="width:50%;text-align:center;">My Available Balance = </td>
+<td style="width:50%;text-align:center;"  id="data3" >00</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr style="height:30px;">
+<td style="width:50%; border-right: 1px solid black; border-bottom: 1px solid black;" >
+<table style="width:100%;">
+<tr>
+<td style="text-align:center;">Employees Paid</td>
+<td style="text-align:center;" id="data4" >00</td>
+</tr>
+</table>
+</td>
+<td style="border-bottom: 1px solid black;" >
+<table style="width:100%;">
+<tr>
+<td style="text-align:center;">Employees Salary</td>
+<td style="text-align:center;" id="data5" >00</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="height:30px;">
+<td colspan="2" >
+<table style="width:100%;">
+<tr style="height:30px;">
+<td style="width:60%text-align:left;padding-left:20px;">Employees Unpaid Salary</td>
+<td>=</td>
+<td style="width:40%;text-align:right;padding-right:20px;" id="data6" >00</td>
+</tr>
+
+
+<tr style="height:30px;">
+<td style="width:60%text-align:left;padding-left:20px;">My total earnings</td>
+<td>=</td>
+<td style="width:40%;text-align:right;padding-right:20px;" id="data7" >00</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+
+
+
+
+</div>
+
+
+<div style="width:96%;margin:2%;" >
+<div class="F12 myfont" style="padding-top:5px;padding-left:5px;" >
+<table style="width:100%;" >
+<tr style="height:50px;">
+<td style="text-align:center;"><button class="mybutton" style="width:90%;"onclick="k2();"><strong >Add Online Report <strong></strong></button></td>
+</tr>
+</table>
+<table style="width:100%;" >
+<tr>
+<td style="width:33%;" ><button class="mybutton"style="width:90%;" onclick="group()">Add Employee</button></td>
+<td style="width:34%;" ><button class="mybutton"style="width:90%;" onclick="employees()">View Employees</button></td>
+<td style="width:33%;" ><button class="mybutton"style="width:90%;"  data-toggle="modal" data-target="#send">Send Report</button></td>
+</tr>
+</table>
+
+<table style="width:100%; margin-top:3%; " >
+<tr>
+<td style="width:33%;" ><button class="mybutton"style="width:90%;" onclick="issue();" id="b2">Issued Material</button></td>
+<td style="width:34%;" ><button class="mybutton"style="width:90%;" onclick="flatwork()" id="b3">View Flat Works</button></td>
+<td style="width:33%;" ><button class="mybutton"style="width:90%;" onclick="card();" id="b6">Employee Cards</button></td>
+</tr>
+</table>
+
+<table style="width:100%; margin-top:3%; " >
+<tr>
+<td style="width:33%;" ><button class="mybutton"style="width:90%;" onclick="paid();" id="b4">My Paid</button></td>
+<td style="width:34%;" ><button class="mybutton"style="width:90%;" onclick="salary();" id="b5">My Salary</button></td>
+<td style="width:33%;" ><button class="mybutton"style="width:90%;" onclick="report()" id="b1">Report</button></td>
+</tr>
+</table>
+
+
+
+
+
+</div></div>
+<div style="margin-left:2%;font-weight:bold;font-family:times;"class="F15" >
+<table style="width:90%;">
+<tr>
+<td id="tag" style="width:50%;"></td>
+<td style="text-align:right;">
+    <select  class="F15 FAA mycontainer"  onchange="wing();" style="width:100%;outline:none;border:none;" id="wing"></select>
+</td>
+</tr>
+</table>
+
+
+
+</div>
+<div style="width:96%;margin:2%;" class="myinput" id="p" >
+<iframe class="" id="h" style="width:100%;height:100%;overflow-x:hidden;outline:none;" src=""></iframe>
+</div>
+</div>
+
+</div>
+</body>
+</html>
+
+<div class="modal fade" id="send" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content mycontainer">
+      <div class="modal-header">
+        <h5 class="modal-title F16" id="exampleModalLabel"></h5>
+      </div>
+      <div class="modal-body">
+      <p>Select wing</p>
+       <select  class="F15 FAA mycontainer" style="width:100%;outline:none;border:none;" id="wing2" multiple></select>
+      <table class="F15" style="width:90%;margin:5%;font-weight:bold;font-family:times;">
+
+
+      <tr style="height:35px;">
+      <td style="text-align:left;">Send with employee name in report</td><td><input id="check"  type="checkbox" style="width:17px;"></td>
+      </tr>
+      
+      </table>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="mybutton" data-dismiss="modal">Close</button>
+        <button type="button" class="mybutton" onclick="send()" >Send Report</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+var url=app.LoadText( "url" );
+
+ var  rec = JSON.parse(app.LoadText( "userDetails" ));
+       var    id=rec.id;
+       var    User=rec.user;
+       var   token=rec.token;
+       var project = rec.project;
+       var empid = rec.empid;
+       var company =rec.company;
+       var   ustatus ="";
+       var uid = app.LoadText( "uid" );
+       var projectarray="";
+       var calculatedAge="";
+
+var	mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+var letters = /^[A-Z a-z 0-9]+$/;
+
+var height=window.innerHeight-0;
+document.getElementById("p").style.height =height+"px";
+
+function group()
+   {
+   app.SaveText( "change2","empindex.html");
+   app.SaveText( "group","Group employee" );
+   app.Execute( "addlbr();" );
+   }
+   
+function employees()
+{
+app.SaveText( "empid2", app.LoadText( "empid" ) )
+app.SaveText( "first",1 )
+app.Execute("lbrinfo();");   
+}
+
+function k2()
+{
+app.Execute("addonline();");   
+}
+
+
+function send()
+{
+
+var wing2="";
+var multiSelect = document.getElementById("wing2");
+for ( var i = 0; i < multiSelect.selectedOptions.length; i++) {
+  wing2= wing2+multiSelect.selectedOptions[i].value+",";
+  }
+  
+ app.Execute("loader2(1);");   
+	var 	req3=new XMLHttpRequest();
+	req3.open("GET",app.LoadText( "url" )+"sendreport.php?id="+id+"&user="+User+"&pid="+project+"&company="+company+"&wing="+wing2+"&emp="+document.getElementById("check").checked+"&token="+token,true);
+		req3.onreadystatechange=function(){
+if(	req3.readyState==4 && 	req3.status==200){if(	req3.responseText=="ufFygf")
+{  
+
+}else{
+
+ if (req3.responseText.trim()==("*"+company+"*"))
+ {
+ app.Alert( "No record found !" );
+    app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":""}');
+ }
+else
+{
+     app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":""}');
+   app.SendText(req3.responseText.trim()  )
+   
+}
+}}}
+	req3.send();
+	
+}
+	 function getwing()
+ {
+
+ app.Execute("loader2(1);");   
+	var 	req3=new XMLHttpRequest();
+	req3.open("GET",app.LoadText( "url" )+"getwing.php?id="+id+"&user="+User+"&pid="+project+"&token="+token,true);
+		req3.onreadystatechange=function(){
+if(	req3.readyState==4 && 	req3.status==200){if(	req3.responseText=="ufFygf")
+{  
+
+}else{
+
+ if (req3.responseText.trim()==1)
+ {
+ app.Alert( "error please relogin" );
+     app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Error"}');
+ }
+ else if(req3.responseText.trim()==2)
+ {
+  app.Alert( "User is blocked" );
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"User is blocked"}');
+ }
+ else if(req3.responseText.trim()==3)
+ {
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Permission denied"}');
+ }
+ else
+ {
+ document.getElementById("wing").innerHTML = "";
+  document.getElementById("wing").innerHTML = '<option value="all">All wing</option>';
+   document.getElementById("wing2").innerHTML = "";
+
+app.SaveText("msg",'{"color":"green","msg":""}');
+ app.Execute("loader2(4);");   
+     var alluser=req3.responseText.trim().split('@');
+
+   for(var i = 0; i < alluser.length;  i++)
+   {
+   if (alluser[i].length<10)
+   {}
+   else
+   {
+   var  rec = JSON.parse(alluser[i]);
+   var  pid =rec.id;
+   var  pwing =rec.wing;
+
+   document.getElementById("wing").innerHTML = document.getElementById("wing").innerHTML+'<option value="'+pid+'">'+pwing+'</option>';
+document.getElementById("wing2").innerHTML = document.getElementById("wing2").innerHTML+'<option value="'+pid+'">'+pwing+'</option>';
+ }}
+
+
+ }
+}}}
+	req3.send();
+	
+	}
+	var active =0;
+getwing();
+function wing()
+{
+if(active==1)
+{
+document.getElementById("h").src=app.LoadText( "url" )+"allreport.php?id="+id+"&user="+User+"&project="+project+"&url="+url+"&wing="+document.getElementById("wing").value+"&token="+token;
+}
+else if(active==2)
+{
+document.getElementById("h").src=app.LoadText( "url" )+"projectinfoB.php?id="+id+"&user="+User+"&url="+url+"&wing="+document.getElementById("wing").value+"&project="+project+"&token="+token;
+}
+}
+function report()
+{
+active =1;
+document.getElementById("tag").innerHTML =document.getElementById("b1").innerHTML ;
+document.getElementById("h").src=app.LoadText( "url" )+"allreport.php?id="+id+"&user="+User+"&project="+project+"&url="+url+"&wing="+document.getElementById("wing").value+"&token="+token;
+}
+function issue()
+{
+active =0;
+document.getElementById("tag").innerHTML =document.getElementById("b2").innerHTML ;
+document.getElementById("h").src=url+"issuelist2.php?id="+id+"&user="+User+"&token="+token+"&url="+url+"&emp="+empid+"&project="+project;
+}
+function flatwork()
+{
+active =2;
+document.getElementById("tag").innerHTML =document.getElementById("b3").innerHTML ;
+document.getElementById("h").src=app.LoadText( "url" )+"projectinfoB.php?id="+id+"&user="+User+"&url="+url+"&wing="+document.getElementById("wing").value+"&project="+project+"&token="+token;
+}
+function paid()
+{
+active =0;
+document.getElementById("tag").innerHTML =document.getElementById("b4").innerHTML ;
+document.getElementById("h").src=app.LoadText( "url" )+"allpayment3.php?id="+id+"&user="+User+"&token="+token+"&empid="+empid+"&url="+url+"&req=paid";
+}
+function salary()
+{
+active =0;
+document.getElementById("tag").innerHTML =document.getElementById("b5").innerHTML ;
+document.getElementById("h").src=app.LoadText( "url" )+"allpayment3.php?id="+id+"&user="+User+"&token="+token+"&empid="+empid+"&url="+url+"&req=salary";
+}
+function card()
+{
+active =0;
+document.getElementById("tag").innerHTML =document.getElementById("b6").innerHTML ;
+document.getElementById("h").src=app.LoadText( "url" )+"card.php?id="+id+"&user="+User+"&token="+token+"&empid="+empid;
+}
+paid();
+	var reqdata1=0;
+  var  reqdata2 =0;
+  var  reqdata3 =0;
+   var  reqdata4 =0;
+window.onmessage = function(e) {
+if("dld"==((e.data).substr(0, 3)))
+{
+var jsond =data =  e.data.replace("dld", "");
+       var  reqg = JSON.parse(jsond);
+       var    dldurl =reqg.url;
+       app.OpenUrl( dldurl )
+       
+}
+}
+
+
+	var 	req4=new XMLHttpRequest();
+	req4.open("GET",app.LoadText( "url" )+"status2.php?id="+id+"&user="+User+"&empid="+empid+"&token="+token,true);
+		req4.onreadystatechange=function(){
+if(	req4.readyState==4 && 	req4.status==200){if(	req4.responseText=="ufFygf")
+{  
+
+}else{
+
+      var alluser2=req4.responseText.trim();
+ 
+
+   var  rec = JSON.parse(alluser2);
+ 
+   var  data1 =rec.data1;
+   var  data2 =rec.data2;
+   var  data3 =rec.data3;
+   var  data4 =rec.data4;
+   var  data5 =rec.data5;
+   var  data6 =rec.data6;
+   var  data7 =rec.data7;
+  
+ document.getElementById("data1").innerHTML = data1;
+ document.getElementById("data2").innerHTML = data2;
+ document.getElementById("data3").innerHTML = data3;
+ document.getElementById("data4").innerHTML = data4;
+ document.getElementById("data5").innerHTML = data5;
+ document.getElementById("data6").innerHTML = data6;
+ document.getElementById("data7").innerHTML = data7;
+ 
+}}}
+	req4.send();
+</script>

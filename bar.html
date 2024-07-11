@@ -1,0 +1,344 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+<script src='file:///android_asset/app.js'></script>
+<link href="css/all.css" rel="stylesheet">
+<script src="js/all.js"></script>
+<link href="css/bootstrap-grid.css" rel="stylesheet">
+<link href="css/bootstrap-grid.css.map" rel="stylesheet">
+<link href="css/bootstrap-grid.min.css" rel="stylesheet">
+<link href="css/bootstrap-grid.min.css.map" rel="stylesheet">
+
+<link href="css/bootstrap-grid.rtl.css" rel="stylesheet">
+<link href="css/bootstrap-grid.rtl.css.map" rel="stylesheet">
+<link href="css/bootstrap-grid.rtl.min.css" rel="stylesheet">
+<link href="css/bootstrap-grid.rtl.min.css.map" rel="stylesheet">
+
+<link href="css/bootstrap-reboot.css" rel="stylesheet">
+<link href="css/bootstrap-reboot.css.map" rel="stylesheet">
+<link href="css/bootstrap-reboot.min.css" rel="stylesheet">
+<link href="css/bootstrap-reboot.min.css.map" rel="stylesheet">
+
+<link href="css/bootstrap-reboot.rtl.css" rel="stylesheet">
+<link href="css/bootstrap-reboot.rtl.css.map" rel="stylesheet">
+<link href="css/bootstrap-reboot.rtl.min.css" rel="stylesheet">
+<link href="css/bootstrap-reboot.rtl.min.css.map" rel="stylesheet">
+
+<link href="css/bootstrap-utilities.css" rel="stylesheet">
+<link href="css/bootstrap-utilities.css.map" rel="stylesheet">
+<link href="css/bootstrap-utilities.min.css" rel="stylesheet">
+<link href="css/bootstrap-utilities.min.css.map" rel="stylesheet">
+
+<link href="css/bootstrap-utilities.rtl.css" rel="stylesheet">
+<link href="css/bootstrap-utilities.rtl.css.map" rel="stylesheet">
+<link href="css/bootstrap-utilities.rtl.min.css" rel="stylesheet">
+<link href="css/bootstrap-utilities.rtl.min.css.map" rel="stylesheet">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap.css.map" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap.min.css.map" rel="stylesheet">
+
+<link href="css/bootstrap.rtl.css" rel="stylesheet">
+<link href="css/bootstrap.rtl.css.map" rel="stylesheet">
+<link href="css/bootstrap.rtl.min.css" rel="stylesheet">
+<link href="css/bootstrap.rtl.min.css.map" rel="stylesheet">    
+
+
+
+<style id="mystyle">
+html,body{
+font-size:100%;
+}
+.navb{
+width:96%;
+margin:auto;
+border-radius:5px;
+}
+.name{
+font-weight:bold;
+width:60%;
+text-align:center;
+font-family:times;
+}
+table{
+margin:2%;   
+}
+.blink {
+            animation: blinker 1.5s linear infinite;
+        }
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
+        
+      .mybell{
+  animation-name: shake;
+  animation-timing-function: ease-in-out;
+  animation-duration: .4s;
+  animation-iteration-count: infinite;
+  animation-delay: .5s;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  20%,
+  60% {
+    transform: rotate(6deg);
+  }
+  40%,
+  80% {
+    transform: rotate(-6deg);
+  }
+}
+
+</style>
+<script>            
+var themeColor = app.LoadText( "themeColor" );
+var color = JSON.parse(themeColor);
+var c1=color.c1;
+var c2=color.c2;
+var c3=color.c3;
+var c4=color.c4;
+var c5=color.c5;
+var c6=color.c6;
+var mytheme =app.LoadText( "mytheme" );
+if (mytheme=="1")
+{
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" .fullBody{"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),"
++"radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"height:100%;width:100%;margin:0;position:absolute;}"
++".mycontainer{"
++"position:relative;"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%) "
++", radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"box-shadow:4px 4px 4px #"+c3+",-4px -4px 4px #"+c2+";"
++"font-weight:bold;}"
++".myinput{"
++"margin:auto;"
++"border:none;"
++"background:#"+c1+";"
++"outline:none;"
++"box-shadow:inset 5px 5px 5px #"+c3+", inset -5px -5px 5px #"+c2+";"
++"}"
++".mybutton{"
++"border:none;"
++"box-shadow:5px 5px 5px #"+c3+", -5px -5px 5px #"+c2+";"
++"outline:none;"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%) "
++", radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"font-weight:bold;font-family:times;}"
++".mybutton:hover{"
++"box-shadow:1px 1px 5px #"+c3+",  -1px -1px 5px #"+c2+";"
++"}"
++".FAA{color:#"+c4+";}"
++".FB{color:#"+c5+";}"
++".FC{color:#"+c6+";}";
+var size=app.LoadText("size").split(",");
+for (i = 0; i < size.length; i++) {
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" .F"+i+"{font-size:"+size[i]+"px;} ";
+}
+}
+else
+{
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" body{"
++"background:#"+c1+";"
++"}"
++".mycontainer{"
++"position:relative;"
++"background:#"+c1+";"
++"box-shadow:4px 4px 4px #"+c3+",-4px -4px 4px #"+c2+";"
++"}"
++".myinput{"
++"margin:auto;"
++"border:none;"
++"background:#"+c1+";"
++"outline:none;"
++"box-shadow:inset 5px 5px 5px #"+c3+", inset -5px -5px 5px #"+c2+";"
++"}"
++".mybutton{"
++"border:none;"
++"box-shadow:5px 5px 5px #"+c3+", -5px -5px 5px #"+c2+";"
++"outline:none;"
++"background:#"+c1+"; " 
++"}"
++".mybutton:hover{"
++"box-shadow:1px 1px 5px #"+c3+",  -1px -1px 5px #"+c2+";"
++"}"
++".FAA{color:#"+app.LoadText("fontA")+";}"
++".FB{color:#"+app.LoadText("fontB")+";}"
++".FC{color:#"+app.LoadText("fontC")+";}";
+var size=app.LoadText("size").split(",");
+for (i = 0; i < size.length; i++) {
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" .F"+i+"{font-size:"+size[i]+"px;} ";
+}
+}
+
+//app.Alert(document.getElementById("mystyle").innerHTML);
+</script>
+</head>
+
+
+
+<body ondragstart="return false" onselectstart="return false">
+<div class="fullBody">
+<div class="navb mycontainer"> 
+<table style="width:100%;" >
+<tr>
+<td onclick="bar();" class="FAA" style="width:10px;"><i class="fas fa-bars fa-2x" style="padding-left:10px;"></i><i id="alert"></i></td>
+<td class="name  F20 FAA" ><div id="LD">
+
+</div></td>
+<td onclick="mynoti();"><i class="fas fa-bell fa-2x FAA" id="mybell" style="padding-left:10px;"></i><i id="alert2"></i></td>
+<td onclick="user();" style="text-align:right;"><i class="fas fa-user fa-2x FAA" id="mybell2" style="padding-right:10px;"></i></td>
+
+</tr>
+</table>
+</div>
+
+<script>
+
+var id="";
+var User ="";
+var token="";
+var company="";
+var role="";
+
+           var  rec = JSON.parse(app.LoadText( "userDetails" ));
+           if(app.LoadText( "userDetails" ).length==0)
+           {}
+           else
+           {
+           id=rec.id;
+           User=rec.user;
+           token=rec.token;
+           company=rec.company;
+           role=rec.role;
+           
+           
+          }
+          
+          if(role=="Employee")
+          {
+document.getElementById("mybell").style.display="none";
+
+          }
+company =company.toUpperCase();          
+document.getElementById("LD").innerHTML =company;
+function bar()
+{
+app.Execute("openBar();");   
+}
+function user()
+{
+
+          if(role=="Employee")
+          {
+app.Execute("user2();");   
+          }
+          else
+{
+app.Execute("user();");   
+          }
+}
+function mynoti()
+{
+  if(role!="Employee")
+          {
+app.Execute("mynoti();");   
+          }
+
+}
+function loader(g)
+{
+
+if(g==1)
+{
+document.getElementById("LD").innerHTML ='<img src="Img/loader.gif" style="height:15px;width:140px;-webkit-filter: grayscale(100%);"></img>';
+setTimeout(stoploader, 15000);
+}
+else if(g==2)
+{
+document.getElementById("LD").innerHTML ='<div id="pbar" class="mycontainer" style="height:10px;width:100%;border-radius:3px;"></div>';
+}
+else 
+{
+           var  rec = JSON.parse(app.LoadText( "msg" ));
+           if(rec.length==0)
+           {}
+           else
+           {
+           var color=rec.color;
+           var msg=rec.msg;
+           
+           if (msg.length==0)
+           {
+           stoploader();
+           }
+           else
+           {
+document.getElementById("LD").innerHTML ="<div class='F12 blink' id='msg' style='color:"+color+";'>"+msg+"</div>";
+setTimeout(stoploader, 8000);
+
+}
+}
+}
+}
+function stoploader()
+{
+document.getElementById("LD").innerHTML =company;
+}
+
+function update(u)
+{
+if(u==100)
+{
+document.getElementById("LD").innerHTML ="<div class='F12 blink' id='msg' style='color:"+color+";'>"+msg+"</div>";
+setTimeout(stoploader, 5000);
+}
+else
+{
+document.getElementById("pbar").style ='height:10px;width:'+u+'%;border-radius:3px;';
+}
+}
+
+function alert1()
+{
+
+          var alert= app.LoadText("alert" );
+       if (alert.length==0)
+       {}
+           else
+           {
+           
+            var  rec = JSON.parse(alert);
+            var  ref1=rec.ref1;
+            var  ref2=rec.ref1;
+            var  atype=rec.type;
+            var  noti=rec.noti;
+       
+              if(noti=="true")
+            {
+            document.getElementById("alert2").innerHTML ='<i class="fas fa-circle F6" style="color:red;"></i>';
+            document.getElementById("mybell").className ="fas fa-bell fa-2x FAA mybell";
+            }
+            else
+            {
+             document.getElementById("alert2").innerHTML ='';
+             document.getElementById("mybell").className="fas fa-bell fa-2x FAA";
+            }
+            
+}
+}
+app.Execute( "myalert();" );
+</script>
+
+
+</div>
+</body>
+</html>

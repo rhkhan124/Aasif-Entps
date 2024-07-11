@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<script src='file:///android_asset/app.js'></script>
+<link href="css/all.css" rel="stylesheet">
+
+    <link href="boostrap/css/bootstrap2.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap3.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap4.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap5.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap6.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap7.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap8.css" rel="stylesheet">
+    <link href="boostrap/css/swiper.min.css" rel="stylesheet">
+
+<script src="js/all.js"></script>
+    <script src="boostrap/js/jquery.js"></script>
+    <script src="boostrap/js/date.js"></script>
+    <script src="boostrap/js/date2.js"></script>
+    <script src="boostrap/js/bootstrap.js" type="text/javascript" ></script>
+
+
+<style id="mystyle">
+body{
+height:100%;
+}
+.mcontainer{
+display:inline-block;
+margin:auto;
+border-radius:5px;
+padding-bottom:14px;
+width:94%;
+margin-top:7px;
+}
+.dropcontainer{
+display:inline-block;
+margin:auto;
+border-radius:5px;
+width:96%;
+margin-top:10px;
+height:40px;
+}
+.dropdown-menu
+{
+height:350px;
+width:100%;  
+border:none;
+outline:none;
+}
+.mydrop
+{
+height:350px;
+width:100%;
+overflow:scroll;     
+}
+
+
+button:hover{
+box-shadow:1px 1px 5px grey,  -1px -1px 5px white;
+
+}
+
+
+input{
+width:100%;
+height:60px;
+border:none;
+outline:none;
+background:none;
+font-weight:bold;
+font-family:times;
+padding-left:10px;
+}
+
+@mixin nonselect {
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+	cursor: default;
+}
+.listitem{
+height:40px;
+width:96%;
+margin-left:2%;
+margin-top:5px;
+}
+.mybar{
+height:10px;
+width:100%;
+}
+td
+{
+height:25px;
+}
+.span{
+		animation: blink .5s linear infinite;
+	}
+@keyframes blink{
+0%{opacity: 0;}
+100%{opacity: 1;}
+}
+
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+
+}
+
+.upload-btn-wrapper input[type=file] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.dropdown2 {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content2 {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 99;
+}
+
+.dropdown2:hover .dropdown-content2{
+  display: block;
+  
+}
+</style>
+
+
+</head>
+
+
+    
+<script>  
+app.SaveText("Change","empindex.html");
+var themeColor = app.LoadText( "themeColor" );
+var color = JSON.parse(themeColor);
+var c1=color.c1;
+var c2=color.c2;
+var c3=color.c3;
+var c4=color.c4;
+var c5=color.c5;
+var c6=color.c6;
+var mytheme =app.LoadText( "mytheme" );
+if (mytheme=="1")
+{
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" .fullBody{"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),"
++"radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"height:100%;width:100%;margin:0;position:absolute;}"
++".mycontainer{"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%) "
++", radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"box-shadow:4px 4px 4px #"+c3+",-4px -4px 4px #"+c2+";"
++"font-weight:bold;}"
+
++".mycontainer2{"
++"position:absolute;"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%) "
++", radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"box-shadow:4px 4px 4px #"+c3+",-4px -4px 4px #"+c2+";"
++"font-weight:bold;}"
++".myinput{"
++"position:relative;"
++"border:none;"
++"background:#"+c1+";"
++"outline:none;"
++"box-shadow:inset 5px 5px 5px #"+c3+", inset -5px -5px 5px #"+c2+";"
++"}"
++".myinput2{"
++"border:none;"
++"background:#"+c1+";"
++"outline:none;"
++"box-shadow:inset 2px 2px 2px #"+c3+", inset -2px -2px 2px #"+c2+";"
++"}"
++".mybutton{"
++"border:none;"
++"box-shadow:5px 5px 5px #"+c3+", -5px -5px 5px #"+c2+";"
++"outline:none;"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%) "
++", radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"font-weight:bold;font-family:times;}"
++".mybutton:hover{"
++"box-shadow:1px 1px 5px #"+c3+",  -1px -1px 5px #"+c2+";"
++"}"
++".FAA{color:#"+app.LoadText("fontA")+";}"
++".FB{color:#"+app.LoadText("fontB")+";}"
++".FC{color:#"+app.LoadText("fontC")+";}";
+var size=app.LoadText("size").split(",");
+for (i = 0; i < size.length; i++) {
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" .F"+i+"{font-size:"+size[i]+"px;} ";
+}
+}
+else
+{
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" body{"
++"background:#"+c1+";"
++"}"
++".mycontainer{"
++"background:#"+c1+";"
++"box-shadow:4px 4px 4px #"+c3+",-4px -4px 4px #"+c2+";"
++"}"
++".mycontainer2{"
++"background:#"+c1+";"
++"box-shadow:4px 4px 4px #"+c3+",-4px -4px 4px #"+c2+";"
++"}"
++".myinput{"
++"position:relative;"
++"border:none;"
++"background:#E6E6E6;"
++"outline:none;"
++"box-shadow:inset 5px 5px 5px #"+c3+", inset -5px -5px 5px #"+c2+";"
++"}"
++".mytext{text-shadow: 2px 2px 2px #"+c3+", -2px -2px 2px #"+c2+";}"
++".mytext2{text-shadow: 1px 1px 1px #"+c3+", -1px -1px 1px #"+c2+";}"
++".myinput2{"
++"border:none;"
++"background:#E6E6E6;"
++"outline:none;"
++"box-shadow:inset 2px 2px 2px #"+c3+", inset -2px -2px 2px #"+c2+";"
++"}"
++".mybutton{"
++"border:none;"
++"box-shadow:5px 5px 5px #"+c3+", -5px -5px 5px #"+c2+";"
++"outline:none;"
++"background:#"+c1+"; " 
++"}"
++".mybutton:hover{"
++"box-shadow:1px 1px 5px #"+c3+",  -1px -1px 5px #"+c2+";"
++"}"
++".FAA{color:#"+app.LoadText("fontA")+";}"
++".FB{color:#"+app.LoadText("fontB")+";}"
++".FC{color:#"+app.LoadText("fontC")+";}";
+var size=app.LoadText("size").split(",");
+for (i = 0; i < size.length; i++) {
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" .F"+i+"{font-size:"+size[i]+"px;} ";
+}
+}
+
+//app.Alert(document.getElementById("mystyle").innerHTML);
+</script>
+
+<body align="center" ondragstart="return false" onselectstart="return false">
+<div class="fullBody" style="font-weight:bold;font-family:times;" ondragstart="return false" onselectstart="return false">
+<table style="width:94%;margin:3%;">
+<tr>
+<td style="width:50%;"><strong id="a1">Add Report</strong><button class="mybutton" id="a2" style="width:96%;display:none;" onclick="part1()">Add Report</button></td>
+<td><strong id="b1" style="display:none;">View Report</strong><button class="mybutton" id="b2" style="width:96%;" onclick="part2()">View Report</button></td>
+</tr>
+</table>
+
+
+<div id="part1">
+<div class="container" style="margin-top:10px;">
+<p class="F12 FAA" style="text-align:left;font-weight:bold;">Select wing<strong style="color:red"></strong></p>                                        
+  <div class=" myinput" style="margin-top:5px;">
+    <select  class="F15 FAA mycontainer"  onchange="wing();" style="width:100%;height:35px;outline:none;border:none;" id="wing">
+   
+    </select>
+  </div>
+</div>
+
+
+<p class="F12 FAA" style="margin-left:3%;text-align:left;font-weight:bold;margin-top:10px;">Select Flat no<strong style="color:red"></strong></p>       
+<div class="dropdown" style="width:94%;margin-left:3%;">
+  <button class="btn btn-secondary F15 dropdown-toggle mycontainer" style="text-align:left;font-weight:bold;font-family:times;width:100%;margin-left:0%;height:35px;outline:none;border:none;"type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <strong id="flat"></strong> <i class="F10 fa fa-chevron-down" style="padding-right:0px;margin-right:0px;float:right;" > </i>
+  </button>
+  <div class="dropdown-menu " style="width:50%;margin:0px;padding:0px;height:250px;" >
+  <input type="text" class="myinput" onkeyup="myFunction()" id="myInput" style="background-color:white;width:100%;height:45px;" placeholder="Search">
+<div class="myinput" style="height:100%;width:100%;font-weight:bold;margin-top:-8px;padding:0px;overflow:scroll;" id="allflat">
+
+
+
+</div>
+  </div>
+</div>
+
+
+<div class="container" style="margin-top:10px;">
+<p class="F12 FAA" style="text-align:left;font-weight:bold;">Select work<strong style="color:red"></strong></p>                                        
+  <div class=" myinput" style="margin-top:5px;">
+    <select  class="F15 FAA mycontainer"  id="wname"  style="width:100%;height:35px;outline:none;border:none;" id="">
+    
+    </select>
+  </div>
+</div>
+
+	<div class="container" style="margin-top:10px;">
+<p class="F12 FAA" style="text-align:left;font-weight:bold;">Date<strong style="color:red"></strong></p>                                        
+  <div class=" myinput" style="margin-top:5px;">
+    <input type="date" class="F15 FAA myinput"  style="width:100%;height:35px;" onchange="mydate()"  id="mydate">
+  </div>
+</div>
+
+<div class="container" style="margin-top:10px;">
+<p class="F12 FAA" style="text-align:left;font-weight:bold;">Select Emloyees<strong style="color:red"></strong></p>                                        
+  <div class=" myinput" style="margin-top:5px;">
+    <select  class="F15 FAA mycontainer" onchange="emp()"  style="width:100%;height:35px;outline:none;border:none;" id="emp">
+    
+    </select>
+  </div>
+</div>
+
+<div class="container" style="margin-top:10px;">
+<p class="F12 FAA" style="text-align:left;font-weight:bold;">Select group Employees<strong style="color:red"></strong></p>                                        
+  <div class=" myinput" style="margin-top:5px;">
+    <select  class="F15 FAA mycontainer" style="width:100%;height:35px;outline:none;border:none;"  id="group" multiple>
+
+    </select>
+  </div>
+</div>
+
+
+
+
+
+	<div class="container" style="margin-top:10px;">
+<p class="F12 FAA" style="text-align:left;font-weight:bold;">Remarks of the work<strong style="color:red"></strong></p>                                        
+  <div class=" myinput" style="margin-top:5px;">
+    <textarea class="F15 FAA myinput"  style="width:100%;height:70px;"  id="remark"></textarea>
+  </div>
+</div>
+<button class="mybutton" style="height:35px;width:100px;" onclick="addreport();">Add report</button>
+
+</div>
+
+<div id="part2" style="display:none;">
+
+	<iframe class="" id="h" style="width:100%;height:90%;overflow-x:hidden;outline:none;" src=""></iframe>
+
+</div>
+
+
+
+<script>
+
+var height=window.innerHeight-90;
+document.getElementById("h").style="height:"+height+"px;width:100%;overflow-x:hidden;outline:none;";
+
+
+              var  rec = JSON.parse(app.LoadText( "userDetails" ));
+       var    id=rec.id;
+       var    User=rec.user;
+       var   token=rec.token;
+        var  uid =rec.uid;
+         var  project =rec.project;
+       var  url = app.LoadText( "url" );
+       var	mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+       var letters = /^[A-Z a-z 0-9]+$/;
+  
+    var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+
+var today = yyyy + "-" + mm+ "-" + dd;
+document.getElementById("mydate").value=today;
+
+  var reqdata1=0;
+window.onmessage = function(e) {
+         var  req = JSON.parse(e.data);
+       var    reqid =req.id;
+         reqdata1 =req.data1;
+       var    reqdata2 =req.data2;
+       var    reqdata3 =req.data3;
+       var    reqdata4 =req.data4;
+         if(reqid==1)
+    {
+    app.Execute("loader2(1);");   
+    }
+      if(reqid==2)
+    {
+           app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"green","msg":"Seccessfully updated"}');
+    }
+    if(reqid==3)
+    {
+        ynd = app.CreateYesNoDialog( "Are you sure want to delete ?");
+    ynd.SetOnTouch( Ynd_OnTouch );
+    ynd.Show();
+
+    }
+        if(reqid==4)
+    {
+        ynd2 = app.CreateYesNoDialog( "Are you sure want to delete all data?");
+    ynd2.SetOnTouch( Ynd2_OnTouch );
+    ynd2.Show();
+
+    }
+}
+
+function Ynd2_OnTouch( result )
+{
+    if(result=="Yes")
+    {
+    document.getElementById("h").contentWindow.postMessage('{"id":4,"data1":'+reqdata1+',"data2":"","data3":"","data4":""}', '*');
+    }
+    else
+    {
+    ynd.Hide();
+    }
+}
+
+function Ynd_OnTouch( result )
+{
+    if(result=="Yes")
+    {
+    document.getElementById("h").contentWindow.postMessage('{"id":3,"data1":'+reqdata1+',"data2":"","data3":"","data4":""}', '*');
+    }
+    else
+    {
+    ynd.Hide();
+    }
+}
+    
+    
+  function part1()
+  {
+  document.getElementById("a1").style.display="block";
+    document.getElementById("a2").style.display="none";
+      document.getElementById("b1").style.display="none";
+    document.getElementById("b2").style.display="block";
+    
+     document.getElementById("part1").style.display="block";
+     document.getElementById("part2").style.display="none";
+  }
+  
+    function part2()
+  {
+   document.getElementById("a1").style.display="none";
+    document.getElementById("a2").style.display="block";
+      document.getElementById("b1").style.display="block";
+    document.getElementById("b2").style.display="none";
+    
+      document.getElementById("part1").style.display="none";
+     document.getElementById("part2").style.display="block";
+ 	project2();
+  
+  }
+       
+              	 function getgroup()
+ {
+ var group = document.getElementById("emp").value;
+ var mydate =  document.getElementById("mydate").value;
+app.Execute("loader2(1);");   
+	var 	req12=new XMLHttpRequest();
+	req12.open("GET",app.LoadText( "url" )+"groupemp.php?id="+id+"&user="+User+"&date="+mydate+"&emp="+group+"&token="+token,true);
+		req12.onreadystatechange=function(){
+if(	req12.readyState==4 && 	req12.status==200){if(	req12.responseText=="ufFygf")
+{  
+
+}else{
+
+ if (req12.responseText.trim()==1)
+ {
+ app.Alert( "error please relogin" );
+     app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Error"}');
+ }
+ else if(req12.responseText.trim()==2)
+ {
+  app.Alert( "User is blocked" );
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"User is blocked"}');
+ }
+ else if(req12.responseText.trim()==3)
+ {
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Permission denied"}');
+ }
+ else
+ {
+$("#group").val('')
+
+document.getElementById("group").innerHTML = "";
+ app.SaveText("msg",'{"color":"green","msg":""}');
+  app.Execute("loader2(4);");   
+     var alluser=req12.responseText.trim().split('@');
+
+   for(var i = 0; i < alluser.length;  i++)
+   {
+   if (alluser[i].length<10)
+   {}
+   else
+   {
+   var  rec = JSON.parse(alluser[i]);
+   var  pid =rec.id;
+   var  pname =rec.name;
+   var dis = rec.dis;
+
+
+  document.getElementById("group").innerHTML = document.getElementById("group").innerHTML+'<option value="'+pid+'" '+dis+'>'+pname+'</option>';
+  
+ }}
+
+ }
+}}}
+	req12.send();
+	}
+       function mydate()
+       {
+       getgroup();
+       }
+       	 function getworkname()
+ {
+ var wing =  document.getElementById("wing").value;
+// app.Execute("loader2(1);");   
+	var 	req12=new XMLHttpRequest();
+	req12.open("GET",app.LoadText( "url" )+"worklist.php?id="+id+"&user="+User+"&wing="+wing+"&project="+project+"&token="+token,true);
+		req12.onreadystatechange=function(){
+if(	req12.readyState==4 && 	req12.status==200){if(	req12.responseText=="ufFygf")
+{  
+
+}else{
+
+ if (req12.responseText.trim()==1)
+ {
+ app.Alert( "error please relogin" );
+     app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Error"}');
+ }
+ else if(req12.responseText.trim()==2)
+ {
+  app.Alert( "User is blocked" );
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"User is blocked"}');
+ }
+ else if(req12.responseText.trim()==3)
+ {
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Permission denied"}');
+ }
+ else
+ {
+
+document.getElementById("wname").innerHTML = "";
+// app.SaveText("msg",'{"color":"green","msg":""}');
+  //app.Execute("loader2(4);");   
+     var alluser=req12.responseText.trim().split('@');
+
+   for(var i = 0; i < alluser.length;  i++)
+   {
+   if (alluser[i].length<10)
+   {}
+   else
+   {
+   var  rec = JSON.parse(alluser[i]);
+   var  pid =rec.id;
+   var  pname =rec.name;
+
+
+  document.getElementById("wname").innerHTML = document.getElementById("wname").innerHTML+'<option value="'+pid+'">'+pname+'</option>';
+  
+ }}
+
+ }
+}}}
+	req12.send();
+	}
+       
+       
+       	 function getflat()
+ {
+  var wing =document.getElementById("wing").value;
+app.Execute("loader2(1);");   
+	var 	req5=new XMLHttpRequest();
+	req5.open("GET",app.LoadText( "url" )+"allflat.php?id="+id+"&user="+User+"&project="+project+"&wing="+wing+"&token="+token,true);
+		req5.onreadystatechange=function(){
+if(	req5.readyState==4 && 	req5.status==200){if(	req5.responseText=="ufFygf")
+{  
+
+}else{
+
+ if (req5.responseText.trim()==1)
+ {
+ app.Alert( "error please relogin" );
+     app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Error"}');
+ }
+ else if(req5.responseText.trim()==2)
+ {
+  app.Alert( "User is blocked" );
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"User is blocked"}');
+ }
+ else if(req5.responseText.trim()==3)
+ {
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Permission denied"}');
+ }
+ else
+ {
+ document.getElementById("allflat").innerHTML = "";
+ document.getElementById("flat").innerHTML="";
+app.SaveText("msg",'{"color":"green","msg":""}');
+  app.Execute("loader2(4);");   
+     var alluser=req5.responseText.trim().split('@');
+
+   for(var i = 0; i < alluser.length;  i++)
+   {
+   if (alluser[i].trim().length==0)
+   {}
+   else
+   {
+if(i==0)
+{
+document.getElementById("flat").innerHTML = alluser[i];
+}
+
+   document.getElementById("allflat").innerHTML = document.getElementById("allflat").innerHTML+'<option style="width:90%;margin:5%;height:35px;padding-top:10px;padding-left:7px;font-weight:bold;" id="ff'+alluser[i]+'" onclick="setflat('+alluser[i]+');" class="mycontainer alldata" >'+alluser[i]+'</option>';
+
+ }}
+ document.getElementById('myInput').value="";
+ getworkname();
+  getemp();
+ }
+}}}
+	req5.send();
+	}
+	
+function myFunction() {
+  // Declare variables
+
+  input = document.getElementById('myInput');
+  filter = input.value.toUpperCase();
+var alldata =  document.getElementsByClassName("alldata");
+  for (i = 0; i < alldata.length; i++) {
+         var mydata = alldata[i].innerHTML;
+    if (mydata.toUpperCase().indexOf(filter) > -1) {
+      alldata[i].style.display = "";
+    } else {
+      alldata[i].style.display = "none";
+    }
+  }
+}
+
+	
+	
+function setflat(N)
+{
+document.getElementById("flat").innerHTML = document.getElementById("ff"+N).innerHTML;
+}
+	 function getemp()
+ {
+
+app.Execute("loader2(1);");   
+	var 	req4=new XMLHttpRequest();
+	req4.open("GET",app.LoadText( "url" )+"projectemp.php?id="+id+"&user="+User+"&project="+project+"&token="+token,true);
+		req4.onreadystatechange=function(){
+if(	req4.readyState==4 && 	req4.status==200){if(	req4.responseText=="ufFygf")
+{  
+
+}else{
+
+ if (req4.responseText.trim()==1)
+ {
+ app.Alert( "error please relogin" );
+     app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Error"}');
+ }
+ else if(req4.responseText.trim()==2)
+ {
+  app.Alert( "User is blocked" );
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"User is blocked"}');
+ }
+ else if(req4.responseText.trim()==3)
+ {
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Permission denied"}');
+ }
+ else
+ {
+ document.getElementById("emp").innerHTML = "";
+app.SaveText("msg",'{"color":"green","msg":""}');
+  app.Execute("loader2(4);");   
+     var alluser=req4.responseText.trim().split('@');
+
+   for(var i = 0; i < alluser.length;  i++)
+   {
+   if (alluser[i].length<10)
+   {}
+   else
+   {
+   var  rec = JSON.parse(alluser[i]);
+   var  pid =rec.id;
+   var  pname=rec.name;
+
+   document.getElementById("emp").innerHTML = document.getElementById("emp").innerHTML+'<option value="'+pid+'">'+pname+'</option>';
+
+ }}
+ getgroup();
+ }
+}}}
+	req4.send();
+	}
+	function emp()
+	{
+	 getgroup();
+	}
+function wing()
+{
+document.getElementById("flat").innerHTML = "";
+document.getElementById("allflat").innerHTML = "";
+document.getElementById("wname").innerHTML = "";
+getflat();
+}
+	 function getwing()
+ {
+
+ app.Execute("loader2(1);");   
+	var 	req3=new XMLHttpRequest();
+	req3.open("GET",app.LoadText( "url" )+"getwing.php?id="+id+"&user="+User+"&pid="+project+"&token="+token,true);
+		req3.onreadystatechange=function(){
+if(	req3.readyState==4 && 	req3.status==200){if(	req3.responseText=="ufFygf")
+{  
+
+}else{
+
+ if (req3.responseText.trim()==1)
+ {
+ app.Alert( "error please relogin" );
+     app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Error"}');
+ }
+ else if(req3.responseText.trim()==2)
+ {
+  app.Alert( "User is blocked" );
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"User is blocked"}');
+ }
+ else if(req3.responseText.trim()==3)
+ {
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Permission denied"}');
+ }
+ else
+ {
+ document.getElementById("wing").innerHTML = "";
+app.SaveText("msg",'{"color":"green","msg":""}');
+ app.Execute("loader2(4);");   
+     var alluser=req3.responseText.trim().split('@');
+
+   for(var i = 0; i < alluser.length;  i++)
+   {
+   if (alluser[i].length<10)
+   {}
+   else
+   {
+   var  rec = JSON.parse(alluser[i]);
+   var  pid =rec.id;
+   var  pwing =rec.wing;
+
+   document.getElementById("wing").innerHTML = document.getElementById("wing").innerHTML+'<option value="'+pid+'">'+pwing+'</option>';
+
+ }}
+ getflat();
+
+ }
+}}}
+	req3.send();
+	}
+
+
+
+
+getwing();
+
+function project()
+{
+	getwing();
+}
+
+
+function project2()
+{
+
+ app.Execute("loader2(1);");   
+	var 	req3=new XMLHttpRequest();
+	req3.open("GET",app.LoadText( "url" )+"getwing.php?id="+id+"&user="+User+"&pid="+project+"&token="+token,true);
+		req3.onreadystatechange=function(){
+if(	req3.readyState==4 && 	req3.status==200){if(	req3.responseText=="ufFygf")
+{  
+
+}else{
+
+ if (req3.responseText.trim()==1)
+ {
+ app.Alert( "error please relogin" );
+     app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Error"}');
+ }
+ else if(req3.responseText.trim()==2)
+ {
+  app.Alert( "User is blocked" );
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"User is blocked"}');
+ }
+ else if(req3.responseText.trim()==3)
+ {
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Permission denied"}');
+ }
+ else
+ {
+ document.getElementById("wing").innerHTML = "";
+app.SaveText("msg",'{"color":"green","msg":""}');
+ app.Execute("loader2(4);");   
+     var alluser=req3.responseText.trim().split('@');
+
+   for(var i = 0; i < alluser.length;  i++)
+   {
+   if (alluser[i].length<10)
+   {}
+   else
+   {
+   var  rec = JSON.parse(alluser[i]);
+   var  pid =rec.id;
+   var  pwing =rec.wing;
+
+   document.getElementById("wing").innerHTML = document.getElementById("wing").innerHTML+'<option value="'+pid+'">'+pwing+'</option>';
+
+ }}
+ document.getElementById("h").src=app.LoadText( "url" )+"allreport.php?id="+id+"&user="+User+"&project="+project+"&url="+url+"&wing=all&token="+token;
+
+ }
+}}}
+	req3.send();
+}
+
+
+
+function addreport()
+{
+var group="";
+var multiSelect = document.getElementById("group");
+for ( var i = 0; i < multiSelect.selectedOptions.length; i++) {
+  group = group+multiSelect.selectedOptions[i].value+",";
+  }
+  
+var wing =  document.getElementById("wing").value;
+var flat =  document.getElementById("flat").innerHTML;
+var work =  document.getElementById("wname").value;
+var emp =  document.getElementById("emp").value;
+var mydate =  document.getElementById("mydate").value;
+var remark =  document.getElementById("remark").value;
+
+if(project.length==0)
+{
+app.Execute("loader2(4);");   
+app.SaveText("msg",'{"color":"red","msg":"Please select project"}');
+}
+else if(wing.length==0)
+{
+app.Execute("loader2(4);");   
+app.SaveText("msg",'{"color":"red","msg":"Please select wing"}');
+}
+else if(flat.length==0)
+{
+app.Execute("loader2(4);");   
+app.SaveText("msg",'{"color":"red","msg":"Please select flat"}');
+}
+else if(work.length==0)
+{
+app.Execute("loader2(4);");   
+app.SaveText("msg",'{"color":"red","msg":"Please select work"}');
+}
+else if(emp.length==0)
+{
+app.Execute("loader2(4);");   
+app.SaveText("msg",'{"color":"red","msg":"Please select employee"}');
+}
+else if(group.length==0)
+{
+app.Execute("loader2(4);");   
+app.SaveText("msg",'{"color":"red","msg":"Please select group employee"}');
+}
+else if(mydate.length==0)
+{
+app.Execute("loader2(4);");   
+app.SaveText("msg",'{"color":"red","msg":"Please select date"}');
+}
+else if(remark.length==0)
+{
+app.Execute("loader2(4);");   
+app.SaveText("msg",'{"color":"red","msg":"Please input remark"}');
+}
+else if(remark.match(letters))
+{
+
+app.Execute("loader2(1);");   
+	var 	req14=new XMLHttpRequest();
+	req14.open("GET",app.LoadText( "url" )+"addreport.php?id="+id+"&user="+User+"&type=c&remark="+remark+"&date="+mydate+"&group="+group+"&emp="+emp+"&work="+work+"&flat="+flat+"&wing="+wing+"&project="+project+"&token="+token,true);
+		req14.onreadystatechange=function(){
+if(	req14.readyState==4 && 	req14.status==200){if(	req14.responseText=="ufFygf")
+{  
+
+}else{
+
+app.Alert( "Report seccessfully added " )
+
+$("#group").val('');
+ document.getElementById("group").innerHTML = "";
+if(req14.responseText.trim().length>2)
+{
+app.Alert( req14.responseText.trim() );
+}
+getgroup();
+
+}}}
+	req14.send();
+	
+}
+else
+{
+app.Alert( "Please remove special charactor in remark field !" )
+}
+}
+</script>
+	
+	
+	
+	
+	</div>
+</body>
+</html>

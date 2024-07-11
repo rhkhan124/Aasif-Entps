@@ -1,0 +1,1366 @@
+<html>
+<head>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<script src='file:///android_asset/app.js'></script>
+<link href="css/all.css" rel="stylesheet">
+
+    <link href="boostrap/css/bootstrap2.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap3.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap4.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap5.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap6.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap7.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap8.css" rel="stylesheet">
+    <link href="boostrap/css/swiper.min.css" rel="stylesheet">
+
+<script src="js/all.js"></script>
+    <script src="boostrap/js/jquery.js"></script>
+    <script src="boostrap/js/date.js"></script>
+    <script src="boostrap/js/date2.js"></script>
+    <script src="boostrap/js/bootstrap.js" type="text/javascript" ></script>
+
+
+<style id="mystyle">
+body{
+height:100%;
+}
+.mcontainer{
+display:inline-block;
+margin:auto;
+border-radius:5px;
+padding-bottom:14px;
+width:94%;
+margin-top:7px;
+}
+.dropcontainer{
+display:inline-block;
+margin:auto;
+border-radius:5px;
+width:96%;
+margin-top:10px;
+height:40px;
+}
+.dropdown-menu
+{
+height:350px;
+width:100%;  
+border:none;
+outline:none;
+}
+.mydrop
+{
+height:350px;
+width:100%;
+overflow:scroll;     
+}
+
+
+button:hover{
+box-shadow:1px 1px 5px grey,  -1px -1px 5px white;
+
+}
+
+
+input{
+width:100%;
+height:60px;
+border:none;
+outline:none;
+background:none;
+font-weight:bold;
+font-family:times;
+padding-left:10px;
+}
+
+@mixin nonselect {
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+	cursor: default;
+}
+.listitem{
+height:40px;
+width:96%;
+margin-left:2%;
+margin-top:5px;
+}
+.mybar{
+height:10px;
+width:100%;
+}
+td
+{
+height:25px;
+}
+.span{
+		animation: blink .5s linear infinite;
+	}
+@keyframes blink{
+0%{opacity: 0;}
+100%{opacity: 1;}
+}
+
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+
+}
+
+.upload-btn-wrapper input[type=file] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.dropdown2 {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content2 {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 99;
+}
+
+.dropdown2:hover .dropdown-content2{
+  display: block;
+  
+}
+.cell1
+{
+text-align:center;
+width:60%;
+}
+.cell2
+{
+text-align:center;
+width:20%;
+}
+.cell3
+{
+text-align:center;
+width:20%;
+}
+.cell4
+{
+text-align:center;
+width:10%;
+}
+
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  width:100%;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.dropdown2 {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content2 {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 99;
+}
+
+.dropdown2:hover .dropdown-content2{
+  display: block;
+  
+}
+</style>
+
+
+</head>
+
+
+    
+<script>  
+app.SaveText("Change","empindex.html");
+var themeColor = app.LoadText( "themeColor" );
+var color = JSON.parse(themeColor);
+var c1=color.c1;
+var c2=color.c2;
+var c3=color.c3;
+var c4=color.c4;
+var c5=color.c5;
+var c6=color.c6;
+var mytheme =app.LoadText( "mytheme" );
+if (mytheme=="1")
+{
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" .fullBody{"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),"
++"radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"height:100%;width:100%;margin:0;position:absolute;}"
++".mycontainer{"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%) "
++", radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"box-shadow:4px 4px 4px #"+c3+",-4px -4px 4px #"+c2+";"
++"font-weight:bold;}"
+
++".mycontainer2{"
++"position:absolute;"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%) "
++", radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"box-shadow:4px 4px 4px #"+c3+",-4px -4px 4px #"+c2+";"
++"font-weight:bold;}"
++".myinput{"
++"position:relative;"
++"border:none;"
++"background:#"+c1+";"
++"outline:none;"
++"box-shadow:inset 5px 5px 5px #"+c3+", inset -5px -5px 5px #"+c2+";"
++"}"
++".myinput2{"
++"border:none;"
++"background:#"+c1+";"
++"outline:none;"
++"box-shadow:inset 2px 2px 2px #"+c3+", inset -2px -2px 2px #"+c2+";"
++"}"
++".mybutton{"
++"border:none;"
++"box-shadow:5px 5px 5px #"+c3+", -5px -5px 5px #"+c2+";"
++"outline:none;"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%) "
++", radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"font-weight:bold;font-family:times;}"
++".mybutton:hover{"
++"box-shadow:1px 1px 5px #"+c3+",  -1px -1px 5px #"+c2+";"
++"}"
++".FAA{color:#"+app.LoadText("fontA")+";}"
++".FB{color:#"+app.LoadText("fontB")+";}"
++".FC{color:#"+app.LoadText("fontC")+";}";
+var size=app.LoadText("size").split(",");
+for (i = 0; i < size.length; i++) {
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" .F"+i+"{font-size:"+size[i]+"px;} ";
+}
+}
+else
+{
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" body{"
++"background:#"+c1+";"
++"}"
++".mycontainer{"
++"background:#"+c1+";"
++"box-shadow:4px 4px 4px #"+c3+",-4px -4px 4px #"+c2+";"
++"}"
++".mycontainer2{"
++"background:#"+c1+";"
++"box-shadow:4px 4px 4px #"+c3+",-4px -4px 4px #"+c2+";"
++"}"
++".myinput{"
++"position:relative;"
++"border:none;"
++"background:#E6E6E6;"
++"outline:none;"
++"box-shadow:inset 5px 5px 5px #"+c3+", inset -5px -5px 5px #"+c2+";"
++"}"
++".mytext{text-shadow: 2px 2px 2px #"+c3+", -2px -2px 2px #"+c2+";}"
++".mytext2{text-shadow: 1px 1px 1px #"+c3+", -1px -1px 1px #"+c2+";}"
++".myinput2{"
++"border:none;"
++"background:#E6E6E6;"
++"outline:none;"
++"box-shadow:inset 2px 2px 2px #"+c3+", inset -2px -2px 2px #"+c2+";"
++"}"
++".mybutton{"
++"border:none;"
++"box-shadow:5px 5px 5px #"+c3+", -5px -5px 5px #"+c2+";"
++"outline:none;"
++"background:#"+c1+"; " 
++"}"
++".mybutton:hover{"
++"box-shadow:1px 1px 5px #"+c3+",  -1px -1px 5px #"+c2+";"
++"}"
++".FAA{color:#"+app.LoadText("fontA")+";}"
++".FB{color:#"+app.LoadText("fontB")+";}"
++".FC{color:#"+app.LoadText("fontC")+";}";
+var size=app.LoadText("size").split(",");
+for (i = 0; i < size.length; i++) {
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" .F"+i+"{font-size:"+size[i]+"px;} ";
+}
+}
+
+//app.Alert(document.getElementById("mystyle").innerHTML);
+</script>
+
+<body align="center" ondragstart="return false" onselectstart="return false">
+<div class="fullBody">
+
+
+<div class="container" style="">                          
+  <div class=" myinput" style="">
+    <select  class="F15 FAA mycontainer" onchange="wingchange();"  style="font-weight:bold;font-family:times;width:100%;height:25px;outline:none;border:1px solid black;" id="wingitem">
+    
+    </select>
+  </div>
+</div>
+
+
+<div id="overview" style="width:100%;height:100%;display:none;">
+
+
+<div class="mycontainer box" style="margin:5%;">
+<table class="F12" style="width:90%;margin-left:5%;font-weight:bold;font-family:times;">
+<tr class="h">
+<td class="F18" colspan="2"  style="text-align:center;">Project Details <button class="mybutton F12" style="float:right;" onclick="pedit()">Edit</button> </td>
+</tr>
+<tr class="h">
+<td style="width:30%;" >Project Name</td>
+<td id="pname"></td>
+</tr>
+
+<tr class="h">
+<td >Project Address</td>
+<td id="paddress"></td>
+</tr>
+<tr class="h">
+<td >Circular distance</td>
+<td id="accuracy"></td>
+</tr>
+<tr class="h">
+<td >Cordinate</td>
+<td id="location"></td>
+</tr>
+</table>
+</div>
+
+<div class="F18 mybutton"style="height:35px;padding-top:7px;width:94%;margin:3%;text-align:center;font-weight:bold;font-family:times;" onclick="showF();" id="show">View File & Folder</div>
+
+
+
+
+
+
+
+<div class="mycontainer absolute" id="up" style="width:100%;height:400px;text-align:center;display:none;">
+<strong class="F16" style="text-align:center;font-family:times;width:100%;">Folder & Files</strong>
+<div class="" style="width:100%;align-content:right;">
+<table style="width:95%;"><tr>
+<td style="width:25%;">
+<div class="upload-btn-wrapper mybutton" style="margin:3px;display:none;" id="ps1">
+						<button class="FAA mybutton F10 button" onclick="movepast()" style="height:auto;width:100%;" > 
+						Paste
+             </button>
+             </div></td>
+<td style="width:25%;">
+<div class="upload-btn-wrapper mybutton" style="margin:3px;display:none;" id="ps2">
+						<button class="FAA mybutton F10 button"   style="height:auto;width:100%;" onclick="pcancel();"> 
+						Cancel
+             </button>
+             </div></td>
+<td style="width:25%;">
+<div class="upload-btn-wrapper mybutton" style="margin:3px;">
+						<button class="FAA mybutton F10 " data-toggle="modal" data-target="#folderModal"style="height:auto;width:100%;" > 
+						Add folder
+             </button>
+             </div></td><td style="">
+<div class="upload-btn-wrapper mybutton" style="margin:3px;">
+						<button class="FAA mybutton F10 button"   style="height:auto;width:100%;" > 
+						<input type="file" name="myfile2" id="myfile2">Upload
+             </button>
+             </div>
+             </td></tr></table>
+</div>
+<div class="" style="width:100%;text-align:left;margin-top:7px;">
+<strong class="F10" style="text-align:center;font-family:times;width:95%;padding-left:5%;" id="badge">Home/</strong>
+<button class="FAA mybutton F10 button" onclick="fback()" style="height:auto;width:100px;float:right;text-align:center;" > 
+				Back
+             </button>
+</div>
+<div class="myinput" style="width:94%;height:330px;margin-left:3%;margin-right:3%;margin-bottom:10px;overflow: scroll;" id="myfolder">
+
+
+
+
+</div>
+<div class="modal fade" id="folderModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content mycontainer">
+      <div class="modal-header">
+        <h5 class="modal-title F16" id="exampleModalLabel">Add folder</h5>
+      </div>
+      <div class="modal-body">
+     <div class="container" style="margin-top:10px;">                              
+  <div class=" myinput" style="margin-top:5px;">
+    <input class="F15 FAA" type="text" placeholder="Name" id="folder">
+  </div>
+</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="mybutton" data-dismiss="modal">Close</button>
+        <button type="button" class="mybutton" onclick="addfolder();" >Add Folder</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+<div class="modal fade" id="rename" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content mycontainer">
+      <div class="modal-header">
+        <h5 class="modal-title F16" id="exampleModalLabel">Rename File</h5>
+      </div>
+      <div class="modal-body">
+     <div class="container" style="margin-top:10px;">                              
+  <div class=" myinput" style="margin-top:5px;">
+    <input class="F15 FAA" type="text" placeholder="File Name" id="filename">
+  </div>
+</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="mybutton" data-dismiss="modal">Close</button>
+        <button type="button" class="mybutton" onclick="uploadFile2();" >Upload</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="rename2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content mycontainer">
+      <div class="modal-header">
+        <h5 class="modal-title F16" id="exampleModalLabel">Rename File</h5>
+      </div>
+      <div class="modal-body">
+     <div class="container" style="margin-top:10px;">                              
+  <div class=" myinput" style="margin-top:5px;">
+    <input class="F15 FAA" type="text" placeholder="File Name" id="filename2">
+  </div>
+</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="mybutton" data-dismiss="modal">Close</button>
+        <button type="button" class="mybutton" onclick="rename();" >Rename</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="viewer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content mycontainer">
+      <div class="modal-header">
+        <h5 class="modal-title F16" id="exampleModalLabel">
+        
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="width: 100%; height: 550px;">
+     <iframe id="mydoc" src=""
+           style="width: 100%; height: 550px;" x rolling="auto">
+        </iframe>
+         </div>
+      <div class="modal-footer">
+        <button type="button" class="mybutton" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<iframe class="" id="o" style="width:100%;height:100%;overflow-x:hidden;outline:none;" src=""></iframe>
+
+
+
+</div>
+
+<div id="flat" style="">
+
+<table style="width:100%;margin-top:8px;">
+<tr>
+<td style="width:70%;"><div class="container" >                          
+  <div class=" myinput" style="">
+    <select  class="F12 FAA mycontainer" id="worklist"   onchange="workchange();" style="font-weight:bold;font-family:times;width:100%;height:20px;outline:none;border:1px solid black;" >
+    
+    </select>
+  </div>
+</div></td>
+<td><div class="container" style="">                          
+  <div class=" myinput" style="">
+    <select  class="F10 FAA mycontainer" onchange="done();"  style="font-weight:bold;font-family:times;width:100%;height:20px;outline:none;border:1px solid black;" id="done">
+    <option value="1" selected>All work</option>
+    <option value="2" >Done works</option>
+    <option value="3" >Not done works</option>
+    </select>
+  </div>
+</div></td>
+</tr>
+</table>
+
+<table style="width:100%;margin-top:10px;"><tr><td style="width:65%;">
+<div class="container" style="">
+  <div class=" myinput" style="">
+ <input class="F12 FAA" type="text" style="height:25px;"placeholder="Search" id="search">
+  </div>
+</div>
+</td><td style="text-align:center;">
+<button class="mybutton FAA F14" style="font-family:times;font-weight:bold;height:25px;" data-toggle="modal" data-target="#addflat">Add Flat</button>
+</td></tr>
+</table>
+
+<iframe class="" id="g" style="width:100%;height:85%;overflow-x:hidden;outline:none;" src=""></iframe>
+
+</div>
+
+<div id="setting" style="display:none;">
+<hr class="" style="margin:2px;" color="black" size="5px"/>
+<table class="F12" style="width:94%;margin-left:3%;font-family:times;font-weight:bold;" >
+<tr>
+<td style="text-align:center;width:25%;" ><strong id="d1"style="width:90%;display:none;">Work/SqFt</strong><button onclick="worksqft()" id="d2"class="mybutton" style="width:90%;" >Work/SqFt</button></td>
+<td style="text-align:center;width:25%;" ><strong id="e1"style="width:90%;display:none;">Work/Rate</strong><button onclick="workrate();"id="e2"class="mybutton" style="width:90%;" >Work/Rate</button></td>
+<td style="text-align:center;width:25%;" ><strong id="f1"style="width:90%;">All Works</strong><button onclick="allwork();"id="f2"class="mybutton" style="width:90%;display:none;" >All Works</button></td>
+<td style="text-align:center;width:25%;" ><strong id="g1"style="width:90%;display:none;">Personal Rate</strong><button onclick="personal();"id="g2"class="mybutton" style="width:90%;" >Personal Rate</button></td>
+</tr>
+</table>
+
+
+<div id="j" style="display:none;">
+
+
+
+<p class="F12 FAA" style="text-align:left;font-weight:bold;padding-left:12px;">Select work name<strong style="color:red">*</strong></p>    
+<table style="width:100%;margin-top:10px;"><tr><td style="width:65%;">
+<div class="container" style="">
+  <div class=" myinput" style="">
+  <select class="F12 FAA myinput"  style="outline:none;width:100%;height:35px;font-family:times;font-weight:bold;" id="wname">
+
+  </select>
+  </div>
+</div>
+</td><td style="text-align:center;">
+<button class="mybutton FAA F14" style="font-family:times;font-weight:bold;height:35px;" data-toggle="modal" data-target="#workm">Manage work</button>
+</td></tr>
+</table>
+
+<div class="container" style="margin-top:10px;" id="k">
+<p class="F12 FAA" style="text-align:left;font-weight:bold;">Work Sqft / SqMt<strong style="color:red"></strong></p>                                        
+  <div class=" myinput" style="margin-top:5px;">
+    <input class="F15 FAA" type="number" style="height:35px;" placeholder="SqFt" id="wsqft">
+  </div>
+</div>
+
+
+<div class="container" style="margin-top:10px;">
+<p class="F12 FAA" style="text-align:left;font-weight:bold;">Employees rate per SqFt/SqMt<strong style="color:red"></strong></p>                                        
+  <div class=" myinput" style="margin-top:5px;">
+    <input class="F15 FAA" type="number" style="height:35px;" placeholder="Rate" id="wrate">
+  </div>
+</div>
+
+<p class="F12 FAA" style="text-align:left;font-weight:bold;padding-left:12px;">Type , 1BHK, 2BHK, Passage<strong style="color:red">*</strong></p>    
+<table style="width:100%;margin-top:10px;"><tr><td style="width:65%;">
+<div class="container" style="">
+  <div class=" myinput" style="">
+  <select class="F12 FAA myinput"  id="mybhk" style="outline:none;width:100%;height:35px;font-family:times;font-weight:bold;" id="projectlist">
+
+  </select>
+  </div>
+</div>
+</td><td style="text-align:center;">
+<button class="mybutton FAA F14" style="font-family:times;font-weight:bold;height:35px;" data-toggle="modal" data-target="#updatep">Manage Types</button>
+</td></tr>
+</table>
+<br>
+<p class="F12">Set materials uses limits </p>
+<table class="F12"  id="myTable" style="width:96%;margin:2%;" border="1">
+  <tr>
+  <td class="F10"style="text-align:right;border:none;padding-right:20px;"colspan="3"><button class="mybutton" style="margin-right:20px;"onclick="myCreate()">Add more row</button><button  class="mybutton"onclick="myDelete()">Delete row</button></td>
+  </tr>
+  <tr>
+    <td class="cell1">Item Name</td>
+    <td class="cell2">Quantity</td>
+    <td class="cell3">Unit</td>
+  </tr>
+</table>
+<br>
+<button class="mybutton FAA F14" style="font-family:times;font-weight:bold;" onclick="addworkname2();">Add work</button>
+
+</div>
+
+
+<div id="l">
+<div class="myinput" id="listItem" style="">
+
+
+
+<iframe class="" id="work" style="width:100%;height:90%;overflow-x:hidden;outline:none;" src=""></iframe>
+
+
+
+
+
+
+    </div>
+      </div>
+
+
+</div>
+</div>
+
+<div id="m" style="display:none;">
+<div class="myinput" id="listItem2" style="">
+<div class="mycontainer" style="width:90%;margin:5%;">
+<table class="F16"  style="width:90%;margin:5%;font-family:times;font-weight:bold;" >
+
+<tr style="height:60px;">
+<td>Razaul Haque Khan</td><td style="text-align:right;"> <i class="fa fa-edit F18" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"></i> </td>
+</tr>
+
+</table>
+
+    <div id="collapseOne" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+        <table class="F12 mycontainer"  style="width:100%;font-family:times;font-weight:bold;" >
+<tr>
+<td style="width:65%;text-align:center;"><div class="mycontainer"><input class="myinput" type="number" style="width:96%;margin:2%;height:30px;"></div></td>
+<td style="width:35%;text-align:center;"><div class="mycontainer"><input class="myinput" type="number" style="width:96%;margin:2%;height:30px;"></div></td>
+</tr>
+
+<tr>
+<td style="width:65%;text-align:right;"><button type="button" class="mybutton" data-dismiss="modal">Update</button></td>
+<td style="width:35%;text-align:center;"><button type="button" class="mybutton" data-dismiss="modal" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseTwo">Close</button></td>
+</tr>
+</table>
+ </div>
+    </div>
+    </div>
+
+
+</div>
+</div>
+
+</div>
+
+
+
+<div class="modal fade" id="workm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content mycontainer">
+      <div class="modal-header">
+        <h5 class="modal-title F16" id="exampleModalLabel" style="font-weight:bold;font-family:times;">Add work name</h5>
+      </div>
+      <div class="modal-body">
+      
+      <p class="F12 FAA" style="text-align:left;font-weight:bold;padding-left:12px;">Work name <strong style="color:red">*</strong></p>    
+<table style="width:100%;margin-top:10px;"><tr><td style="width:65%;">
+<div class="container" style="">
+  <div class=" myinput" style="">
+ <input class="F12 FAA" type="text" style="height:30px;"placeholder="ex: tiling work, pop wok" id="sname">
+  </div>
+</div>
+</td>
+<td style="text-align:center;">
+<button class="mybutton FAA F14" style="font-family:times;font-weight:bold;height:35px;" onclick="addworkname()">Add</button>
+</td></tr>
+</table>
+
+
+<br>
+
+<div class="myinput" id="namelist" style="width:100%;height:400px;overflow:scroll;">
+
+
+  
+  
+</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="mybutton" data-dismiss="modal">Close</button>
+      
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="updatep" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content mycontainer">
+      <div class="modal-header">
+        <h5 class="modal-title F16" id="exampleModalLabel" style="font-weight:bold;font-family:times;">Add Type</h5>
+      </div>
+      <div class="modal-body">
+      
+      <p class="F12 FAA" style="text-align:left;font-weight:bold;padding-left:12px;">Type , 1BHK, 2BHK, Passage<strong style="color:red">*</strong></p>    
+<table style="width:100%;margin-top:10px;"><tr><td style="width:65%;">
+<div class="container" style="">
+  <div class=" myinput" style="">
+ <input class="F12 FAA" type="text" style="height:30px;"placeholder="ex: 1BHK, 2BHK, Pasage , Lobby, " id="bhk">
+  </div>
+</div>
+</td><td style="text-align:center;">
+<button class="mybutton FAA F14" style="font-family:times;font-weight:bold;height:35px;" onclick="addbhk()">Add type</button>
+</td></tr>
+</table>
+
+
+<br>
+
+<div class="myinput" id="bhklist" style="width:100%;height:400px;overflow:scroll;">
+
+</div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="mybutton" data-dismiss="modal">Close</button>
+      
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="modal fade" id="addflat" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content mycontainer">
+      <div class="modal-header">
+        <h5 class="modal-title F16" id="exampleModalLabel" style="font-weight:bold;font-family:times;">Add Flat</h5>
+      </div>
+      <div class="modal-body">
+      
+      <p class="F12 FAA" style="text-align:left;font-weight:bold;padding-left:12px;">Ex: Flat no- 101,102, passage <strong style="color:red">*</strong></p>    
+<table style="width:100%;margin-top:10px;"><tr><td style="width:65%;">
+<div class="container" style="">
+  <div class=" myinput" style="">
+ <input class="F12 FAA" type="text" style="height:30px;"placeholder="ex: 101,passage " id="flatno">
+  </div>
+</div>
+</td><td style="text-align:center;">
+<select class="myinput" id="flattype"style="width:96%;margin:2%;height:30px;">
+
+</select>
+</td></tr>
+</table>
+<br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="mybutton" data-dismiss="modal">Close</button>
+      <button type="button" style="width:120px;" class="mybutton" onclick="addflat();">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="viewer2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content mycontainer">
+      <div class="modal-header">
+        <h5 class="modal-title F16" id="exampleModalLabel">
+        
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="width: 100%; height: 550px;">
+     <iframe id="mydoc2" src=""
+      style="width: 100%; height: 550px;" x rolling="auto">
+        </iframe>
+         </div>
+      <div class="modal-footer">
+        <button type="button" class="mybutton" id="fd">Download</button>
+        <button type="button" class="mybutton" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<input type="hidden" id="items">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+var  rec = JSON.parse(app.LoadText( "userDetails" ));
+       var    id=rec.id;
+       var    User=rec.user;
+       var   token=rec.token;
+        var  uid =rec.uid;
+       var  url = app.LoadText( "url" );
+       var  projectid = rec.project;
+        var wingitem =0;
+       var	mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+       var letters = /^[A-Z a-z 0-9]+$/;
+       var active =0;
+       var xx=0;
+       var yy=0;
+       var ref2 = projectid+999999999999;
+
+var height=window.innerHeight-90;
+document.getElementById("listItem").style="width:94%;margin:3%;height:"+height+"px;padding-bottom:7px;overflow:scroll;";
+document.getElementById("listItem2").style="width:94%;margin:3%;height:"+height+"px;padding-bottom:7px;overflow:scroll;";
+
+
+
+function pedit()
+{
+app.Execute( "pedit();" );
+}
+
+function showF()
+{
+if(document.getElementById("show").innerHTML=="View File &amp; Folder")
+{
+document.getElementById("show").innerHTML="Hide Folder";
+document.getElementById("up").style.display="block";
+}
+else
+{
+document.getElementById("show").innerHTML="View File & Folder";
+document.getElementById("up").style.display="none";
+
+}
+
+}
+
+
+function workdataload()
+{
+var wingitem = document.getElementById("wingitem").value;
+var worklistx = document.getElementById("worklist").value;
+var search= document.getElementById("search").value;
+var done = document.getElementById("done").value;
+document.getElementById("g").src=url+"work2.php?id="+id+"&user="+User+"&token="+token+"&ref2="+ref2+"&done="+done+"&url="+url+"&search="+search+"&work="+worklistx+"&wing="+wingitem+"&project="+projectid;
+}
+
+function done()
+{
+workdataload();
+}
+
+function wingchange()
+{
+workdataload();
+}
+
+
+
+
+function personal()
+{
+document.getElementById("j").style.display="none";
+document.getElementById("l").style.display="none";
+document.getElementById("m").style.display="block";
+
+document.getElementById("d1").style.display="none";
+document.getElementById("d2").style.display="block";
+
+document.getElementById("e1").style.display="none";
+document.getElementById("e2").style.display="block";
+
+document.getElementById("f1").style.display="none";
+document.getElementById("f2").style.display="block";
+
+document.getElementById("g1").style.display="block";
+document.getElementById("g2").style.display="none";
+}
+
+$("#search").on('change keyup paste', function() {
+workdataload();
+});
+
+function workchange()
+{
+workdataload();
+}
+
+
+
+		 function addflat()
+ {
+ var flat = document.getElementById("flatno").value;
+ var flattype = document.getElementById("flattype").value;
+
+ 
+ if(flat.length==0)
+ {
+  app.SaveText("msg",'{"color":"red","msg":"Please input place name"}');
+  app.Execute("loader2(4);");   
+ }
+ else  if(flattype.length==0)
+ {
+  app.SaveText("msg",'{"color":"red","msg":"Please select type"}');
+  app.Execute("loader2(4);");   
+ }
+ else  if(flat.match(letters))
+ {
+  
+  
+ app.Execute("loader2(1);");   
+	var 	req6=new XMLHttpRequest();
+	req6.open("GET",app.LoadText( "url" )+"addflat.php?id="+id+"&user="+User+"&flat="+flat+"&bhk="+flattype+"&wing="+wingitem+"&project="+projectid+"&token="+token,true);
+		req6.onreadystatechange=function(){
+if(	req6.readyState==4 && 	req6.status==200){if(	req6.responseText=="ufFygf")
+{  
+
+}else{
+
+ if (req6.responseText.trim()==1)
+ {
+ app.Alert( "error please relogin" );
+     app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Error"}');
+ }
+ else if(req6.responseText.trim()==2)
+ {
+  app.Alert( "User is blocked" );
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"User is blocked"}');
+ }
+ else if(req6.responseText.trim()==3)
+ {
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Permission denied"}');
+ }
+  else if(req6.responseText.trim()==4)
+ {
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Already exist this name"}');
+ }
+ else if(req6.responseText.trim()==5)
+ {
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"green","msg":"Succesfully added"}');
+   document.getElementById("flatno").value=+document.getElementById("flatno").value+100;
+  
+ }
+ else
+ {
+
+ app.SaveText("msg",'{"color":"green","msg":""}');
+  app.Execute("loader2(4);");   
+ }
+}}}
+	req6.send(); 
+	}
+	else
+	{
+	app.Alert( "Please remove special charactor in place name field" )
+	} 
+	}
+	$('#addflat').on('hidden.bs.modal', function () {
+     workdataload();
+});
+		 function getbhk()
+ {
+ var wingitem = document.getElementById("wingitem").value;
+// app.Execute("loader2(1);");   
+	var 	req7=new XMLHttpRequest();
+	req7.open("GET",app.LoadText( "url" )+"getbhk.php?id="+id+"&user="+User+"&wing="+wingitem+"&project="+projectid+"&token="+token,true);
+		req7.onreadystatechange=function(){
+if(	req7.readyState==4 && 	req7.status==200){if(	req7.responseText=="ufFygf")
+{  
+
+}else{
+
+ if (req7.responseText.trim()==1)
+ {
+ app.Alert( "error please relogin" );
+     app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Error"}');
+ }
+ else if(req7.responseText.trim()==2)
+ {
+  app.Alert( "User is blocked" );
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"User is blocked"}');
+ }
+ else if(req7.responseText.trim()==3)
+ {
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Permission denied"}');
+ }
+ else
+ {
+
+ document.getElementById("bhklist").innerHTML = "";
+   document.getElementById("mybhk").innerHTML = "";
+    document.getElementById("flattype").innerHTML = "";
+// app.SaveText("msg",'{"color":"green","msg":""}');
+  //app.Execute("loader2(4);");   
+     var alluser=req7.responseText.trim().split('@');
+
+   for(var i = 0; i < alluser.length;  i++)
+   {
+   if (alluser[i].length<10)
+   {}
+   else
+   {
+   var  rec = JSON.parse(alluser[i]);
+   var  bid =rec.id;
+   var  bbhk =rec.bhk;
+
+   document.getElementById("bhklist").innerHTML = document.getElementById("bhklist").innerHTML+'<table class="mycontainer F18" style="width:90%;margin:5%;font-weight:bold;font-family:times;">'
++'<tr>'
++'<td id="bhk'+bid+'">'+bbhk+'</td>'
++'<td style="text-align:right;color:red;"><i onclick="deletebhk('+bid+');" class="fa fa-trash"></i></td>'
++'</tr>'
++'</table>';
+
+  document.getElementById("mybhk").innerHTML = document.getElementById("mybhk").innerHTML+'<option value="'+bid+'">'+bbhk+'</option>';
+ document.getElementById("flattype").innerHTML = document.getElementById("flattype").innerHTML+'<option value="'+bid+'">'+bbhk+'</option>';
+ }} 
+ }
+}}}
+	req7.send();
+	}
+
+			 function worklist()
+ {
+ var wingitem = document.getElementById("wingitem").value;
+// app.Execute("loader2(1);");   
+	var 	req13=new XMLHttpRequest();
+	req13.open("GET",app.LoadText( "url" )+"worklist.php?id="+id+"&user="+User+"&wing="+wingitem+"&project="+projectid+"&token="+token,true);
+		req13.onreadystatechange=function(){
+if(	req13.readyState==4 && 	req13.status==200){if(	req13.responseText=="ufFygf")
+{  
+
+}else{
+
+ if (req13.responseText.trim()==1)
+ {
+ app.Alert( "error please relogin" );
+     app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Error"}');
+ }
+ else if(req13.responseText.trim()==2)
+ {
+  app.Alert( "User is blocked" );
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"User is blocked"}');
+ }
+ else if(req13.responseText.trim()==3)
+ {
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Permission denied"}');
+ }
+ else
+ {
+
+    document.getElementById("worklist").innerHTML = "";
+// app.SaveText("msg",'{"color":"green","msg":""}');
+  //app.Execute("loader2(4);");   
+     var alluser=req13.responseText.trim().split('@');
+
+   for(var i = 0; i < alluser.length;  i++)
+   {
+   if (alluser[i].length<10)
+   {}
+   else
+   {
+   var  rec = JSON.parse(alluser[i]);
+   var  bid =rec.id;
+   var  bname =rec.name;
+
+ document.getElementById("worklist").innerHTML = document.getElementById("worklist").innerHTML+'<option value="'+bid+'">'+bname+'</option>';
+ }} 
+ workdataload();
+ }
+}}}
+	req13.send();
+	}
+	 function getwing()
+ {
+ 
+// app.Execute("loader2(1);");   
+	var 	req3=new XMLHttpRequest();
+	req3.open("GET",app.LoadText( "url" )+"getwing.php?id="+id+"&user="+User+"&pid="+projectid+"&token="+token,true);
+		req3.onreadystatechange=function(){
+if(	req3.readyState==4 && 	req3.status==200){if(	req3.responseText=="ufFygf")
+{  
+
+}else{
+
+ if (req3.responseText.trim()==1)
+ {
+ app.Alert( "error please relogin" );
+     app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Error"}');
+ }
+ else if(req3.responseText.trim()==2)
+ {
+  app.Alert( "User is blocked" );
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"User is blocked"}');
+ }
+ else if(req3.responseText.trim()==3)
+ {
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Permission denied"}');
+ }
+ else
+ {
+ document.getElementById("wingitem").innerHTML = "";
+// app.SaveText("msg",'{"color":"green","msg":""}');
+  //app.Execute("loader2(4);");   
+     var alluser=req3.responseText.trim().split('@');
+
+   for(var i = 0; i < alluser.length;  i++)
+   {
+   if (alluser[i].length<10)
+   {}
+   else
+   {
+   var  rec = JSON.parse(alluser[i]);
+   var  pid =rec.id;
+   var  pwing =rec.wing;
+
+   document.getElementById("wingitem").innerHTML = document.getElementById("wingitem").innerHTML+'<option value="'+pid+'">'+pwing+'</option>';
+ 
+ }}
+worklist();
+getbhk();
+ }
+}}}
+	req3.send();
+	}
+	getwing();
+	
+	
+	
+	myiframe=document.getElementById("work");
+	
+	
+	var reqdata1=0;
+  var  reqdata2 =0;
+  var  reqdata3 =0;
+   var  reqdata4 =0;
+window.onmessage = function(e) {
+         var  req = JSON.parse(e.data);
+       var    reqid =req.id;
+         reqdata1 =req.data1;
+         reqdata2 =req.data2;
+        reqdata3 =req.data3;
+        reqdata4 =req.data4;
+       
+           if(reqid==1)
+    {
+    if(reqdata1==100)
+    {
+   app.SaveText("msg",'{"color":"green","msg":""}');
+  app.Execute("loader2(4);");   
+    }
+    else
+    {
+    app.Execute("loader2(2);");   
+		app.Execute( "updatebar("+Math.round(reqdata1)+");" );
+		
+		}
+    }
+       
+    if(reqid==10)
+    {
+app.Execute("loader2(1);");   
+    }
+        if(reqid==2)
+    {
+                             app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"green","msg":"Seccesfully updated"}');
+   
+    }
+        if(reqid==5)
+    {
+                             app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"green","msg":""}');
+   
+    }
+         if(reqid==4)
+    {
+              app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Seccesfully deleted"}');
+    }
+
+        if(reqid==3)
+    {
+    ynd6 = app.CreateYesNoDialog( "Are you sure want to delete this work . All data will be deleted with associated this work ");
+    ynd6.SetOnTouch( Ynd6_OnTouch );
+    ynd6.Show();
+
+    }
+    
+            if(reqid==7)
+    {
+    ynd2= app.CreateYesNoDialog( "Are you sure want to delete item");
+    ynd2.SetOnTouch( Ynd2_OnTouch );
+    ynd2.Show();
+
+    }
+                if(reqid==12)
+    {
+    ynd3= app.CreateYesNoDialog( reqdata3 +" file want to delete ?");
+    ynd3.SetOnTouch( Ynd3_OnTouch );
+    ynd3.Show();
+
+    }
+                    if(reqid==13)
+    {
+    ynd4= app.CreateYesNoDialog( "Are you sure want to clear data ?");
+    ynd4.SetOnTouch( Ynd4_OnTouch );
+    ynd4.Show();
+
+    }
+                        if(reqid==14)
+    {
+    ynd5= app.CreateYesNoDialog( "Are you sure want to delete ?");
+    ynd5.SetOnTouch( Ynd5_OnTouch );
+    ynd5.Show();
+
+    }
+        if(reqid==11)
+    {
+   showfile2()
+
+    }
+}
+
+function showfile2()
+{
+
+var myfilename =reqdata1;
+var myfileext =reqdata2;
+document.getElementById("fd").innerHTML='<a style="margin:0px;padding:0px;"  href="'+url+'folder/'+myfilename+'" download="'+myfilename+'">Download</a>'
+if (myfileext =="png")
+{
+document.getElementById("mydoc2").src="";
+document.getElementById("mydoc2").style="width:100%;height:550px;background:url("+url+"folder/"+myfilename+") no-repeat center center; background-size: 100% auto;";
+}
+else if (myfileext =="jpg")
+{
+document.getElementById("mydoc2").src="";
+document.getElementById("mydoc2").style="width:100%;height:550px;background:url("+url+"folder/"+myfilename+") no-repeat center center; background-size: 100% auto;";
+}
+else
+{
+document.getElementById("mydoc2").src="";
+document.getElementById("mydoc2").src="https://docs.google.com/gview?url="+url+"folder/"+myfilename+"&embedded=true";
+document.getElementById("mydoc2").style="width:100%;height:550px;";
+}
+  $('#viewer2').modal('show');
+}
+
+$('#viewer2').on('hidden.bs.modal', function (e) {
+document.getElementById("mydoc2").src="";
+});
+
+function Ynd3_OnTouch( result )
+{
+    if(result=="Yes")
+    {
+    document.getElementById("g").contentWindow.postMessage('{"id":13,"data1":'+reqdata2+',"data2":"","data3":"","data4":""}', '*');
+    ynd3.Hide();
+    }
+    else
+    {
+    ynd3.Hide();
+    }
+}
+function Ynd4_OnTouch( result )
+{
+    if(result=="Yes")
+    {
+    document.getElementById("g").contentWindow.postMessage('{"id":14,"data1":'+reqdata1+',"data2":"","data3":"","data4":""}', '*');
+    ynd4.Hide();
+    }
+    else
+    {
+    ynd4.Hide();
+    }
+}
+
+function Ynd5_OnTouch( result )
+{
+    if(result=="Yes")
+    {
+    document.getElementById("g").contentWindow.postMessage('{"id":15,"data1":'+reqdata1+',"data2":"","data3":"","data4":""}', '*');
+    ynd5.Hide();
+    }
+    else
+    {
+    ynd5.Hide();
+    }
+}
+
+
+function Ynd6_OnTouch( result )
+{
+    if(result=="Yes")
+    {
+   myiframe.contentWindow.postMessage('{"id":4,"data1":'+reqdata1+',"data2":"","data3":"","data4":""}', '*');
+    ynd6.Hide();
+    }
+    else
+    {
+    ynd6.Hide();
+    }
+}
+function Ynd2_OnTouch( result )
+{
+    if(result=="Yes")
+    {
+    myiframe.contentWindow.postMessage('{"id":6,"data1":'+reqdata1+',"data2":"","data3":"","data4":""}', '*');
+    ynd2.Hide();
+    }
+    else
+    {
+    ynd2.Hide();
+    }
+}
+
+
+
+
+</script>
+
+<script src="uploadFile.js"></script>
+
+	</div>
+</body>
+</html>

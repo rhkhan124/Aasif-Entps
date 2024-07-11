@@ -1,0 +1,451 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<script src='file:///android_asset/app.js'></script>
+<link href="boostrap/css/bootstrap1.css" rel="stylesheet">
+
+<link href="boostrap/css/bootstrap2.css" rel="stylesheet">
+<link href="boostrap/css/bootstrap3.css" rel="stylesheet">
+<link href="boostrap/css/bootstrap4.css" rel="stylesheet">
+<link href="boostrap/css/bootstrap5.css" rel="stylesheet">
+<link href="boostrap/css/bootstrap6.css" rel="stylesheet">
+<link href="boostrap/css/bootstrap7.css" rel="stylesheet">
+<link href="boostrap/css/bootstrap8.css" rel="stylesheet">
+<link href="boostrap/css/swiper.min.css" rel="stylesheet">
+<link href="boostrap/fonts/glyphicons-halflings-regular.eot" rel="stylesheet">
+<link href="boostrap/fonts/glyphicons-halflings-regular.svg" rel="stylesheet">
+<link href="boostrap/fonts/glyphicons-halflings-regular.ttf" rel="stylesheet">
+<link href="boostrap/fonts/glyphicons-halflings-regular.woff" rel="stylesheet">
+<link href="boostrap/fonts/glyphicons-halflings-regular.woff2" rel="stylesheet">
+<script src="boostrap/js/swiper.min.js"></script>
+<script src="boostrap/js/jquery.js"></script>
+<script src="boostrap/js/date.js"></script>
+<script src="boostrap/js/bootstrap.js" type="text/javascript" > </script>
+<link href="css/all.css" rel="stylesheet">
+<script src="js/all.js"></script>
+
+
+</head>
+<style id="mystyle">
+.Cinput{
+height:40px;
+width:100%;
+}
+.Cbutton
+{
+height:40px;
+width:40px;
+}
+input{
+width:100%;
+height:40px;
+border:none;
+outline:none;
+background:none;
+font-weight:bold;
+font-family:times;
+padding-left:10px;
+}
+</style>
+<script>  
+app.SaveText("Change","empmain.html");
+var themeColor = app.LoadText( "themeColor" );
+var color = JSON.parse(themeColor);
+var c1=color.c1;
+var c2=color.c2;
+var c3=color.c3;
+var c4=color.c4;
+var c5=color.c5;
+var c6=color.c6;
+var mytheme =app.LoadText( "mytheme" );
+if (mytheme=="1")
+{
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" .fullBody{"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),"
++"radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"height:100%;width:100%;margin:0;position:absolute;}"
++".mycontainer{"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%) "
++", radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"box-shadow:4px 4px 4px #"+c3+",-4px -4px 4px #"+c2+";"
++"font-weight:bold;}"
++".myinput{"
++"border:none;"
++"background:#"+c1+";"
++"outline:none;"
++"box-shadow:inset 5px 5px 5px #"+c3+", inset -5px -5px 5px #"+c2+";"
++"}"
++".mybutton{"
++"border:none;"
++"box-shadow:5px 5px 5px #"+c3+", -5px -5px 5px #"+c2+";"
++"outline:none;"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%) "
++", radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"font-weight:bold;font-family:times;}"
++".mybutton:hover{"
++"box-shadow:1px 1px 5px #"+c3+",  -1px -1px 5px #"+c2+";"
++"}"
++".FAA{color:#"+app.LoadText("fontA")+";}"
++".FB{color:#"+app.LoadText("fontB")+";}"
++".FC{color:#"+app.LoadText("fontC")+";}";
+var size=app.LoadText("size").split(",");
+for (i = 0; i < size.length; i++) {
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" .F"+i+"{font-size:"+size[i]+"px;} ";
+}
+}
+else
+{
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" body{"
++"background:#"+c1+";"
++"}"
++".mycontainer{"
++"background:#"+c1+";"
++"box-shadow:4px 4px 4px #"+c3+",-4px -4px 4px #"+c2+";"
++"}"
++".myinput{"
++"border:none;"
++"background:#E6E6E6;"
++"outline:none;"
++"box-shadow:inset 5px 5px 5px #"+c3+", inset -5px -5px 5px #"+c2+";"
++"}"
++".mytext{text-shadow: 2px 2px 2px #"+c3+", -2px -2px 2px #"+c2+";}"
++".mytext2{text-shadow: 1px 1px 1px #"+c3+", -1px -1px 1px #"+c2+";}"
++".mybutton{"
++"border:none;"
++"box-shadow:5px 5px 5px #"+c3+", -5px -5px 5px #"+c2+";"
++"outline:none;"
++"background:#"+c1+"; " 
++"}"
++".mybutton:hover{"
++"box-shadow:1px 1px 5px #"+c3+",  -1px -1px 5px #"+c2+";"
++"}"
++".FAA{color:#"+app.LoadText("fontA")+";}"
++".FB{color:#"+app.LoadText("fontB")+";}"
++".FC{color:#"+app.LoadText("fontC")+";}";
+var size=app.LoadText("size").split(",");
+for (i = 0; i < size.length; i++) {
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" .F"+i+"{font-size:"+size[i]+"px;} ";
+}
+}
+
+//app.Alert(document.getElementById("mystyle").innerHTML);
+</script>
+<body style="width:100%;height:100%;" ondragstart="return false" onselectstart="return false">
+<div class="fullbody">
+<table style="width:100%;">
+<tr>
+<td class="F12" style="width:26%;text-align:center;font-family:times;font-weight:bold;"><strong id="paid" style="display:block;">Paid Out</strong><button id="pa"class="mybutton F12" style="display:none;width:90%;font-family:times;font-weight:bold;" onclick="req('paid');">Paid Out</button></td>
+<td class="F12"  style="width:26%;text-align:center;font-family:times;font-weight:bold;"><strong id="salary" style="display:none;">Salary</strong><button id="sa" class="mybutton F12" style="width:90%;font-family:times;font-weight:bold;" onclick="req('salary');">Salary</button></td>
+<td style="width:11%;"><button class="mybutton F12" style="width:90%;font-family:times;font-weight:bold;"  data-toggle="modal" data-target="#download">Download <i class="fas fa-download"></i></button></td>
+</tr>
+</table>
+<hr style="color:black;margin:6px;">
+<table style="width:100%;">
+<tr>
+<td style="width:26%;height:20px;text-align:center;font-weight:bold;font-family:times;"><strong id="sum">00</strong>/-</td>
+<td style="width:28%;"><input type="date" class="myinput F12" id="fdate" onchange="change();"  style="height:20px;width:90%;margin-left:5%;font-family:times;font-weight:bold;"></td>
+<td style="width:6%;height:20px;text-align:center;">To</td>
+<td style="width:28%;"><input type="date" class="myinput F12"  id="ldate" onchange="change();"  style="height:20px;width:90%;margin-left:5%;font-family:times;font-weight:bold;"></td>
+
+</tr>
+</table>
+<hr style="color:black;margin:6px;">
+<div class="mycontainer" style="width:100%;height:100%;">
+<div id="listItem" class="myinput" style="">
+
+<iframe class="" id="g" style="width:100%;height:100%;overflow-x:hidden;outline:none;" src="http://aasifenterprises.com/apps2/allpayment.php"></iframe>
+
+
+
+</div>
+</div>
+
+<div class="modal fade" id="download" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content mycontainer">
+      <div class="modal-header">
+        <h5 class="modal-title F16" id="exampleModalLabel"></h5>
+      </div>
+      <div class="modal-body">
+      <table class="F15" style="width:90%;margin:5%;font-weight:bold;font-family:times;">
+      <tr style="height:35px;">
+      <td style="text-align:left;">Print all paid transaction</td><td><input id="Mpaid" onchange="q1();"  type="checkbox" style="width:17px;" checked></td>
+      </tr>
+      <tr style="height:35px;">
+      <td style="text-align:left;">Print only employee paid selected transaction</td><td><input id="Msalary" type="checkbox" onchange="q2();" style="width:17px;" ></td>
+      </tr>
+      <tr style="height:35px;">
+      <td style="text-align:left;">Print all salary transaction</td><td><input id="Mwork" onchange="q3();" type="checkbox" style="width:17px;" checked></td>
+      </tr>
+      <tr style="height:35px;">
+      <td style="text-align:left;">Print only employee salary selected transaction</td><td><input id="Missue" onchange="q4();"  type="checkbox" style="width:17px;" ></td>
+      </tr>
+      
+      </table>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="mybutton" data-dismiss="modal">Close</button>
+        <button type="button" class="mybutton" onclick="download(1);" >Send Report</button>
+        <button type="button" class="mybutton" onclick="download(2);" >Get Report</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+ var  rec = JSON.parse(app.LoadText( "userDetails" ));
+       var    id=rec.id;
+       var    User=rec.user;
+       var   token=rec.token;
+        var  uid =rec.uid;
+       var  url = app.LoadText( "url" );
+        var  empid= app.LoadText( "empid2" );
+      var z="paid";
+       var z2="paid";
+      var fn ="";
+      
+
+      
+document.getElementById("pa").style.display="none";
+document.getElementById("paid").style.display="block";
+
+
+var height=window.innerHeight-90;
+document.getElementById("listItem").style="width:96%;margin-left:2%;height:"+height+"px;padding-bottom:7px;overflow:scroll;";
+
+var myiframe =document.getElementById("g");
+myiframe.src=app.LoadText( "url" )+"allpayment.php?id="+id+"&user="+User+"&token="+token+"&empid="+empid+"&req="+z;
+
+      function q1()
+      {
+        var Q1= document.getElementById("Mpaid").checked;
+        var Q2= document.getElementById("Msalary").checked;
+        var Q3= document.getElementById("Mwork").checked;
+        var Q4= document.getElementById("Missue").checked;
+        if(Q1==true)
+        {
+        document.getElementById("Msalary").checked=false;
+        }
+       }
+       
+             function q2()
+      {
+        var Q1= document.getElementById("Mpaid").checked;
+        var Q2= document.getElementById("Msalary").checked;
+        var Q3= document.getElementById("Mwork").checked;
+        var Q4= document.getElementById("Missue").checked;
+        if(Q2==true)
+        {
+        document.getElementById("Mpaid").checked=false;
+        }
+       }
+             function q3()
+      {
+        var Q1= document.getElementById("Mpaid").checked;
+        var Q2= document.getElementById("Msalary").checked;
+        var Q3= document.getElementById("Mwork").checked;
+        var Q4= document.getElementById("Missue").checked;
+        if(Q3==true)
+        {
+        document.getElementById("Missue").checked=false;
+        }
+       }
+       
+             function q4()
+      {
+        var Q1= document.getElementById("Mpaid").checked;
+        var Q2= document.getElementById("Msalary").checked;
+        var Q3= document.getElementById("Mwork").checked;
+        var Q4= document.getElementById("Missue").checked;
+        if(Q4==true)
+        {
+        document.getElementById("Mwork").checked=false;
+        }
+       }
+
+var mydld ="";
+var fldr ="";
+var    dldurl ="";
+function download(dd)
+{
+        var Mpaid = document.getElementById("Mpaid").checked;
+        var Msalary = document.getElementById("Mwork").checked;
+        var Mwork = document.getElementById("Msalary").checked;
+        var Missue = document.getElementById("Missue").checked;
+        
+        
+        mydld =dd;
+       dldurl =url+"report.php?id="+id+"&user="+User+"&token="+token+"&emp="+empid+"&paid="+Mpaid+"&salary="+Msalary+"&work="+Mwork+"&att=&issue="+Missue;
+      fldr = "/Internal/Download/";
+    app.MakeFolder( fldr )
+    if(mydld==1)
+{
+    dload = app.CreateDownloader( /*"NoDialog"*/ )
+    dload.SetOnDownload( dload_OnDownload )
+    dload.SetOnError( dload_OnError )
+    dload.Download( dldurl, fldr,fn)
+    }
+    else
+{
+app.OpenUrl( dldurl )
+}
+    }
+function dload_OnDownload( fileg )
+{
+app.ShowPopup( "File downloaded in Download folder" );
+if(mydld==1)
+{
+
+app.SendFile( fldr+fn+".pdf" ,"","pdf");
+}
+
+	
+}
+
+function dload_OnError( error )
+{
+	app.ShowPopup( "Download failed: " + error )
+}
+
+
+function req(z)
+{
+
+
+
+  app.Execute("loader2(1);");   
+z=z;
+
+
+	var 	reqrefresh=new XMLHttpRequest();
+	reqrefresh.open("GET",app.LoadText( "url" )+"getdate.php?id="+id+"&user="+User+"&token="+token+"&emp="+empid+"&req="+z,true);
+	reqrefresh.onreadystatechange=function(){
+if(	reqrefresh.readyState==4 && 	reqrefresh.status==200){if(	reqrefresh.responseText=="ufFygf")
+{  
+
+}else{
+
+ var  rec2 = JSON.parse(reqrefresh.responseText.trim());
+       var    fdate=rec2.fdate;
+       var    ldate=rec2.ldate;
+      document.getElementById("fdate").value=ldate;
+      document.getElementById("ldate").value=fdate;
+     
+      myiframe.src=app.LoadText( "url" )+"allpayment.php?id="+id+"&user="+User+"&token="+token+"&empid="+empid+"&url="+url+"&req="+z+"&fdate="+ldate+"&ldate="+fdate;
+   if(z=="paid")
+{
+document.getElementById("pa").style.display="none";
+document.getElementById("paid").style.display="block";
+document.getElementById("salary").style.display="none";
+document.getElementById("sa").style.display="block";
+}
+else
+{
+document.getElementById("sa").style.display="none";
+document.getElementById("salary").style.display="block";
+document.getElementById("paid").style.display="none";
+document.getElementById("pa").style.display="block";
+}
+}}}
+	reqrefresh.send();
+	}
+	req("paid");
+
+function change()
+{
+       app.Execute("loader2(1);");   
+     var ldate = document.getElementById("fdate").value;
+     var fdate = document.getElementById("ldate").value;
+      myiframe.src=app.LoadText( "url" )+"allpayment.php?id="+id+"&user="+User+"&token="+token+"&empid="+empid+"&req="+z+"&url="+url+"&fdate="+ldate+"&ldate="+fdate;
+
+}
+
+/*
+for (let i = 0; i < 200; i++) {
+  document.getElementById("listItem").innerHTML =document.getElementById("listItem").innerHTML +'<div class="mycontainer"style="width:94%;margin:3%;">'
++'<table style="width:100%;">'
++'<tr>'
++'<td class="F12" style="width:11%;text-align:center;font-family:times;font-weight:bold;"><input type="checkbox" checked class="F12" style="width:17px;"></td>'
++'<td class="F14" style="width:26%;text-align:left;font-family:times;font-weight:bold;" >483</td>'
++'<td class="F14" style="width:26%;text-align:center;font-family:times;font-weight:bold;" >12/08/2022</td>'
++'<td class="F14" style="width:26%;padding-right:20px;text-align:right;font-family:times;font-weight:bold;" ><strong>5000</strong><strong>/-</strong></td>'
++'<td class="F14" style="width:11%;text-align:center;font-family:times;font-weight:bold;" ><button class="mycontainer" style="outline:none;border:none;text-align:center;"><i class="fas fa-edit"></i></button></td>'
++'</tr>'
++'<tr>'
++'<td class="F10" style="padding-left:20px;text-align:left;font-family:times;font-weight:bold;" colspan="4" >saleem bhai ne hajri ka paisa diya</td><td></td>'
++'</tr>'
++'<tr>'
++'<td class="F7" style="text-align:right;font-family:times;font-weight:bold;color:red;padding-right:15px;" colspan="2" >Updated by _ Razaulhaque Khan</td>'
++'<td class="F8" style="text-align:right;font-family:times;font-weight:bold;color:red;padding-right:15px;" colspan="3" >Added by _ Adil Ahmed Khan 22-12-2022_12:30:34</td>'
++'</tr>'
++'</table>'
++'</div>'
+}
+
+
+
+*/
+var reqdata1=0;
+window.onmessage = function(e) {
+         var  req = JSON.parse(e.data);
+       var    reqid =req.id;
+         reqdata1 =req.data1;
+       var    reqdata2 =req.data2;
+       var    reqdata3 =req.data3;
+       var    reqdata4 =req.data4;
+    if(reqid==1)
+    {
+    document.getElementById("sum").innerHTML=reqdata1;
+    }
+        if(reqid==2)
+    {
+               app.Execute("loader2(1);");   
+   
+    }
+        if(reqid==3)
+    {
+              app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"green","msg":"Seccesfully updated"}');
+    }
+         if(reqid==7)
+    {
+              app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Seccesfully deleted"}');
+    }
+        if(reqid==4)
+    {
+              app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":""}');
+    }
+        if(reqid==5)
+    {
+    ynd = app.CreateYesNoDialog( "Are you sure want to delete this id no " + reqdata1);
+    ynd.SetOnTouch( Ynd_OnTouch );
+    ynd.Show();
+
+    }
+}
+
+
+
+function Ynd_OnTouch( result )
+{
+    if(result=="Yes")
+    {
+    myiframe.contentWindow.postMessage('{"id":6,"data1":'+reqdata1+',"data2":"","data3":"","data4":""}', '*');
+    ynd.Hide();
+    }
+    else
+    {
+    ynd.Hide();
+    }
+}
+
+</script>
+</div>
+</body>
+</html>

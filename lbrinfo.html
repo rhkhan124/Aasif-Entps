@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<script src='file:///android_asset/app.js'></script>
+<link href="css/all.css" rel="stylesheet">
+
+    <link href="boostrap/css/bootstrap2.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap3.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap4.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap5.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap6.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap7.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap8.css" rel="stylesheet">
+    <link href="boostrap/css/swiper.min.css" rel="stylesheet">
+
+<script src="js/all.js"></script>
+    <script src="boostrap/js/jquery.js"></script>
+    <script src="boostrap/js/date.js"></script>
+    <script src="boostrap/js/date2.js"></script>
+    <script src="boostrap/js/bootstrap.js" type="text/javascript" ></script>
+
+
+<style id="mystyle">
+body{
+height:100%;
+}
+.mcontainer{
+display:inline-block;
+margin:auto;
+border-radius:5px;
+padding-bottom:14px;
+width:94%;
+margin-top:7px;
+}
+.dropcontainer{
+display:inline-block;
+margin:auto;
+border-radius:5px;
+width:96%;
+margin-top:10px;
+height:40px;
+}
+.dropdown-menu
+{
+height:350px;
+width:100%;  
+border:none;
+outline:none;
+}
+.mydrop
+{
+height:350px;
+width:100%;
+overflow:scroll;     
+}
+
+
+button:hover{
+box-shadow:1px 1px 5px grey,  -1px -1px 5px white;
+
+}
+
+
+input{
+width:100%;
+height:60px;
+border:none;
+outline:none;
+background:none;
+font-weight:bold;
+font-family:times;
+padding-left:10px;
+}
+
+@mixin nonselect {
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+	cursor: default;
+}
+.listitem{
+height:40px;
+width:96%;
+margin-left:2%;
+margin-top:5px;
+}
+.mybar{
+height:10px;
+width:100%;
+}
+td
+{
+height:25px;
+}
+.span{
+		animation: blink 1s linear infinite;
+	}
+@keyframes blink{
+0%{opacity: 0;}
+100%{opacity: 1;}
+}
+
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+
+}
+
+.upload-btn-wrapper input[type=file] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.dropdown2 {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content2 {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 99;
+}
+
+.dropdown2:hover .dropdown-content2{
+  display: block;
+  
+}
+</style>
+
+
+</head>
+
+
+    
+<script>  
+app.SaveText("Change","empindex.html");
+var themeColor = app.LoadText( "themeColor" );
+var color = JSON.parse(themeColor);
+var c1=color.c1;
+var c2=color.c2;
+var c3=color.c3;
+var c4=color.c4;
+var c5=color.c5;
+var c6=color.c6;
+var mytheme =app.LoadText( "mytheme" );
+if (mytheme=="1")
+{
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" .fullBody{"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),"
++"radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"height:100%;width:100%;margin:0;position:absolute;}"
++".mycontainer{"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%) "
++", radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"box-shadow:4px 4px 4px #"+c3+",-4px -4px 4px #"+c2+";"
++"font-weight:bold;}"
+
++".mycontainer2{"
++"position:absolute;"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%) "
++", radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"box-shadow:4px 4px 4px #"+c3+",-4px -4px 4px #"+c2+";"
++"font-weight:bold;}"
++".myinput{"
++"position:relative;"
++"border:none;"
++"background:#"+c1+";"
++"outline:none;"
++"box-shadow:inset 5px 5px 5px #"+c3+", inset -5px -5px 5px #"+c2+";"
++"}"
++".myinput2{"
++"border:none;"
++"background:#"+c1+";"
++"outline:none;"
++"box-shadow:inset 2px 2px 2px #"+c3+", inset -2px -2px 2px #"+c2+";"
++"}"
++".mybutton{"
++"border:none;"
++"box-shadow:5px 5px 5px #"+c3+", -5px -5px 5px #"+c2+";"
++"outline:none;"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%) "
++", radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"font-weight:bold;font-family:times;}"
++".mybutton:hover{"
++"box-shadow:1px 1px 5px #"+c3+",  -1px -1px 5px #"+c2+";"
++"}"
++".FAA{color:#"+app.LoadText("fontA")+";}"
++".FB{color:#"+app.LoadText("fontB")+";}"
++".FC{color:#"+app.LoadText("fontC")+";}";
+var size=app.LoadText("size").split(",");
+for (i = 0; i < size.length; i++) {
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" .F"+i+"{font-size:"+size[i]+"px;} ";
+}
+}
+else
+{
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" body{"
++"background:#"+c1+";"
++"}"
++".mycontainer{"
++"background:#"+c1+";"
++"box-shadow:4px 4px 4px #"+c3+",-4px -4px 4px #"+c2+";"
++"}"
++".mycontainer2{"
++"background:#"+c1+";"
++"box-shadow:4px 4px 4px #"+c3+",-4px -4px 4px #"+c2+";"
++"}"
++".myinput{"
++"position:relative;"
++"border:none;"
++"background:#E6E6E6;"
++"outline:none;"
++"box-shadow:inset 5px 5px 5px #"+c3+", inset -5px -5px 5px #"+c2+";"
++"}"
++".mytext{text-shadow: 2px 2px 2px #"+c3+", -2px -2px 2px #"+c2+";}"
++".mytext2{text-shadow: 1px 1px 1px #"+c3+", -1px -1px 1px #"+c2+";}"
++".myinput2{"
++"border:none;"
++"background:#E6E6E6;"
++"outline:none;"
++"box-shadow:inset 2px 2px 2px #"+c3+", inset -2px -2px 2px #"+c2+";"
++"}"
++".mybutton{"
++"border:none;"
++"box-shadow:5px 5px 5px #"+c3+", -5px -5px 5px #"+c2+";"
++"outline:none;"
++"background:#"+c1+"; " 
++"}"
++".mybutton:hover{"
++"box-shadow:1px 1px 5px #"+c3+",  -1px -1px 5px #"+c2+";"
++"}"
++".FAA{color:#"+app.LoadText("fontA")+";}"
++".FB{color:#"+app.LoadText("fontB")+";}"
++".FC{color:#"+app.LoadText("fontC")+";}";
+var size=app.LoadText("size").split(",");
+for (i = 0; i < size.length; i++) {
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" .F"+i+"{font-size:"+size[i]+"px;} ";
+}
+}
+
+//app.Alert(document.getElementById("mystyle").innerHTML);
+</script>
+
+<body align="center" ondragstart="return false" onselectstart="return false">
+<div class="fullBody">
+
+<div class="mycontainer mcontainer">
+
+
+
+
+<table style="width:100%;font-family:times;font-weight:bold;" class="FAA F10" >
+<tr>
+<td style="height:25px;width:60%;text-align:left;" colspan="3">
+<div class="container" style="margin-top:0px;position:relative;">                                        
+  <div class="dropcontainer ">
+    <div class="mycontainer"style="" type="button" data-toggle="dropdown">
+    <table style="width:100%;" class="span">
+    <tr style="height:40px;font-family:times;" class="F15 FAA ">
+    <td style="text-align:left;padding-left:0px;font-weight:bold;" id="myname"></td><td style="width:10%;"><span class="caret mytext" style="text-align:center;"></span></td>
+    </tr>
+    </table>
+    </div>
+    <div class="dropdown-menu " >
+    <div class="myinput mydrop" id="listItem" style="padding-bottom:5px;">
+    
+      </div>
+    </div>
+  </div>
+</div>
+</td>
+
+
+<td style="text-align:center;font-weight:bold;"><button class="mybutton Cbutton" style="width:100%;" onclick="group();">Add Group Employee</button></td>
+</tr>
+</table>
+
+
+<table  style="width:100%;font-family:times;font-weight:bold;" class="FAA F12" >
+<tr>
+<td  class="F14"  style="text-align:left;padding-left:15px;"colspan="5" ><strong id="nick" ></strong></td>
+</tr>
+<tr>
+<td width="" class="FAA F12" style="height:30px;text-align:left;padding-left:15px;" colspan="4" id="desin"></td><td colspan="2" rowspan="5" style="text-align:right;">
+<div style="padding-right:7px;"><div class="mycontainer" style="width:120px;height:130px;border-radius:5px;float:right;" >
+ <i class="fas fa-pen F20" style="color:red;position:absolute;right:16px;" onclick="choose();"></i>
+<input type="file" name="myfile" id="myfile" style="display:none;">
+<img id="img" src="Img/user.png" style="height:100%;width:100%;" onclick="viewimg()" onerror="imgerror()">
+
+
+
+</div></div>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left:15px;">Emp ID</td><td  style="text-align:left;"colspan="3" >: #<strong id="id" ></strong></td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left:15px;">DOB</td><td  style="text-align:left;"colspan="3">: <strong id="dob" ></strong></td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left:15px;">Age</td><td  style="text-align:left;"colspan="3">: <strong id="age" ></strong></td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left:15px;">Registration</td><td  style="text-align:left;"colspan="3">: <strong id="rdate" ></strong></td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left:15px;">Mobile</td><td  style="text-align:left;" colspan="4">: <strong id="mobile" ></strong></td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left:15px;">Email</td><td  style="text-align:left;" colspan="4">: <strong id="email" ></strong></td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left:15px;">Project</td><td  style="text-align:left;" colspan="4">: <strong id="project" ></strong></td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left:15px;">Emp Type</td><td  style="text-align:left;" colspan="4">: <strong ><strong ><strong id="type" ></strong></strong></strong></td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left:15px;">Father</td><td  style="text-align:left;" colspan="4">: <strong id="father"></strong></td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left:15px;">Document</td><td  style="text-align:left;" colspan="4">: Type-<strong id="type2"></strong> | No-<strong id="number"></strong></td>
+</tr>
+<tr style="display:none;">
+<td style="text-align:left;padding-left:15px;">Document</td><td  style="text-align:left;" colspan="4">: Document uploaded <span ><strong id="doc"></strong></span></td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left:15px;">Emergency</td><td  style="text-align:left;" colspan="4">: <strong id="ename"></strong>-<strong id="econtact"></strong></td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left:15px;vertical-align:top;">Permanet Address</td><td  style="text-align:left;" colspan="4">: <strong id="paddress"></strong></td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left:15px;vertical-align:top;">Local Address</td><td  style="text-align:left;" colspan="4">: <strong id="laddress"></strong></td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left:15px;"></td><td  style="text-align:right;color:red;font-weight:bold;padding-right:5px;" colspan="4">Added by : <strong id="user" ></strong></td>
+</tr>
+<tr>
+<td colspan="5"><hr style="border:1px solid black; margin:2px;background-color:black;"></td>
+</tr>
+</table>
+
+
+<table class="mycontaier F14" style="width:100%;text-align:center;">
+<tr>
+<td style="width:25%;"><button class="mybutton"style="width:90%;" data-toggle="modal" data-target="#download">Download <i class="fas fa-download"></i></button></td>
+<td style="width:25%;"><button class="mybutton"style="width:90%;" data-toggle="modal" data-target="#updatea">Update Address</button></td>
+<td style="width:25%;"><button class="mybutton"style="width:90%;" data-toggle="modal" data-target="#updateb">Update Bank</button></td>
+<td style="width:25%;"><button class="mybutton"style="width:90%;" onclick="trash()" id="suspend">Suspend Account</button></td>
+</tr>
+<tr id="ppl">
+<td style="width:30%;"><button class="mybutton"style="width:90%;" data-toggle="modal" data-target="#updatep">Update Frofile</button></td>
+</tr>
+</table>
+
+
+
+<div class="F18 FAA" style="text-align:center;font-weight:bold;font-family:times;">Section II</div>
+<table style="width:94%;margin-left:3%;font-weight:bold;font-family:times;" class="F11 FAA" >
+<tr>
+<td style="text-align:left;">Total Paid Amount</td>
+<td style="text-align:right;height:35px" class="F16" ><strong id="paid">0.00</strong>/-</td>
+<td style="text-align:center;"><button class="mybutton Cbutton" style="width:50px;" onclick="payment();">View</button></td>
+</tr>
+<tr>
+<td style="text-align:left;">Total Salary Amount</td>
+<td style="text-align:right;height:35px" class="F16"><strong id="salary">0.00</strong>/-</td>
+<td style="text-align:center;"><button class="mybutton Cbutton" style="width:50px;" onclick="payment();">View</button></td>
+</tr>
+<tr>
+<td style="text-align:left;">Total Debit Amount</td>
+<td style="text-align:right;height:35px;color:red;" class="F16">0.00/-</td>
+<td style="text-align:center;"></td>
+</tr>
+<tr>
+<td style="text-align:left;">Total Available</td>
+<td style="text-align:right;height:35px" class="F16"><strong id="available">0.00</strong>/-</td>
+<td style="text-align:center;"></td>
+</tr>
+<tr>
+<td style="text-align:left;">Salary Setting</td>
+<td style="text-align:right;height:35px" class="F16"><strong id="rate">0.00</strong>/- <strong id="smonth"></strong></td>
+<td style="text-align:center;"  id="sett" ><button class="mybutton Cbutton" style="width:50px;"data-toggle="modal" data-target="#salaryp">Set</button></td>
+</tr>
+<tr>
+<td style="text-align:left;">Final Data</td>
+<td style="text-align:right;height:35px" class="F16">00/-</td>
+<td style="text-align:center;"><button class="mybutton Cbutton" style="width:50px;" >Edit</button></td>
+</tr>
+<tr>
+<td colspan="3"><hr style="border:1px solid black; margin:2px;background-color:black;"></td>
+</tr>
+<tr>
+<td style="text-align:left;">Month Attendance</td>
+<td style="text-align:right;height:35px" class="F16"><strong id="attmonth">0.00</strong></td>
+<td style="text-align:center;"><button class="mybutton Cbutton" style="width:50px;" >View</button></td>
+</tr>
+<tr>
+<td style="text-align:left;">Total Attendance</td>
+<td style="text-align:right;height:35px" class="F16"><strong id="atttotal">0.00</strong></td>
+<td style="text-align:center;"><button class="mybutton Cbutton" style="width:50px;" >View</button></td>
+</tr>
+<tr>
+<td style="text-align:left;">Online Attendance</td>
+<td style="text-align:right;height:35px" class="F16">00/-</td>
+<td style="text-align:center;"><button class="mybutton Cbutton" style="width:50px;" >View</button></td>
+</tr>
+<tr>
+<td colspan="3"><hr style="border:1px solid black; margin:2px;background-color:black;"></td>
+</tr>
+
+</table>
+
+   
+   
+
+
+
+
+
+
+
+
+
+<div class="F18 FAA" style="text-align:center;font-weight:bold;font-family:times;display:none;">User logging Details</div>
+<table style="width:94%;margin-left:3%;font-weight:bold;font-family:times; text-align:left;display:none;" class="F11 FAA" >
+<tr>
+<td></td><td><button class="mybutton F10" style="float:right;width:75%;" onclick="user()">Recreate user account</button></td>
+</tr>
+<tr>
+<td></td><td><button class="mybutton F10 "style="float:right;width:75%;" >Delete user account</button></td>
+</tr>
+<tr>
+<td>User Name</td><td id='usern'></td>
+</tr>
+<tr>
+<td>User Pssword</td><td id='userp'></td>
+</tr>
+</table>
+
+<div class="F18 FAA" style="text-align:center;font-weight:bold;font-family:times;">Bank Details</div>
+<table style="width:94%;margin-left:3%;font-weight:bold;font-family:times; text-align:left;" class="F11 FAA" >
+<tr>
+<td>A/C Name</td><td colspan="2"><strong id="aname"></strong></td>
+</tr>
+<tr>
+<td>A/C Number</td><td colspan="2"><strong id="aaccount"></strong></td>
+</tr>
+<tr>
+<td>IFSC Code</td><td colspan="2"><strong id="aifsc"></strong></td>
+</tr>
+<tr>
+<td>Bank Name</td><td colspan="2"><strong id="abank"></strong></td>
+</tr>
+<tr>
+<td>Bank Name</td><td colspan="2"><strong id="atype"></strong></td>
+</tr>
+<tr>
+<td>Branch</td><td colspan="2"><strong id="abranch"></strong></td>
+</tr>
+<tr>
+<td>Upi ID </td><td><strong id="aupi"></strong></td><td><button class="mybutton Cbutton" style="">Send</button></td>
+</tr>
+</table>
+
+
+</div>
+
+
+<div class="modal fade" id="updatep" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content mycontainer">
+      <div class="modal-header">
+        <h5 class="modal-title F16" id="exampleModalLabel">Update Profile</h5>
+      </div>
+      <div class="modal-body">
+      
+      
+
+<div class="container" style="margin-top:10px;">
+<p class="F12 FAA" style="text-align:left;font-weight:bold;">Name<strong style="color:red">*</strong></p>                                        
+  <div class=" myinput" style="margin-top:5px;">
+    <input class="F15 FAA" type="text" style="height:30px;"placeholder="Name" id="empname">
+  </div>
+</div>
+
+
+<div class="container" style="margin-top:10px;">
+<p class="F12 FAA" style="text-align:left;font-weight:bold;">Nick Name</p>                                        
+  <div class=" myinput" style="margin-top:5px;">
+    <input class="F15 FAA" type="text" style="height:30px;"placeholder="Nick Name" id="empnick">
+  </div>
+</div>
+
+<div class="container" style="margin-top:10px;">
+<p class="F12 FAA" style="text-align:left;font-weight:bold;">Date of Birth <strong style="color:red">*</strong> <strong id="agealert"></strong></p>                                        
+  <div class=" myinput" style="margin-top:5px;">
+    <input class="F15 FAA" type="date" style="height:30px;"placeholder="Date of Birth" id="empage" onchange="empage();">
+  </div>
+</div>
+
+<div class="container" style="margin-top:10px;">
+<p class="F12 FAA" style="text-align:left;font-weight:bold;">Select Desination<strong style="color:red">*</strong></p>                                        
+  <div class=" myinput" style="margin-top:5px;">
+  <select class="F12 FAA myinput" style="outline:none;width:100%;height:35px;font-family:times;font-weight:bold;"  id="empdesination">
+<option value="Mason">Mason</option>
+<option value="Helper">Helper</option>
+<option value="Guider">Guider</option>
+<option value="Supervioser">Supervioser</option>
+<option value="Manager">Manager</option>
+<option value="Other">Other</option>
+  </select>
+  </div>
+</div>
+
+<div class="container" style="margin-top:10px;">
+<p class="F12 FAA" style="text-align:left;font-weight:bold;">Mobile Number<strong style="color:red">*</strong></p>                                        
+  <div class=" myinput" style="margin-top:5px;">
+    <input class="F15 FAA" type="number" style="height:30px;"placeholder="Mobile Number" id="empmobile">
+  </div>
+</div>
+
+
+<div class="container" style="margin-top:10px;">
+<p class="F12 FAA" style="text-align:left;font-weight:bold;">Email<strong style="color:red">*</strong></p>                                        
+  <div class=" myinput" style="margin-top:5px;">
+    <input class="F15 FAA" style="height:30px;"type="email" placeholder="Email" id="empemail">
+  </div>
+</div>
+
+
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="mybutton" data-dismiss="modal">Close</button>
+        <button type="button" class="mybutton" onclick="addemp();" >Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<div class="modal fade" id="updatea" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content mycontainer">
+      <div class="modal-header">
+        <h5 class="modal-title F16" id="exampleModalLabel">Update Address</h5>
+      </div>
+      <div class="modal-body">
+      
+      
+<div class="container" style="margin-top:10px;">
+<p class="F12 FAA" style="text-align:left;font-weight:bold;">Father Name</p>                                        
+  <div class=" myinput" style="margin-top:5px;">
+    <input class="F15 FAA" style="outline:none;width:100%;height:30px;font-family:times;font-weight:bold;" type="text" placeholder="Father Name" id="xfather">
+  </div>
+</div>
+
+<div class="container" style="margin-top:10px;">
+<p class="F12 FAA" style="text-align:left;font-weight:bold;">Document Type</p>                                        
+  <div class=" myinput" style="margin-top:5px;">
+  <select class="F12 FAA myinput" style="outline:none;width:100%;height:30px;font-family:times;font-weight:bold;"  name="cars" id="xtype">
+    <option value="Aadhar Card" selected>Aadhar Card</option>
+    <option value="Voter ID">Voter ID</option>
+     <option value="PAN Card">PAN Card</option>
+      <option value="Other">Other</option>
+  </select>
+  </div>
+</div>
+
+
+<div class="container" style="margin-top:10px;">
+<p class="F12 FAA" style="text-align:left;font-weight:bold;">Document Number</p>                                        
+  <div class=" myinput" style="margin-top:5px;">
+    <input class="F15 FAA" type="text" style="outline:none;width:100%;height:30px;font-family:times;font-weight:bold;"placeholder="Document number" id="xnumber">
+  </div>
+</div>
+
+<div class="container" style="margin-top:10px;">
+<p class="F12 FAA" style="text-align:left;font-weight:bold;">Permanent Address</p>                                        
+  <div class=" myinput" style="margin-top:5px;">
+    <textarea class="F15 FAA myinput"style="outline:none;width:100%;height:60px;font-family:times;font-weight:bold;" type="text" placeholder="Permanent Address" id="xpaddress" rows="3" cols="50"></textarea>
+  </div>
+</div>
+
+<div class="container" style="margin-top:10px;">
+<p class="F12 FAA" style="text-align:left;font-weight:bold;">Local Address</p>                                        
+  <div class=" myinput" style="margin-top:5px;">
+    <textarea class="F15 FAA myinput" type="text" style="outline:none;width:100%;height:60px;font-family:times;font-weight:bold;"placeholder="Local Address" id="xladdress" rows="3" cols="50"></textarea>
+  </div>
+</div>
+
+
+<div class="container" style="margin-top:10px;">
+<p class="F12 FAA" style="text-align:left;font-weight:bold;">Emergency Person Name</p>                                        
+  <div class=" myinput" style="margin-top:5px;">
+    <input class="F15 FAA" type="text" style="outline:none;width:100%;height:30px;font-family:times;font-weight:bold;"placeholder="Responsible Person Name" id="xename">
+  </div>
+</div>
+
+
+<div class="container" style="margin-top:10px;">
+<p class="F12 FAA" style="text-align:left;font-weight:bold;">Emergency Person Contact</p>                                        
+  <div class=" myinput" style="margin-top:5px;">
+    <input class="F15 FAA " type="number" style="outline:none;width:100%;height:30px;font-family:times;font-weight:bold;"placeholder="Responsible Person Contact" id="xecontact">
+  </div>
+</div>
+
+<div class="container" style="margin-top:10px;display:none;">
+<p class="F12 FAA" style="text-align:left;font-weight:bold;">Special Note for this Employee</p>                                        
+  <div class=" myinput" style="margin-top:5px;">
+    <textarea class="F15 FAA myinput"type="text" style="outline:none;width:100%;height:60px;font-family:times;font-weight:bold;" placeholder="Note" id="xnote" rows="3" cols="50"></textarea>
+  </div>
+</div>
+
+
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="mybutton" data-dismiss="modal">Close</button>
+        <button type="button" class="mybutton" onclick="submit2();" >Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="modal fade" id="updateb" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content mycontainer">
+      <div class="modal-header">
+        <h5 class="modal-title F16" id="exampleModalLabel">Update Address</h5>
+      </div>
+      <div class="modal-body">
+      
+<div class="container" style="margin-top:10px;">
+<p class="F12 FAA" style="text-align:left;font-weight:bold;">Account Name</p>                                        
+  <div class=" myinput" style="margin-top:5px;">
+    <input class="F15 FAA" type="text" style="outline:none;width:100%;height:30px;font-family:times;font-weight:bold;"placeholder="Account Name" id="zname">
+  </div>
+</div>
+
+<div class="container" style="margin-top:10px;">
+<p class="F12 FAA" style="text-align:left;font-weight:bold;">Bank Name</p>                                        
+  <div class=" myinput" style="margin-top:5px;">
+    <input class="F15 FAA"style="outline:none;width:100%;height:30px;font-family:times;font-weight:bold;" type="text" placeholder="Bank Name" id="zbank">
+  </div>
+</div>
+
+
+<div class="container" style="margin-top:10px;">
+<p class="F12 FAA" style="text-align:left;font-weight:bold;">Account Number</p>                                        
+  <div class=" myinput" style="margin-top:5px;">
+    <input class="F15 FAA" type="text" style="outline:none;width:100%;height:30px;font-family:times;font-weight:bold;"placeholder="Account Number" id="zaccount">
+  </div>
+</div>
+
+<div class="container" style="margin-top:10px;">
+<p class="F12 FAA" style="text-align:left;font-weight:bold;">IFSC Code</p>                                        
+  <div class=" myinput" style="margin-top:5px;">
+    <input class="F15 FAA" type="text"style="outline:none;width:100%;height:30px;font-family:times;font-weight:bold;" placeholder="IFSC Code" id="zifsc">
+  </div>
+</div>
+
+<div class="container" style="margin-top:10px;">
+<p class="F12 FAA" style="text-align:left;font-weight:bold;">Select Type</p>                                        
+  <div class=" myinput" style="margin-top:5px;">
+  <select class="F12 FAA myinput" style="outline:none;width:100%;height:30px;font-family:times;font-weight:bold;"   name="cars" id="ztype">
+    <option value="Saving Account">Saving Account</option>
+    <option value="Current Account">Current Account</option>
+    <option value="Loan Account">Loan</option>
+  </select>
+  </div>
+</div>
+
+
+<div class="container" style="margin-top:10px;">
+<p class="F12 FAA" style="text-align:left;font-weight:bold;">Branch Address</p>                                        
+  <div class=" myinput" style="margin-top:5px;">
+    <input class="F15 FAA" type="text" style="outline:none;width:100%;height:30px;font-family:times;font-weight:bold;"placeholder="Branch Address" id="zbranch">
+  </div>
+</div>
+
+
+<div class="container" style="margin-top:10px;">
+<p class="F12 FAA" style="text-align:left;font-weight:bold;">UPI Address </p>                                        
+  <div class=" myinput" style="margin-top:5px;">
+    <input class="F15 FAA" type="text" style="outline:none;width:100%;height:30px;font-family:times;font-weight:bold;"placeholder="Google pay / Phone Pay" id="zupi">
+  </div>
+</div>
+
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="mybutton" data-dismiss="modal">Close</button>
+        <button type="button" class="mybutton" onclick="submit3();" >Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="download" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content mycontainer">
+      <div class="modal-header">
+        <h5 class="modal-title F16" id="exampleModalLabel"></h5>
+      </div>
+      <div class="modal-body">
+      <table class="F15" style="width:90%;margin:5%;font-weight:bold;font-family:times;">
+
+      <tr style="height:35px;">
+      <td style="text-align:left;">Print only employee paid selected transaction</td><td><input id="Msalary" type="checkbox" onchange="q2();" style="width:17px;"checked ></td>
+      </tr>
+
+      <tr style="height:35px;">
+      <td style="text-align:left;">Print only employee salary selected transaction</td><td><input id="Missue" onchange="q4();"  type="checkbox" style="width:17px;"checked ></td>
+      </tr>
+      
+      </table>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="mybutton" data-dismiss="modal">Close</button>
+        <button type="button" class="mybutton" onclick="download(1);" >Send Report</button>
+        <button type="button" class="mybutton" onclick="download(2);" >Get Report</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="salaryp" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content mycontainer">
+      <div class="modal-header">
+        <h5 class="modal-title F16" id="exampleModalLabel"></h5>
+      </div>
+      <div class="modal-body">
+      
+      <div class="container" style="margin-top:10px;">
+<p class="F12 FAA" style="text-align:left;font-weight:bold;">Select Month</p>                                        
+  <div class=" myinput" style="margin-top:5px;">
+    <input class="F15 FAA" type="month" style="outline:none;width:100%;height:30px;font-family:times;font-weight:bold;"  id="datez">
+  </div>
+</div>
+      
+    <div class="container" style="margin-top:10px;">
+<p class="F12 FAA" style="text-align:left;font-weight:bold;">Salary Type</p>                                        
+  <div class=" myinput" style="margin-top:5px;">
+  <select class="F12 FAA myinput" style="outline:none;width:100%;height:30px;font-family:times;font-weight:bold;"   name="cars" id="typez">
+    <option value="Per day">Per Day</option>
+    <option value="Per month">Per Month</option>
+    <option value="Online">Online Attendance Base</option>
+  </select>
+  </div>
+</div>
+
+<div class="container" style="margin-top:10px;">
+<p class="F12 FAA" style="text-align:left;font-weight:bold;">Amount</p>                                        
+  <div class=" myinput" style="margin-top:5px;">
+    <input class="F15 FAA" type="number" style="outline:none;width:100%;height:30px;font-family:times;font-weight:bold;"placeholder="0.00" id="amountz">
+  </div>
+</div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="mybutton" data-dismiss="modal">Close</button>
+        <button type="button" class="mybutton" style="width:70px;" onclick="setsalary()" >Set</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+
+
+
+
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+
+today = yyyy+"-"+mm+"-"+dd;
+
+
+ var  rec = JSON.parse(app.LoadText( "userDetails" ));
+       var    id=rec.id;
+       var    User=rec.user;
+       var   token=rec.token;
+        var  uid =rec.uid;
+        var ref2 ="";
+        var role ="";
+       var  url = app.LoadText( "url" );
+       var empid = app.LoadText( "empid2");
+       var projectid = rec.project;
+       var calculatedAge ="";
+       var fr=1;
+       var fn ="";
+       
+       var	mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+var letters = /^[A-Z a-z 0-9]+$/;
+       
+       function getAge(dateString) {
+   var ageInMilliseconds = new Date() - new Date(dateString);
+   return Math.floor(ageInMilliseconds/1000/60/60/24/365); // convert to years
+}
+
+  
+var mydld ="";
+var fldr ="";
+var    dldurl ="";
+function download(dd)
+{
+
+        var Mwork = document.getElementById("Msalary").checked;
+        var Missue = document.getElementById("Missue").checked;
+        
+        
+        mydld =dd;
+       dldurl =url+"report.php?id="+id+"&user="+User+"&token="+token+"&emp=220&paid=true&salary=true&work=&att=&issue=";
+      fldr = "/Internal/Download/";
+    app.MakeFolder( fldr )
+    if(mydld==1)
+{
+    dload = app.CreateDownloader( /*"NoDialog"*/ )
+    dload.SetOnDownload( dload_OnDownload )
+    dload.SetOnError( dload_OnError )
+    dload.Download( dldurl, fldr,fn)
+    }
+    else
+{
+app.OpenUrl( dldurl )
+}
+    }
+function dload_OnDownload( fileg )
+{
+app.ShowPopup( "File downloaded in Download folder" );
+if(mydld==1)
+{
+
+app.SendFile( fldr+fn+".pdf" ,"","pdf");
+}
+
+	
+}
+
+function dload_OnError( error )
+{
+	app.ShowPopup( "Download failed: " + error )
+}
+
+
+
+	function trash(N)
+	{
+	var mytext= "";
+	if(role=="Restore")
+	{
+	mytext= "Are you sure want to Suspend ?";
+	}
+	else
+	{
+	mytext= "Are you sure want to Activate?";
+	}
+	M=N;
+    ynd = app.CreateYesNoDialog( mytext);
+    ynd.SetOnTouch( Ynd_OnTouch );
+    ynd.Show();
+}
+
+function Ynd_OnTouch( result )
+{
+if(result=="Yes")
+{
+	if(role=="Restore")
+	{
+	role2 ="Trash";
+	}
+	else
+	{
+	role2 ="Restore";
+	}
+ app.Execute("loader2(1);");   
+	var 	req3=new XMLHttpRequest();
+	req3.open("GET",app.LoadText( "url" )+"emptrash2.php?id="+id+"&user="+User+"&token="+token+"&emp="+empid+"&role="+role2,true);
+	req3.onreadystatechange=function(){
+if(	req3.readyState==4 && 	req3.status==200){if(	req3.responseText=="ufFygf")
+{  
+
+}else{
+ if (req3.responseText.trim()==1)
+ {
+ app.Alert( "error please relogin" );
+     app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Error"}');
+ }
+ else if(req3.responseText.trim()==3)
+ {
+  app.Alert( "User is blocked" );
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"User is blocked"}');
+ }
+ else if(req3.responseText.trim()==2)
+ {
+  app.Alert( "Permission denied contact admin" );
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Permission denied"}');
+ }
+ else
+ {
+ empinfo();
+  }
+}}}
+	req3.send();
+}
+}
+
+
+function setsalary()
+{
+var date3 = document.getElementById("datez").value;
+var type3 = document.getElementById("typez").value;
+var amount3 = document.getElementById("amountz").value;
+
+if(date3.length<1)
+{
+   app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Please select date"}');
+}
+else
+{
+
+ app.Execute("loader2(1);");   
+	var 	req5=new XMLHttpRequest();
+	req5.open("GET",app.LoadText( "url" )+"setsalary.php?id="+id+"&user="+User+"&token="+token+"&empid="+empid+"&project="+projectid+"&type="+type3+"&amount="+amount3+"&date="+date3,true);
+	req5.onreadystatechange=function(){
+if(	req5.readyState==4 && 	req5.status==200){if(	req5.responseText=="ufFygf")
+{  
+
+}else{
+ if (req5.responseText.trim()==1)
+ {
+ app.Alert( "error please relogin" );
+     app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Error"}');
+     app.ClearData(  );
+  app.exit();
+ }
+ else if(req5.responseText.trim()==2)
+ {
+  app.Alert( "User is blocked" );
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"User is blocked"}');
+ }
+ else if(req5.responseText.trim()==3)
+ {
+  app.Alert( "Permission denied contact admin" );
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Permission denied"}');
+ }
+ else if(req5.responseText.trim()==4)
+ {
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"green","msg":"Seccessfully updated"}');
+    $('#salaryp').modal('hide');
+empinfo();
+ }
+ else if(req5.responseText.trim()==5)
+ {
+    app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"green","msg":"Seccessfully added"}');
+       $('#salaryp').modal('hide');
+empinfo();
+ }
+}}}
+	req5.send();
+}
+}
+
+function payment()
+{
+app.Execute( "emppayment();" );
+}
+function viewimg()
+{
+document.getElementById("mydoc").src="";
+document.getElementById("mydoc").style="width:100%;height:550px;background:url("+document.getElementById("img").src+") no-repeat center center; background-size: 100% auto;";
+ $('#viewer').modal('show');
+}
+
+function empage()
+{
+var year_born=document.getElementById("empage").value;
+calculatedAge = getAge(year_born);
+if(calculatedAge >=18)
+{
+document.getElementById("agealert").innerHTML=" (Employee age is : "+calculatedAge +" years)";
+document.getElementById("agealert").style="color:green;font-family:times;";
+}
+else
+{
+document.getElementById("agealert").innerHTML=" (Employee age is : "+calculatedAge +" years)";
+document.getElementById("agealert").style="color:red;font-family:times;";
+}
+}
+       
+function empinfo()
+{
+
+	var 	req2=new XMLHttpRequest();
+	req2.open("GET",app.LoadText( "url" )+"empinfo2.php?id="+id+"&user="+User+"&token="+token+"&uid="+uid+"&empid="+empid,true);
+	req2.onreadystatechange=function(){
+if(	req2.readyState==4 && 	req2.status==200){if(	req2.responseText=="ufFygf")
+{  
+
+}else{
+ if (req2.responseText.trim()==1)
+ {
+ app.Alert( "error please relogin" );
+     app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Error"}');
+ }
+ else if(req2.responseText.trim()==2)
+ {
+  app.Alert( "User is blocked" );
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"User is blocked"}');
+ }
+ else if(req2.responseText.trim()==3)
+ {
+  app.Alert( "Permission denied contact admin" );
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Permission denied"}');
+ }
+ else
+ {
+ app.Execute( "myalert();" );
+ app.SaveText("msg",'{"color":"green","msg":""}');
+  app.Execute("loader2(4);");   
+     var data =req2.responseText.trim();
+ 
+     
+    var  rec = JSON.parse(data);
+   var  pid =rec.id;
+   
+  if(rec.type=="Main")
+   {
+   document.getElementById("suspend").style="display:none;";
+   document.getElementById("sett").style="display:none;";
+   document.getElementById("suspend").disabled = true;
+    document.getElementById("ppl").style="display:none;";
+   }
+   else
+   {
+   document.getElementById("suspend").style="display:block;";
+   document.getElementById("sett").style="display:block;";
+   document.getElementById("suspend").disabled = false;
+   document.getElementById("ppl").style="display:block;";
+   }
+   
+     role=rec.role;
+     if(role=="Restore")
+     {
+     document.getElementById("suspend").innerHTML="Suspend Account";
+     document.getElementById("suspend").style.backgroundColor="red";
+     }
+     else
+     {
+     document.getElementById("suspend").innerHTML="Activate Account";
+     document.getElementById("suspend").style.backgroundColor="green";
+     }
+     
+  
+   
+     ref2 = rec.id;
+     fn =rec.name;
+     document.getElementById("myname").innerHTML=rec.name;
+     document.getElementById("id").innerHTML=rec.id;
+     document.getElementById("nick").innerHTML=rec.nick;
+     document.getElementById("desin").innerHTML=rec.desination;
+     document.getElementById("dob").innerHTML=rec.dob;
+     document.getElementById("age").innerHTML=rec.age;
+     document.getElementById("rdate").innerHTML=rec.registration;
+     document.getElementById("mobile").innerHTML=rec.mobile;
+     document.getElementById("email").innerHTML=rec.email;
+     document.getElementById("project").innerHTML=rec.project;
+     document.getElementById("type").innerHTML=rec.type;
+     document.getElementById("user").innerHTML=rec.user;
+     document.getElementById("usern").innerHTML=rec.username;
+     document.getElementById("userp").innerHTML=rec.userpass;
+     
+     document.getElementById("rate").innerHTML=rec.rate;
+     document.getElementById("smonth").innerHTML=rec.type3;
+     
+     app.SaveText( "project", rec.project);
+     calculatedAge = rec.age;
+     
+     document.getElementById("father").innerHTML=rec.father;
+     document.getElementById("type2").innerHTML=rec.type2;
+     document.getElementById("number").innerHTML=rec.number;
+     document.getElementById("paddress").innerHTML=rec.paddress;
+     document.getElementById("laddress").innerHTML=rec.laddress;
+     document.getElementById("ename").innerHTML=rec.ename;
+     document.getElementById("econtact").innerHTML=rec.econtact;
+     document.getElementById("doc").innerHTML=rec.doc;
+     
+      document.getElementById("paid").innerHTML=rec.paid;
+     document.getElementById("salary").innerHTML=rec.salary;
+     document.getElementById("available").innerHTML=rec.available;
+     
+     document.getElementById("attmonth").innerHTML=rec.attmonth;
+     document.getElementById("atttotal").innerHTML=rec.atttotal;
+     
+     document.getElementById("xfather").value=rec.father;
+     document.getElementById("xtype").value=rec.type2;
+     document.getElementById("xnumber").value=rec.number;
+     document.getElementById("xpaddress").value=rec.paddress;
+     document.getElementById("xladdress").value=rec.laddress;
+     document.getElementById("xename").value=rec.ename;
+     document.getElementById("xecontact").value=rec.econtact;
+
+     
+     
+     
+      document.getElementById("aname").innerHTML=rec.aname;
+     document.getElementById("aaccount").innerHTML=rec.aaccount;
+     document.getElementById("aifsc").innerHTML=rec.aifsc;
+     document.getElementById("abank").innerHTML=rec.abank;
+     document.getElementById("atype").innerHTML=rec.atype;
+     document.getElementById("abranch").innerHTML=rec.abranch;
+     document.getElementById("aupi").innerHTML=rec.aupi;
+     
+     
+     document.getElementById("zname").value=rec.aname;
+     document.getElementById("zaccount").value=rec.aaccount;
+     document.getElementById("zifsc").value=rec.aifsc;
+     document.getElementById("zbank").value=rec.abank;
+     document.getElementById("ztype").value=rec.atype;
+     document.getElementById("zbranch").value=rec.abranch;
+     document.getElementById("zupi").value=rec.aupi;
+     
+     
+     document.getElementById("empname").value=rec.name;
+     document.getElementById("empnick").value=rec.nick;
+     document.getElementById("empdesination").value=rec.desination;
+     document.getElementById("empmobile").value=rec.mobile;
+     document.getElementById("empage").value=rec.dob;
+     document.getElementById("empemail").value=rec.email;
+  
+     
+     
+     app.SaveText( "gpaid",rec.gpaid );
+      app.SaveText( "gsalary",rec.gsalary );
+        
+        if(rec.gpaid=="true")
+        {
+       document.getElementById("Mpaid").checked=false;
+         document.getElementById("Msalary").checked=false;
+         document.getElementById("Mpaid").disabled=true;
+         document.getElementById("Msalary").disabled=true;
+               document.getElementById("paid").innerHTML="00.00";
+     document.getElementById("available").innerHTML="00.00";
+        }
+        
+        if(rec.gsalary=="true")
+        {
+        document.getElementById("Mwork").checked=false;
+         document.getElementById("Missue").checked=false;
+         document.getElementById("Mwork").disabled=true;
+         document.getElementById("Missue").disabled=true;
+         
+             
+     document.getElementById("salary").innerHTML="00.00";
+     document.getElementById("available").innerHTML="00.00";
+        }
+        
+if(app.LoadText( "first")==1)
+{
+       if(fr==1)
+   {
+               document.getElementById("listItem").innerHTML = document.getElementById("listItem").innerHTML+'<div onclick="myinfo('+rec.id+')"class="mycontainer listitem" style="">'
++'<table width="96%" class="FAA" style="margin:2%;font-weight:bold;font-family:times;">'
++'<tr>'
++'<td colspan="2" class="F14" style="padding-top:10px;"><div>'+rec.name+'</div></td>'
++'</tr>'
++'</table>'
++'</div>';
+   
+     var mygroup=rec.group.split('#');
+   for(var i = 0; i < mygroup.length ;  i++)
+   {
+   if (mygroup[i].length<3)
+   {}
+   else
+   {
+   var color="";
+   var  rec2 = JSON.parse(mygroup[i]);
+   var  groupid =rec2.groupid;
+   var  groupname =rec2.groupname;
+   var  myrole =rec2.role;
+   if (myrole=="Trash")
+   {
+   color="red";
+   }
+   
+         document.getElementById("listItem").innerHTML = document.getElementById("listItem").innerHTML+'<div onclick="myinfo('+groupid+')"class="mycontainer listitem" style="background-color:'+color+'">'
++'<table width="96%" class="FAA" style="margin:2%;font-weight:bold;font-family:times;">'
++'<tr>'
++'<td colspan="2" class="F14" style="padding-top:10px;"><div>'+groupname+'</div></td>'
++'</tr>'
++'</table>'
++'</div>'
+         
+        }
+        }       
+        }
+        app.SaveText( "emplist",document.getElementById("listItem").innerHTML  );
+        app.SaveText( "first",2 );
+        }
+        else
+        {
+        document.getElementById("listItem").innerHTML ="";
+        document.getElementById("listItem").innerHTML = app.LoadText( "emplist" );
+        }
+        
+        fr=0;
+     
+     var mydoc =rec.doc;
+     if(mydoc=="False")
+     {
+     document.getElementById("doc").style="color:red";
+     }
+     else
+     {
+      document.getElementById("doc").style="color:green";
+     }
+     
+     document.getElementById("img").src=url+"folder/"+rec.id+".png";
+     
+   
+    
+}
+}}}
+	req2.send();
+	}
+
+	
+	function imgerror()
+	{
+	document.getElementById("img").src="Img/user.png";
+	}
+
+ 
+
+	empinfo();
+
+
+
+function addemp()
+{
+var empname = document.getElementById("empname").value;
+var empproject = projectid;
+var empnick = document.getElementById("empnick").value;
+var empdob= document.getElementById("empage").value;
+var empdesin= document.getElementById("empdesination").value;
+var empmobile= document.getElementById("empmobile").value;
+var empemail= document.getElementById("empemail").value;
+
+var oldmobile =     document.getElementById("mobile").innerHTML;
+var oldemail  =    document.getElementById("email").innerHTML;
+
+if(empname.length<4)
+{
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Please input name field"}');
+}
+else if (empname.match(letters))
+{
+if(calculatedAge<18)
+{
+app.Alert( "Employee age should be 18 + age " )
+}
+else
+{
+if(empdesin.length<4)
+{
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Please input desination field"}');
+}
+else if (empdesin.match(letters))
+{
+if(empmobile.length==10)
+{
+if (empemail.match(mailformat))
+{
+
+ app.Execute("loader2(1);");   
+	var 	req4=new XMLHttpRequest();                                                                                        
+	req4.open("GET",app.LoadText( "url" )+"updateemp.php?id="+id+"&user="+User+"&token="+token+"&uid="+uid+"&oldmobile="+oldmobile+"&oldemail="+oldemail+"&empid="+empid+"&name="+empname+"&nick="+empnick+"&desination="+empdesin+"&mobile="+empmobile+"&email="+empemail+"&dob="+empdob+"&project="+empproject,true);
+	req4.onreadystatechange=function(){
+if(	req4.readyState==4 && 	req4.status==200){if(	req4.responseText=="ufFygf")
+{  
+
+}else{
+ if (req4.responseText.trim()==1)
+ {
+     app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Error"}');
+     app.ClearData(  );
+  app.exit();
+ }
+ else if(req4.responseText.trim()==3)
+ {
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Permission denied "}');
+ }
+ else if(req4.responseText.trim()==2)
+ {
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"User is blocked"}');
+ }
+ else if(req4.responseText.trim()==4)
+ {
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Mobile already exist "}');
+ }
+ else if(req4.responseText.trim()==5)
+ {
+    app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Already exist this email"}');
+ }
+  else if(req4.responseText.trim()==6)
+ {
+     app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"This employee already registered !"}');
+ }
+
+ else
+ {
+  app.Execute("loader2(4);");   
+ app.SaveText("msg",'{"color":"green","msg":"Seccessfully updated"}');
+ $('#updatep').modal('hide');
+empinfo();
+ }
+}}}
+	req4.send();
+}
+else
+{
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Please input valid email "}');
+}
+}
+else
+{
+app.Alert( "Mobile accept only 10 digit" )
+}
+}
+else
+{
+app.Alert( "Please remove special charactor in desination field" )
+}
+}
+}
+else
+{
+app.Alert( "Please remove special charactor in name field" )
+}
+}
+
+
+
+function submit2()
+{
+var xfather = document.getElementById("xfather").value;
+var xtype = document.getElementById("xtype").value;
+var xnumber = document.getElementById("xnumber").value;
+var xpaddress  = document.getElementById("xpaddress").value;
+var xladdress = document.getElementById("xladdress").value;
+var xename  = document.getElementById("xename").value;
+var xecontact = document.getElementById("xecontact").value;
+var xnote = document.getElementById("xnote").value;
+
+if(father.length<4)
+{
+   app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Please input father name "}');
+}
+else if(xfather.match(letters))
+{
+if(xnumber.length<4)
+{
+   app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Please input doc number"}');
+}
+else if(xnumber.match(letters))
+{
+if(xpaddress.length<4)
+{
+   app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Please input parmanent address"}');
+}
+else if(xpaddress.match(letters))
+{
+
+ app.Execute("loader2(1);");   
+	var 	req5=new XMLHttpRequest();
+	req5.open("GET",app.LoadText( "url" )+"addaddress.php?id="+id+"&user="+User+"&token="+token+"&empid="+empid+"&father="+xfather+"&type="+xtype+"&number="+xnumber+"&paddress="+xpaddress+"&laddress="+xladdress+"&ename="+xename+"&econtact="+xecontact+"&note="+xnote,true);
+	req5.onreadystatechange=function(){
+if(	req5.readyState==4 && 	req5.status==200){if(	req5.responseText=="ufFygf")
+{  
+
+}else{
+ if (req5.responseText.trim()==1)
+ {
+ app.Alert( "error please relogin" );
+     app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Error"}');
+     app.ClearData(  );
+  app.exit();
+ }
+ else if(req5.responseText.trim()==2)
+ {
+  app.Alert( "User is blocked" );
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"User is blocked"}');
+ }
+ else if(req5.responseText.trim()==3)
+ {
+  app.Alert( "Permission denied contact admin" );
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Permission denied"}');
+ }
+ else if(req5.responseText.trim()==4)
+ {
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"green","msg":"Seccessfully updated"}');
+    $('#updatea').modal('hide');
+empinfo();
+ }
+ else if(req5.responseText.trim()==5)
+ {
+    app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"green","msg":"Seccessfully added"}');
+       $('#updatea').modal('hide');
+empinfo();
+ }
+}}}
+	req5.send();
+}
+else
+{
+app.Alert( "Please remove special charector in permanent address field" );
+}
+}
+else
+{
+app.Alert( "Please remove special charactor in number field" );
+}
+}
+else
+{
+app.Alert( "Please remove special charactor in father field" );
+}
+}
+
+function user()
+{
+ app.Execute("loader2(1);");   
+	var 	req15=new XMLHttpRequest();
+	req15.open("GET",app.LoadText( "url" )+"recreateuser.php?id="+id+"&user="+User+"&token="+token+"&empid="+empid,true);
+	req15.onreadystatechange=function(){
+if(	req15.readyState==4 && 	req15.status==200){if(	req15.responseText=="ufFygf")
+{  
+
+}else{
+  app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"green","msg":"Seccessfully created"}');
+   empinfo();
+}}}
+	req15.send();
+}
+
+
+
+
+function submit3()
+{
+var zname = document.getElementById("zname").value;
+var zbank = document.getElementById("zbank").value;
+var zaccount = document.getElementById("zaccount").value;
+var zifsc = document.getElementById("zifsc").value;
+var ztype = document.getElementById("ztype").value;
+var zbranch  = document.getElementById("zbranch").value;
+var zupi = document.getElementById("zupi").value;
+
+
+
+ app.Execute("loader2(1);");   
+	var 	req2=new XMLHttpRequest();
+	req2.open("GET",app.LoadText( "url" )+"addaccount.php?id="+id+"&user="+User+"&token="+token+"&empid="+empid+"&name="+zname+"&bank="+zbank+"&account="+zaccount+"&ifsc="+zifsc+"&type="+ztype+"&branch="+zbranch+"&upi="+zupi,true);
+	req2.onreadystatechange=function(){
+if(	req2.readyState==4 && 	req2.status==200){if(	req2.responseText=="ufFygf")
+{  
+
+}else{
+ if (req2.responseText.trim()==1)
+ {
+ app.Alert( "error please relogin" );
+     app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Error"}');
+     app.ClearData(  );
+  app.exit();
+ }
+ else if(req2.responseText.trim()==2)
+ {
+  app.Alert( "User is blocked" );
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"User is blocked"}');
+ }
+ else if(req2.responseText.trim()==3)
+ {
+  app.Alert( "Permission denied contact admin" );
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Permission denied"}');
+ }
+ else if(req2.responseText.trim()==4)
+ {
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"green","msg":"Seccessfully updated"}');
+   $('#updateb').modal('hide');
+empinfo();
+ }
+ else if(req2.responseText.trim()==5)
+ {
+    app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"green","msg":"Seccessfully added"}');
+   $('#updateb').modal('hide');
+empinfo();
+ }
+}}}
+	req2.send();
+
+}
+
+
+
+
+function choose()
+{
+$('#myfile').click();
+}
+
+			    $("#myfile").change(function(){
+						    app.SaveText( "filename",empid);
+						     app.SaveText( "filelocation", "folder");
+						     var filelocation ="folder";
+                 uploadFile(empid,filelocation,1);
+             
+					});
+app.SaveText( "group","Main" );
+app.SaveText( "change","employees.html");
+function group()
+   {
+   app.SaveText( "change2","lbrinfo.html");
+   app.SaveText( "group","Group employee" );
+   app.Execute( "addlbr();" );
+   }
+function myinfo(mm)
+{
+document.getElementById("img").src="user.png";
+empid =mm;
+app.SaveText( "empid2",mm )
+empinfo()
+}
+</script>
+
+<script src="uploadFile.js"></script>
+
+
+
+
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<script src='file:///android_asset/app.js'></script>
+<link href="css/all.css" rel="stylesheet">
+
+    <link href="boostrap/css/bootstrap2.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap3.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap4.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap5.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap6.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap7.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap8.css" rel="stylesheet">
+    <link href="boostrap/css/swiper.min.css" rel="stylesheet">
+
+<script src="js/all.js"></script>
+    <script src="boostrap/js/jquery.js"></script>
+    <script src="boostrap/js/date.js"></script>
+    <script src="boostrap/js/date2.js"></script>
+    <script src="boostrap/js/bootstrap.js" type="text/javascript" ></script>
+
+<style id="mystyle">
+body{
+height:100%;
+}
+.mcontainer{
+display:inline-block;
+margin:auto;
+border-radius:20px;
+padding-bottom:14px;
+width:94%;
+margin-top:20px;
+}
+.dropcontainer{
+display:inline-block;
+margin:auto;
+border-radius:5px;
+width:96%;
+margin-top:10px;
+height:60px;
+}
+.dropdown-menu
+{
+height:350px;
+width:100%;  
+border:none;
+outline:none;
+background:none;
+}
+
+.span{
+		animation: blink 1s linear infinite;
+	}
+@keyframes blink{
+0%{opacity: 0;}
+100%{opacity: .5;}
+}
+.mydrop
+{
+height:350px;
+width:100%;
+overflow:scroll;     
+}
+
+
+button:hover{
+box-shadow:1px 1px 5px grey,  -1px -1px 5px white;
+
+}
+
+
+input{
+width:100%;
+height:60px;
+border:none;
+outline:none;
+background:none;
+font-weight:bold;
+font-family:times;
+padding-left:10px;
+}
+
+@mixin nonselect {
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+	cursor: default;
+}
+.listitem{
+height:70px;
+width:96%;
+margin-left:2%;
+margin-top:5px;
+}
+.mybar{
+height:10px;
+width:100%;
+}
+  select option { 
+color: black;
+font-weight:bold;
+ }
+ .g{
+ border:1px solid white;
+  height: 38px;
+  width: 25px;
+  border-radius: 50%;
+ text-align:center;
+ vertical-align:center;
+ background-color:green;
+ font-weight:bold;
+ color:white;
+ }
+ .h
+ {
+     border:1px solid white;
+  height: 38px;
+  width: 25px;
+  border-radius: 50%;
+ text-align:center;
+ vertical-align:center;
+ background-color:white;
+ font-weight:bold;
+ color:black; 
+ }
+  .i
+ {
+     border:1px solid white;
+  height: 38px;
+  width: 25px;
+  border-radius: 50%;
+ text-align:center;
+ vertical-align:center;
+ background-color:#f23dbc;
+ font-weight:bold;
+ color:white; 
+ }
+ 
+ 
+ 
+ .modalf {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 112; /* Sit on top */
+  padding-top: 50px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width:100%;
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+}
+
+/* modalf Content */
+.modalf-content {
+
+}
+li {
+    border: 3px solid white;
+    border-bottom: 0;
+   }
+  rh:hover { 
+   background-color:red; 
+   }
+   
+   
+ 
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 20px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 20px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+</style>
+
+
+</head>
+
+
+    
+<script>  
+app.SaveText("Change","exit");
+var themeColor = app.LoadText( "themeColor" );
+var color = JSON.parse(themeColor);
+var c1=color.c1;
+var c2=color.c2;
+var c3=color.c3;
+var c4=color.c4;
+var c5=color.c5;
+var c6=color.c6;
+var mytheme =app.LoadText( "mytheme" );
+if (mytheme=="1")
+{
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" .fullBody{"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),"
++"radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"height:100%;width:100%;margin:0;position:absolute;}"
++".mycontainer{"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%) "
++", radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"box-shadow:4px 4px 4px #"+c3+",-4px -4px 4px #"+c2+";"
++"font-weight:bold;}"
+
++".mycontainer2{"
++"position:absolute;"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%) "
++", radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"box-shadow:4px 4px 4px #"+c3+",-4px -4px 4px #"+c2+";"
++"font-weight:bold;}"
++".myinput{"
++"position:relative;"
++"border:none;"
++"background:#"+c1+";"
++"outline:none;"
++"box-shadow:inset 5px 5px 5px #"+c3+", inset -5px -5px 5px #"+c2+";"
++"}"
++".myinput2{"
++"border:none;"
++"background:#"+c1+";"
++"outline:none;"
++"box-shadow:inset 2px 2px 2px #"+c3+", inset -2px -2px 2px #"+c2+";"
++"}"
++".mybutton{"
++"border:none;"
++"box-shadow:5px 5px 5px #"+c3+", -5px -5px 5px #"+c2+";"
++"outline:none;"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%) "
++", radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"font-weight:bold;font-family:times;}"
++".mybutton:hover{"
++"box-shadow:1px 1px 5px #"+c3+",  -1px -1px 5px #"+c2+";"
++"}"
++".FAA{color:#"+app.LoadText("fontA")+";}"
++".FB{color:#"+app.LoadText("fontB")+";}"
++".FC{color:#"+app.LoadText("fontC")+";}";
+var size=app.LoadText("size").split(",");
+for (i = 0; i < size.length; i++) {
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" .F"+i+"{font-size:"+size[i]+"px;} ";
+}
+}
+else
+{
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" body{"
++"background:#"+c1+";"
++"}"
++".mycontainer{"
++"position:relative;"
++"background:#"+c1+";"
++"box-shadow:4px 4px 4px #"+c3+",-4px -4px 4px #"+c2+";"
++"}"
++".mycontainer2{"
++"background:#"+c1+";"
++"box-shadow:4px 4px 4px #"+c3+",-4px -4px 4px #"+c2+";"
++"}"
++".myinput{"
++"position:relative;"
++"border:none;"
++"background:#E6E6E6;"
++"outline:none;"
++"box-shadow:inset 5px 5px 5px #"+c3+", inset -5px -5px 5px #"+c2+";"
++"}"
++".myinput2{"
++"border:none;"
++"background:#E6E6E6;"
++"outline:none;"
++"box-shadow:inset 2px 2px 2px #"+c3+", inset -2px -2px 2px #"+c2+";"
++"}"
++".mybutton{"
++"border:none;"
++"box-shadow:5px 5px 5px #"+c3+", -5px -5px 5px #"+c2+";"
++"outline:none;"
++"background:#"+c1+"; " 
++"}"
++".mybutton:hover{"
++"box-shadow:1px 1px 5px #"+c3+",  -1px -1px 5px #"+c2+";"
++"}"
++".FAA{color:#"+app.LoadText("fontA")+";}"
++".FB{color:#"+app.LoadText("fontB")+";}"
++".FC{color:#"+app.LoadText("fontC")+";}";
+var size=app.LoadText("size").split(",");
+for (i = 0; i < size.length; i++) {
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" .F"+i+"{font-size:"+size[i]+"px;} ";
+}
+}
+
+
+//app.Alert(document.getElementById("mystyle").innerHTML );
+</script>
+<body ondragstart="return false" id="body" onselectstart="return false" style="width:100%;height:100%;overflow-x:hidden;font-weight:bold;font-family-times;">
+<div class="fullBody" style="width:100%;" >
+<div style="margin:2%;overflow:scroll;height:100%;" class="myinput" >
+<div style="width:96%;margin:2%;">
+<table style="width:100%;font-weight:bold;font-family:times;">
+<tr>
+<td style="text-align:center;width:50%;" >
+<div class="mycontainer" style="width:94%;margin:3%;height:50px;" >
+<div class="F18" style="padding-top:5px;" >Total Paid</div>
+<div class="F18"id="data1" >00</div>
+</div>
+</td>
+<td style="text-align:center;width:50%;">
+<div class="mycontainer" style="width:94%;margin:3%;height:50px;" >
+<div class="F18" style="padding-top:5px;" >Total Salary</div>
+<div class="F18"id="data2">00</div>
+</div>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width:50%;" >
+<div class="mycontainer" style="width:94%;margin:3%;height:50px;" >
+<div class="F16" style="padding-top:5px;">Monthly Paid</div>
+<div class="F16" id="data3">00</div>
+</div>
+</td>
+<td style="text-align:center;width:50%;">
+<div class="mycontainer" style="width:94%;margin:3%;height:50px;" >
+<div class="F16" style="padding-top:5px;">Total Employees</div>
+<div class="F16" id="data4">00</div>
+</div>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width:50%;" >
+<div class="mycontainer" style="width:94%;margin:3%;height:50px;" >
+<div class="F16" style="padding-top:5px;">Weekly Paid</div>
+<div class="F16" id="data5">00</div>
+</div>
+</td>
+<td style="text-align:center;width:50%;">
+<div class="mycontainer" style="width:94%;margin:3%;height:50px;" >
+<div class="F16" style="padding-top:5px;" >Total Project</div>
+<div class="F16"id="data6">00</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+
+<table style="width:94%;margin-left:3%;">
+<tr style="height:30px;">
+<td style="text-align:center;"><button class="mybutton" style="width:90%;" onclick="k1();"><strong id="m1">View Online Report</strong> <strong  id="n1" class="span" style="background-color:red;color:white;text-align:center;"></strong></button></td>
+<td style="text-align:center;"><button class="mybutton" style="width:90%;"onclick="k2();"><strong >Add Online Report <strong></strong></button></td>
+</tr>
+<tr style="height:30px;">
+<td style="text-align:center;"><button class="mybutton" style="width:90%;"onclick="k3();"><strong id="m2">Weekly Payment</strong> <strong  id="n2" class="span" style="background-color:red;color:white;text-align:center;"></strong></button></td>
+<td style="text-align:center;"><button class="mybutton" style="width:90%;"onclick="k4();"><strong id="m3">Notification</strong> <strong  id="n3" class="span" style="background-color:red;color:white;text-align:center;"></strong></button></td>
+</tr>
+<tr style="height:30px;">
+<td style="text-align:center;"><button class="mybutton" style="width:90%;"onclick="k5();"><strong id="m4">Today Report</strong> <strong  id="n4" class="span" style="background-color:red;color:white;text-align:center;"></strong></button></td>
+<td style="text-align:center;"><button class="mybutton" style="width:90%;"data-toggle="modal" data-target="#send">Send Report <strong></strong></button></td>
+</tr>
+</table>
+
+<div style="width:100%;font-family:times;" class="mycontainer" >
+<div class="F15 myfont" style="padding-top:5px;padding-left:5px;" ><strong id="lbl" ></strong><div style="float:right;padding-right:20px;" id="df">00</div></div>
+<div style="width:98%;margin:1%;height:645px;overflow:scroll;" class="myinput" id="list">
+<iframe class="" id="g" style="width:100%;height:99%;overflow-x:hidden;outline:none;" src=""></iframe>
+
+</div>
+</div>
+
+<div style="width:94%;margin:3%;display:none;" class="mycontainer" >
+<div class="F15 myfont" style="padding-top:5px;padding-left:5px;" >Today Report<div style="float:right;padding-right:5px;" >35000</div></div>
+<div style="width:98%;margin:1%;" class="myinput" >
+hggg
+</div>
+</div>
+
+
+<div style="width:94%;margin:3%;display:none;" class="mycontainer" >
+<div class="F15 myfont" style="padding-top:5px;padding-left:5px;" >Work unlock request<div style="float:right;padding-right:5px;" >35000</div></div>
+<div style="width:98%;margin:1%;" class="myinput" >
+hggg
+</div>
+</div>
+
+</div>
+
+
+
+
+
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content mycontainer">
+    <div id="xname" style="margin:15px;" class="F15 myfont" ></div>
+      <div class="modal-header">
+        <h5 class="modal-title F16" id="exampleModalLabel"></h5>
+      </div>
+      <div class="modal-body">
+      
+    <div class="container" style="margin-top:10px;">
+<p class="F12 FAA" style="text-align:left;font-weight:bold;">Amount</p>                                        
+  <div class=" myinput" style="margin-top:5px;">
+    <input class="F15 FAA" type="number" placeholder="Amount" id="xamount">
+  </div>
+</div>
+
+<div class="container" style="margin-top:10px;">
+<p class="F12 FAA" style="text-align:left;font-weight:bold;">Date</p>                                        
+  <div class=" myinput" style="margin-top:5px;">
+    <input class="F15 FAA" type="date" placeholder="Date" id="xdate">
+  </div>
+</div>
+
+<div class="container" style="margin-top:10px;">
+<p class="F12 FAA" style="text-align:left;font-weight:bold;">Remarks</p>                                        
+  <div class=" myinput" style="margin-top:5px;">
+    <input class="F15 FAA" type="text"placeholder="Remarks" id="xremark">
+  </div>
+</div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="mybutton" data-dismiss="modal">Close</button>
+        <button type="button" class="mybutton" onclick="wdelete();" >Delete Record</button>
+        <button type="button" class="mybutton" onclick="update();" >Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="send" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content mycontainer">
+      <div class="modal-header">
+        <h5 class="modal-title F16" id="exampleModalLabel"></h5>
+      </div>
+      <div class="modal-body">
+           <p>Select project</p>
+       <select  class="F15 FAA mycontainer" onchange="getwing()" style="width:100%;outline:none;border:none;height:35px;" id="project"></select>
+
+      <p>Select wing</p>
+       <select  class="F15 FAA mycontainer" style="width:100%;outline:none;border:none;height:35px;" id="wing" multiple></select>
+ 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="mybutton" data-dismiss="modal">Close</button>
+        <button type="button" class="mybutton" onclick="send()" >Send Report</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="viewer2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content mycontainer">
+      <div class="modal-header">
+        <h5 class="modal-title F16" id="exampleModalLabel">
+        
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="width: 100%; height: 550px;">
+     <iframe id="mydoc2" src=""
+      style="width: 100%; height: 550px;" x rolling="auto">
+        </iframe>
+         </div>
+      <div class="modal-footer">
+        <button type="button" class="mybutton" id="fd">Download</button>
+        <button type="button" class="mybutton" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+var url=app.LoadText( "url" );
+
+ var  rec = JSON.parse(app.LoadText( "userDetails" ));
+       var    id=rec.id;
+       var    User=rec.user;
+       var   token=rec.token;
+       var company =rec.company;
+       var   ustatus ="";
+       var uid = app.LoadText( "uid" );
+       
+       
+       document.getElementById("g").src=url+"dashboard.php?id="+id+"&user="+User+"&token="+token+"&url="+url;
+
+       
+       function loadweekly()
+{
+// app.Execute("loader2(1);");   
+	var 	req3=new XMLHttpRequest();
+	req3.open("GET",app.LoadText( "url" )+"weekly.php?id="+id+"&user="+User+"&token="+token,true);
+		req3.onreadystatechange=function(){
+if(	req3.readyState==4 && 	req3.status==200){if(	req3.responseText=="ufFygf")
+{  
+
+}else{
+
+      var alluser=req3.responseText.trim().split('@');
+var paidamt=0;
+var dname ="";
+   for(var i = 0; i < alluser.length;  i++)
+   {
+   if (alluser[i].length<10)
+   {}
+   else
+   {
+   var  rec = JSON.parse(alluser[i]);
+   var  pid =rec.id;
+   var  name =rec.name;
+   var  date1 =rec.date1;
+    var  date2 =rec.date2;
+   var  amount =rec.amount;
+   var  remark =rec.remark;
+   var  uname =rec.user;
+   var  ptime =rec.time;
+   var  datetime =rec.datetime;
+   
+paidamt=paidamt+parseInt(amount);
+
+if(dname==name)
+{
+   document.getElementById("list").innerHTML = document.getElementById("list").innerHTML+' <table class="F12 mycontainer" style="background-color:#fceab6;width:89%;margin:3%;margin-left:8%;">'
+ +'<tr>'
++'<td colspan="2" class="F15" style="text-align:left;padding-left:10px;padding-right:10px;font-family:times;color:#db09ae;" id="wname'+pid+'">'+name+'</td>'
++'<td style="text-align:right"><i class="F15 fa fa-edit" data-toggle="modal" data-target="#edit" onclick="edit('+pid+');" ></i></td>'
++' </tr>'
++' <tr>'
++' <td style="text-align:center;width:33%;">Txn No '+pid+'</td>'
++'  <td style="text-align:center;width:33%;" ><input type="hidden" id="wdate'+pid+'" value="'+date2+'">'+date1+'</td>'
++'   <td style="text-align:center;"><strong  id="wamount'+pid+'" >'+amount+'</strong>/-</td>'
++' </tr>'
++'  <tr>'
++' <td colspan="3" style="text-align:left;padding-left:10px;padding-right:10px;"  id="wremark'+pid+'" >'+remark+'</td>'
++' </tr>'
++'   <tr>'
++' <td colspan="3" style="text-align:right;color:red;padding-right:10px;">'+uname+' '+datetime+' '+ptime+'</td>'
++' </tr>'
++' </table>';
+
+}
+else
+{
+   document.getElementById("list").innerHTML = document.getElementById("list").innerHTML+' <table class="F12 mycontainer" style="width:94%;margin:3%;">'
+ +'<tr>'
++'<td colspan="2" class="F15" style="text-align:left;padding-left:10px;padding-right:10px;font-family:times;color:#db09ae;" id="wname'+pid+'">'+name+'</td>'
++'<td style="text-align:right"><i class="F15 fa fa-edit" data-toggle="modal" data-target="#edit" onclick="edit('+pid+');" ></i></td>'
++' </tr>'
++' <tr>'
++' <td style="text-align:center;width:33%;">Txn No '+pid+'</td>'
++'  <td style="text-align:center;width:33%;" ><input type="hidden" id="wdate'+pid+'" value="'+date2+'">'+date1+'</td>'
++'   <td style="text-align:center;"><strong  id="wamount'+pid+'" >'+amount+'</strong>/-</td>'
++' </tr>'
++'  <tr>'
++' <td colspan="3" style="text-align:left;padding-left:10px;padding-right:10px;"  id="wremark'+pid+'" >'+remark+'</td>'
++' </tr>'
++'   <tr>'
++' <td colspan="3" style="text-align:right;color:red;padding-right:10px;">'+uname+' '+datetime+' '+ptime+'</td>'
++' </tr>'
++' </table>';
+
+dname=name;
+}
+
+  
+ }}
+ document.getElementById("money").innerHTML = paidamt;
+}}}
+	req3.send();
+	}
+//	loadweekly();
+	var gtid ="";
+	function edit(b)
+	{
+	gtid=b;
+	document.getElementById("xname").innerHTML = document.getElementById("wname"+b).innerHTML ;
+	document.getElementById("xamount").value = document.getElementById("wamount"+b).innerHTML ;
+	document.getElementById("xdate").value =document.getElementById("wdate"+b).value;
+	document.getElementById("xremark").value = document.getElementById("wremark"+b).innerHTML ;
+	}
+	
+	
+	 function getwing()
+ {
+var project = 	document.getElementById("project").value ;
+ app.Execute("loader2(1);");   
+	var 	req3=new XMLHttpRequest();
+	req3.open("GET",app.LoadText( "url" )+"getwing.php?id="+id+"&user="+User+"&pid="+project+"&token="+token,true);
+		req3.onreadystatechange=function(){
+if(	req3.readyState==4 && 	req3.status==200){if(	req3.responseText=="ufFygf")
+{  
+
+}else{
+
+ if (req3.responseText.trim()==1)
+ {
+ app.Alert( "error please relogin" );
+     app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Error"}');
+ }
+ else if(req3.responseText.trim()==2)
+ {
+  app.Alert( "User is blocked" );
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"User is blocked"}');
+ }
+ else if(req3.responseText.trim()==3)
+ {
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Permission denied"}');
+ }
+ else
+ {
+ document.getElementById("wing").innerHTML = "";
+
+  
+
+app.SaveText("msg",'{"color":"green","msg":""}');
+ app.Execute("loader2(4);");   
+     var alluser=req3.responseText.trim().split('@');
+
+   for(var i = 0; i < alluser.length;  i++)
+   {
+   if (alluser[i].length<10)
+   {}
+   else
+   {
+   var  rec = JSON.parse(alluser[i]);
+   var  pid =rec.id;
+   var  pwing =rec.wing;
+
+   document.getElementById("wing").innerHTML = document.getElementById("wing").innerHTML+'<option value="'+pid+'">'+pwing+'</option>';
+
+ }}
+
+
+ }
+}}}
+	req3.send();
+	
+	}
+
+function getproject()
+{
+app.Execute("loader2(1);");   
+	var 	req2=new XMLHttpRequest();
+	req2.open("GET",app.LoadText( "url" )+"fetchproject.php?id="+id+"&user="+User+"&token="+token,true);
+	req2.onreadystatechange=function(){
+if(	req2.readyState==4 && 	req2.status==200){if(	req2.responseText=="ufFygf")
+{  
+
+}else{
+ if (req2.responseText.trim()==1)
+ {
+ app.Alert( "error please relogin" );
+     app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Error"}');
+ }
+ 
+     app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":""}');
+ document.getElementById("project").innerHTML= "";
+
+     var projectdata=req2.responseText.trim().split('@');
+            app.SaveText( "projectdata",req2.responseText.trim() );
+   for(var i = 0; i < projectdata.length ;  i++)
+   {
+   if (projectdata[i].length<3)
+   {}
+   else
+   {
+   var  rec = JSON.parse(projectdata[i]);
+   var  pid=rec.id;
+   var  pname=rec.name;
+  
+     document.getElementById("project").innerHTML= document.getElementById("project").innerHTML+'<option value="'+pid+'">'+pname+'</option>';
+   
+  
+ }}
+
+ 	getwing();
+ 
+}}}
+	req2.send();
+}
+getproject();
+	
+
+function send()
+{
+
+var wing2="";
+var multiSelect = document.getElementById("wing");
+for ( var i = 0; i < multiSelect.selectedOptions.length; i++) {
+  wing2= wing2+multiSelect.selectedOptions[i].value+",";
+  }
+  var project = 	document.getElementById("project").value ;
+ app.Execute("loader2(1);");   
+	var 	req3=new XMLHttpRequest();
+	req3.open("GET",app.LoadText( "url" )+"sendreport.php?id="+id+"&user="+User+"&pid="+project+"&company="+company+"&wing="+wing2+"&emp=&token="+token,true);
+		req3.onreadystatechange=function(){
+if(	req3.readyState==4 && 	req3.status==200){if(	req3.responseText=="ufFygf")
+{  
+
+}else{
+
+ if (req3.responseText.trim()==("*"+company+"*"))
+ {
+ app.Alert( "No record found !" );
+    app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":""}');
+ }
+else
+{
+     app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":""}');
+   app.SendText(req3.responseText.trim()  )
+   
+}
+}}}
+	req3.send();
+	
+}
+	
+	
+	function update()
+	{
+	var gamount = document.getElementById("xamount").value;
+	var gdate = document.getElementById("xdate").value;
+	var gremark = document.getElementById("xremark").value;
+	
+		var 	req5=new XMLHttpRequest();
+	req5.open("GET",app.LoadText( "url" )+"updateweekly.php?id="+id+"&user="+User+"&amount="+gamount+"&date="+gdate+"&remark="+gremark+"&token="+token,true);
+		req5.onreadystatechange=function(){
+if(	req5.readyState==4 && 	req5.status==200){if(	req5.responseText=="ufFygf")
+{  
+
+}else{
+	
+	loadweekly();
+	}}}
+	req5.send();
+	}
+	
+// app.Execute("loader2(1);");   
+	var 	req4=new XMLHttpRequest();
+	req4.open("GET",app.LoadText( "url" )+"status.php?id="+id+"&user="+User+"&token="+token,true);
+		req4.onreadystatechange=function(){
+if(	req4.readyState==4 && 	req4.status==200){if(	req4.responseText=="ufFygf")
+{  
+
+}else{
+
+      var alluser2=req4.responseText.trim();
+
+   var  rec = JSON.parse(alluser2);
+ 
+   var  Apaid =rec.paid;
+   var  Asalary =rec.salary;
+    var Amonthly  =rec.monthly;
+   var  Aemp =rec.employee;
+   var  Aweekly =rec.weekly;
+   var  Aproject  =rec.project;
+  
+ document.getElementById("data1").innerHTML = Apaid;
+ document.getElementById("data2").innerHTML = Asalary;
+ document.getElementById("data3").innerHTML = Amonthly;
+ document.getElementById("data4").innerHTML = Aemp;
+ document.getElementById("data5").innerHTML = Aweekly;
+ document.getElementById("data6").innerHTML = Aproject;
+}}}
+	req4.send();
+
+    app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":""}');
+
+document.getElementById("lbl").innerHTML = document.getElementById("m2").innerHTML ;
+var myiframe = document.getElementById("g");
+
+function k1()
+{
+window.scrollTo(0, document.body.scrollHeight);
+ document.getElementById("lbl").innerHTML = document.getElementById("m1").innerHTML ;
+ myiframe.contentWindow.postMessage('{"id":2,"data1":"","data2":"","data3":"","data4":""}', '*');
+}
+function k2()
+{
+app.Execute("addonline();");   
+}
+function k3()
+{
+window.scrollTo(0, document.body.scrollHeight);
+document.getElementById("lbl").innerHTML = document.getElementById("m2").innerHTML ;
+ myiframe.contentWindow.postMessage('{"id":3,"data1":"","data2":"","data3":"","data4":""}', '*');
+;
+}
+function k4()
+{
+window.scrollTo(0, document.body.scrollHeight);
+document.getElementById("lbl").innerHTML = document.getElementById("m3").innerHTML ;
+ myiframe.contentWindow.postMessage('{"id":4,"data1":"","data2":"","data3":"","data4":""}', '*');
+}
+function k5()
+{
+window.scrollTo(0, document.body.scrollHeight);
+document.getElementById("lbl").innerHTML = document.getElementById("m4").innerHTML ;
+ myiframe.contentWindow.postMessage('{"id":5,"data1":"","data2":"","data3":"","data4":""}', '*');
+}
+function k6()
+{
+
+}
+       var    reqid ="";
+       var    reqdata1 ="";
+       var    reqdata2 ="";
+       var    reqdata3 ="";
+       var    reqdata4 ="";
+       
+       var f=1;
+window.onmessage = function(e) {
+         var  req = JSON.parse(e.data);
+          reqid =req.id;
+         reqdata1 =req.data1;
+         reqdata2 =req.data2;
+          reqdata3 =req.data3;
+          reqdata4 =req.data4;
+          
+     if(reqdata4==1)
+     {
+          document.getElementById("n1").innerHTML = req.p1;
+          //document.getElementById("n2").innerHTML = req.p2;
+          document.getElementById("n3").innerHTML = req.p3;
+          document.getElementById("n4").innerHTML = req.p4;
+          }
+          f=0;
+          
+        document.getElementById("df").innerHTML = reqdata3;
+          
+    if(reqid==1)
+    {
+    app.Execute("loader2(1);");   
+   // loader start
+    }
+        if(reqid==2)
+    {
+    app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":""}');
+   // loader stop
+    }
+        if(reqid==3)
+    {
+    app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"green","msg":"'+reqdata1+'"}');
+   // seccess messege
+    }
+         if(reqid==4)
+    {
+    app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"'+reqdata1+'"}');
+   // delete message
+    }
+      
+        if(reqid==5)
+    {
+    ynd = app.CreateYesNoDialog( reqdata1);
+    ynd.SetOnTouch( Ynd_OnTouch );
+    ynd.Show();
+    // ask 
+    }
+    if(reqid==11)
+    {
+  showfile2();
+    //show file
+    }
+   
+}
+
+function showfile2()
+{
+
+var myfilename =reqdata1;
+var myfileext =reqdata2;
+document.getElementById("fd").innerHTML='<a style="margin:0px;padding:0px;"  href="'+url+'folder/'+myfilename+'" download="'+myfilename+'">Download</a>'
+if (myfileext =="png")
+{
+document.getElementById("mydoc2").src="";
+document.getElementById("mydoc2").style="width:100%;height:550px;background:url("+url+"folder/"+myfilename+") no-repeat center center; background-size: 100% auto;";
+}
+else if (myfileext =="jpg")
+{
+document.getElementById("mydoc2").src="";
+document.getElementById("mydoc2").style="width:100%;height:550px;background:url("+url+"folder/"+myfilename+") no-repeat center center; background-size: 100% auto;";
+}
+else
+{
+document.getElementById("mydoc2").src="";
+document.getElementById("mydoc2").src="https://docs.google.com/gview?url="+url+"folder/"+myfilename+"&embedded=true";
+document.getElementById("mydoc2").style="width:100%;height:550px;";
+}
+  $('#viewer2').modal('show');
+}
+
+$('#viewer2').on('hidden.bs.modal', function (e) {
+document.getElementById("mydoc2").src="";
+});
+
+function Ynd_OnTouch( result )
+{
+    if(result=="Yes")
+    {
+    myiframe.contentWindow.postMessage('{"id":1,"data1":"Yes","data2":"","data3":"","data4":""}', '*');
+    ynd.Hide();
+    }
+    else
+    {
+    ynd.Hide();
+    }
+}
+
+</script>
+
+
+
+
+
+</div>
+</body>
+</html>

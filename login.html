@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<script src='file:///android_asset/app.js'></script>
+<link href="css/all.css" rel="stylesheet">
+
+<link href="css/bootstrap-grid.css" rel="stylesheet">
+<link href="css/bootstrap-grid.css.map" rel="stylesheet">
+<link href="css/bootstrap-grid.min.css" rel="stylesheet">
+<link href="css/bootstrap-grid.min.css.map" rel="stylesheet">
+
+<link href="css/bootstrap-grid.rtl.css" rel="stylesheet">
+<link href="css/bootstrap-grid.rtl.css.map" rel="stylesheet">
+<link href="css/bootstrap-grid.rtl.min.css" rel="stylesheet">
+<link href="css/bootstrap-grid.rtl.min.css.map" rel="stylesheet">
+
+<link href="css/bootstrap-reboot.css" rel="stylesheet">
+<link href="css/bootstrap-reboot.css.map" rel="stylesheet">
+<link href="css/bootstrap-reboot.min.css" rel="stylesheet">
+<link href="css/bootstrap-reboot.min.css.map" rel="stylesheet">
+
+<link href="css/bootstrap-reboot.rtl.css" rel="stylesheet">
+<link href="css/bootstrap-reboot.rtl.css.map" rel="stylesheet">
+<link href="css/bootstrap-reboot.rtl.min.css" rel="stylesheet">
+<link href="css/bootstrap-reboot.rtl.min.css.map" rel="stylesheet">
+
+<link href="css/bootstrap-utilities.css" rel="stylesheet">
+<link href="css/bootstrap-utilities.css.map" rel="stylesheet">
+<link href="css/bootstrap-utilities.min.css" rel="stylesheet">
+<link href="css/bootstrap-utilities.min.css.map" rel="stylesheet">
+
+<link href="css/bootstrap-utilities.rtl.css" rel="stylesheet">
+<link href="css/bootstrap-utilities.rtl.css.map" rel="stylesheet">
+<link href="css/bootstrap-utilities.rtl.min.css" rel="stylesheet">
+<link href="css/bootstrap-utilities.rtl.min.css.map" rel="stylesheet">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap.css.map" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap.min.css.map" rel="stylesheet">
+
+<link href="css/bootstrap.rtl.css" rel="stylesheet">
+<link href="css/bootstrap.rtl.css.map" rel="stylesheet">
+<link href="css/bootstrap.rtl.min.css" rel="stylesheet">
+<link href="css/bootstrap.rtl.min.css.map" rel="stylesheet">    
+
+<script src="js/all.js"></script>
+
+<script src="js/bootstrap.bundle.js"></script>
+<script src="js/bootstrap.bundle.js.map"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/bootstrap.bundle.min.js.map"></script>
+
+<script src="js/bootstrap.esm.js"></script>
+<script src="js/bootstrap.esm.js.map"></script>
+<script src="js/bootstrap.esm.min.js"></script>
+<script src="js/bootstrap.esm.min.js.map"></script>
+
+<script src="js/bootstrap.js"></script>
+<script src="js/bootstrap.js.map"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap.min.js.map"></script>
+
+<style id="mystyle">
+body{
+height:100%;
+}
+.container{
+display:inline-block;
+margin:auto;
+border-radius:20px;
+padding-bottom:14px;
+width:80%;
+margin-top:100px;
+}
+#logo{
+width:100px;height:100px;
+background:url(logo.png);
+background-size:100%;
+margin-top:10px;
+border-radius:50%;
+box-shadow:5px 5px 5px grey, -5px -5px 5px white;
+
+}
+
+#user, #lock{
+
+width:300px;
+height:50px;
+border-radius:20px;
+}
+
+button{
+
+margin:10px;
+border-radius:20px;
+width:300px;
+height:50px;
+font-size:14px;
+
+}
+button:hover{
+box-shadow:1px 1px 5px grey,  -1px -1px 5px white;
+
+}
+input{
+width:260px;
+height:50px;
+border:none;
+outline:none;
+background:none;
+}
+
+#foot{
+font-size:14px;
+margin-top:14px;}
+a{text-decoration:none;outline:none;
+}
+i{
+color:rgb(80,80,80);
+}
+h3{
+margin-bottom:20px;
+margin-top:10px;  
+font-family:times;
+}
+
+</style>
+
+
+</head>
+
+<script>            
+var themeColor = app.LoadText( "themeColor" );
+var color = JSON.parse(themeColor);
+var c1=color.c1;
+var c2=color.c2;
+var c3=color.c3;
+var c4=color.c4;
+var c5=color.c5;
+var c6=color.c6;
+var mytheme =app.LoadText( "mytheme" );
+if (mytheme=="1")
+{
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" .fullBody{"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),"
++"radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"height:100%;width:100%;margin:0;position:absolute;}"
++".mycontainer{"
++"position:relative;"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%) "
++", radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"box-shadow:4px 4px 4px #"+c3+",-4px -4px 4px #"+c2+";"
++"font-weight:bold;}"
++".myinput{"
++"margin:auto;"
++"border:none;"
++"background:#"+c1+";"
++"outline:none;"
++"box-shadow:inset 5px 5px 5px #"+c3+", inset -5px -5px 5px #"+c2+";"
++"}"
++".mybutton{"
++"border:none;"
++"box-shadow:5px 5px 5px #"+c3+", -5px -5px 5px #"+c2+";"
++"outline:none;"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%) "
++", radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"font-weight:bold;font-family:times;}"
++".mybutton:hover{"
++"box-shadow:1px 1px 5px #"+c3+",  -1px -1px 5px #"+c2+";"
++"}"
++".FAA{color:#"+c4+";}"
++".FB{color:#"+c5+";}"
++".FC{color:#"+c6+";}";
+var size=app.LoadText("size").split(",");
+for (i = 0; i < size.length; i++) {
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" .F"+i+"{font-size:"+size[i]+"px;} ";
+}
+}
+else
+{
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" body{"
++"background:#"+c1+";"
++"}"
++".mycontainer{"
++"position:relative;"
++"background:#"+c1+";"
++"box-shadow:4px 4px 4px #"+c3+",-4px -4px 4px #"+c2+";"
++"}"
++".myinput{"
++"margin:auto;"
++"border:none;"
++"background:#"+c1+";"
++"outline:none;"
++"box-shadow:inset 5px 5px 5px #"+c3+", inset -5px -5px 5px #"+c2+";"
++"}"
++".mybutton{"
++"border:none;"
++"box-shadow:5px 5px 5px #"+c3+", -5px -5px 5px #"+c2+";"
++"outline:none;"
++"background:#"+c1+"; " 
++"}"
++".mybutton:hover{"
++"box-shadow:1px 1px 5px #"+c3+",  -1px -1px 5px #"+c2+";"
++"}"
++".FAA{color:#"+app.LoadText("fontA")+";}"
++".FB{color:#"+app.LoadText("fontB")+";}"
++".FC{color:#"+app.LoadText("fontC")+";}";
+var size=app.LoadText("size").split(",");
+for (i = 0; i < size.length; i++) {
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" .F"+i+"{font-size:"+size[i]+"px;} ";
+}
+}
+
+//app.Alert(document.getElementById("mystyle").innerHTML);
+</script>
+
+<body align="center" ondragstart="return false" onselectstart="return false">
+<div class="fullBody">
+
+<div class="container mycontainer" align="center">
+<div id="logo"></div>
+<h3 class="FAA F20">Security Check Naka</h3>
+<div id="user" class="myinput FAA F14">
+<i class="fa fa-user"></i>
+<input type="text" placeholder=" Email or Mobile No" id="userA">
+</div>
+<br>
+<div id="lock" class="myinput FAA F14">
+<i class="fa fa-lock"></i>
+<input type="password" placeholder=" Password" id="password">
+</div>
+<br>
+<button class="mybutton FAA F14" onclick="login();">Log In</button><br>
+<div id="foot" class="FAA F12">
+<a href="" class="FB F12" onclick="forgot();">Forgotten password? </a> or <a href="" class="FB F12" onclick="signup();"> Sign Up</a><br>
+</div>
+</div>
+<script>
+function login()
+{
+var user = document.getElementById("userA").value;
+var password = document.getElementById("password").value;
+var ip = app.GetIPAddress();
+ var devicemodel = app.GetModel();
+ var deviceid = app.GetDeviceId();
+
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      // document.getElementById("demo").innerHTML = xhttp.responseText;
+   
+   var  rec = JSON.parse(xhttp.responseText.trim());
+var  response=rec.response;
+
+ if (response==4)
+ {
+ 
+app.SaveText("userDetails",xhttp.responseText.trim());
+ app.Execute( "Main();" );
+ app.SaveText( "check1",user );
+  app.SaveText( "check2",password);
+ }
+ else
+ {
+ app.ShowPopup( "Username or password incorrect !" );
+ }
+   
+   
+   
+   
+    }else{
+    
+    }
+};
+xhttp.open("GET",app.LoadText( "url" )+"login.php?user="+user+"&password="+password+"&ip="+ip+"&devicemodel="+devicemodel+"&deviceid="+deviceid, true);
+xhttp.send();
+}
+
+
+
+function signup()
+{
+app.Alert( "This application now only for limited users" )
+//app.Execute("signup();");   
+}
+
+function forgot()
+{
+app.Execute("forgot();");   
+}
+
+</script>
+
+
+
+
+
+</div>
+</body>
+</html>

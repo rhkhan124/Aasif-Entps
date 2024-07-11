@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<script src='file:///android_asset/app.js'></script>
+<link href="css/all.css" rel="stylesheet">
+
+    <link href="boostrap/css/bootstrap2.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap3.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap4.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap5.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap6.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap7.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap8.css" rel="stylesheet">
+    <link href="boostrap/css/swiper.min.css" rel="stylesheet">
+
+<script src="js/all.js"></script>
+    <script src="boostrap/js/jquery.js"></script>
+    <script src="boostrap/js/date.js"></script>
+    <script src="boostrap/js/date2.js"></script>
+    <script src="boostrap/js/bootstrap.js" type="text/javascript" ></script>
+
+<style id="mystyle">
+body{
+height:100%;
+}
+.mcontainer{
+display:inline-block;
+margin:auto;
+border-radius:20px;
+padding-bottom:14px;
+width:94%;
+margin-top:20px;
+}
+.dropcontainer{
+display:inline-block;
+margin:auto;
+border-radius:5px;
+width:96%;
+margin-top:10px;
+height:60px;
+}
+.dropdown-menu
+{
+height:350px;
+width:100%;  
+border:none;
+outline:none;
+background:none;
+}
+.mydrop
+{
+height:350px;
+width:100%;
+overflow:scroll;     
+}
+
+
+button:hover{
+box-shadow:1px 1px 5px grey,  -1px -1px 5px white;
+
+}
+
+
+input{
+width:100%;
+height:60px;
+border:none;
+outline:none;
+background:none;
+font-weight:bold;
+font-family:times;
+padding-left:10px;
+}
+
+@mixin nonselect {
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+	cursor: default;
+}
+.listitem{
+height:70px;
+width:96%;
+margin-left:2%;
+margin-top:5px;
+}
+.mybar{
+height:10px;
+width:100%;
+}
+  select option { 
+color: black;
+font-weight:bold;
+ }
+ .g{
+ border:1px solid white;
+  height: 38px;
+  width: 25px;
+  border-radius: 50%;
+ text-align:center;
+ vertical-align:center;
+ background-color:green;
+ font-weight:bold;
+ color:white;
+ }
+ .h
+ {
+     border:1px solid white;
+  height: 38px;
+  width: 25px;
+  border-radius: 50%;
+ text-align:center;
+ vertical-align:center;
+ background-color:white;
+ font-weight:bold;
+ color:black; 
+ }
+  .i
+ {
+     border:1px solid white;
+  height: 38px;
+  width: 25px;
+  border-radius: 50%;
+ text-align:center;
+ vertical-align:center;
+ background-color:#f23dbc;
+ font-weight:bold;
+ color:white; 
+ }
+ 
+ 
+ 
+ .modalf {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 112; /* Sit on top */
+  padding-top: 50px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width:100%;
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+}
+
+/* modalf Content */
+.modalf-content {
+
+}
+li {
+    border: 3px solid white;
+    border-bottom: 0;
+   }
+  rh:hover { 
+   background-color:red; 
+   }
+   
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 20px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 20px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>
+
+
+</head>
+
+
+    
+<script>  
+app.SaveText("Change","index.html");
+var themeColor = app.LoadText( "themeColor" );
+var color = JSON.parse(themeColor);
+var c1=color.c1;
+var c2=color.c2;
+var c3=color.c3;
+var c4=color.c4;
+var c5=color.c5;
+var c6=color.c6;
+var mytheme =app.LoadText( "mytheme" );
+if (mytheme=="1")
+{
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" .fullBody{"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),"
++"radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"height:100%;width:100%;margin:0;position:absolute;}"
++".mycontainer{"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%) "
++", radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"box-shadow:4px 4px 4px #"+c3+",-4px -4px 4px #"+c2+";"
++"font-weight:bold;}"
+
++".mycontainer2{"
++"position:absolute;"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%) "
++", radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"box-shadow:4px 4px 4px #"+c3+",-4px -4px 4px #"+c2+";"
++"font-weight:bold;}"
++".myinput{"
++"position:relative;"
++"border:none;"
++"background:#"+c1+";"
++"outline:none;"
++"box-shadow:inset 5px 5px 5px #"+c3+", inset -5px -5px 5px #"+c2+";"
++"}"
++".myinput2{"
++"border:none;"
++"background:#"+c1+";"
++"outline:none;"
++"box-shadow:inset 2px 2px 2px #"+c3+", inset -2px -2px 2px #"+c2+";"
++"}"
++".mybutton{"
++"border:none;"
++"box-shadow:5px 5px 5px #"+c3+", -5px -5px 5px #"+c2+";"
++"outline:none;"
++"background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%) "
++", radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);"
++"font-weight:bold;font-family:times;}"
++".mybutton:hover{"
++"box-shadow:1px 1px 5px #"+c3+",  -1px -1px 5px #"+c2+";"
++"}"
++".FAA{color:#"+app.LoadText("fontA")+";}"
++".FB{color:#"+app.LoadText("fontB")+";}"
++".FC{color:#"+app.LoadText("fontC")+";}";
+var size=app.LoadText("size").split(",");
+for (i = 0; i < size.length; i++) {
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" .F"+i+"{font-size:"+size[i]+"px;} ";
+}
+}
+else
+{
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" body{"
++"background:#"+c1+";"
++"}"
++".mycontainer{"
++"position:relative;"
++"background:#"+c1+";"
++"box-shadow:4px 4px 4px #"+c3+",-4px -4px 4px #"+c2+";"
++"}"
++".mycontainer2{"
++"background:#"+c1+";"
++"box-shadow:4px 4px 4px #"+c3+",-4px -4px 4px #"+c2+";"
++"}"
++".myinput{"
++"position:relative;"
++"border:none;"
++"background:#E6E6E6;"
++"outline:none;"
++"box-shadow:inset 5px 5px 5px #"+c3+", inset -5px -5px 5px #"+c2+";"
++"}"
++".myinput2{"
++"border:none;"
++"background:#E6E6E6;"
++"outline:none;"
++"box-shadow:inset 2px 2px 2px #"+c3+", inset -2px -2px 2px #"+c2+";"
++"}"
++".mybutton{"
++"border:none;"
++"box-shadow:5px 5px 5px #"+c3+", -5px -5px 5px #"+c2+";"
++"outline:none;"
++"background:#"+c1+"; " 
++"}"
++".mybutton:hover{"
++"box-shadow:1px 1px 5px #"+c3+",  -1px -1px 5px #"+c2+";"
++"}"
++".FAA{color:#"+app.LoadText("fontA")+";}"
++".FB{color:#"+app.LoadText("fontB")+";}"
++".FC{color:#"+app.LoadText("fontC")+";}";
+var size=app.LoadText("size").split(",");
+for (i = 0; i < size.length; i++) {
+document.getElementById("mystyle").innerHTML = document.getElementById("mystyle").innerHTML+" .F"+i+"{font-size:"+size[i]+"px;} ";
+}
+}
+
+
+//app.Alert(document.getElementById("mystyle").innerHTML);
+</script>
+
+<body align="center" ondragstart="return false" onselectstart="return false">
+
+<div id="myModal" class="modalf " style="font-family:Times;">
+<div class="modal-content mycontainer" style="border:none;width:80%;margin-left:10%;">
+<div style="width:100%;">
+<div>
+<div style="margin-left:30px;padding-top:20px;">
+<select  style="" class="F20 mybutton" name="year" id="year" onchange="jump()">
+<option value=2000>2000</option>
+<option value=2001>2001</option>
+<option value=2002>2002</option>
+<option value=2003>2003</option>
+<option value=2004>2004</option>
+<option value=2005>2005</option>
+<option value=2006>2006</option>
+<option value=2007>2007</option>
+<option value=2008>2008</option>
+<option value=2009>2009</option>
+<option value=2010>2010</option>
+<option value=2011>2011</option>
+<option value=2012>2012</option>
+<option value=2013>2013</option>
+<option value=2014>2014</option>
+<option value=2015>2015</option>
+<option value=2016>2016</option>
+<option value=2017>2017</option>
+<option value=2018>2018</option>
+<option value=2019>2019</option>
+<option value=2020>2020</option>
+<option value=2021>2021</option>
+<option value=2022>2022</option>
+<option value=2023>2023</option>
+<option value=2024>2024</option>
+<option value=2025>2025</option>
+<option value=2026>2026</option>
+<option value=2027>2027</option>
+<option value=2028>2028</option>
+<option value=2029>2029</option>
+<option value=2030>2030</option>
+</select>
+</div>
+<div style="margin-left:30px;margin-top:20px;margin-bottom:20px;">
+<div class="F35"style="font-weight:bold;color:black;" id="monthAndYear"></div>
+</div>
+<div style="height:40px;background-color:white;">
+<div style="padding-top:20px;">
+<table width="100%" >
+<tr>
+<td style="font-size:25px;font-weight:bold;text-align:center;" id="previous" onclick="previous()">
+<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-left-square-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.354 10.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L6.207 7.5H11a.5.5 0 0 1 0 1H6.207l2.147 2.146z"/>
+</svg></td>
+<td style="text-align:center;font-weight:bold;width:60%" id="monthname" class="F20"></td>
+<td style="font-size:25px;font-weight:bold;text-align:center;" id="next" onclick="next()">
+<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-square-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm5.646 10.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z"/>
+</svg>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div style="border:20px solid white; background-color:white;height:40%;">
+<table  id="calendar" style="width:100%;" class="F12">
+<thead>
+<tr>
+<th style="text-align:center;vertical-align:center;">Sun</th>
+<th style="text-align:center;vertical-align:center;">Mon</th>
+<th style="text-align:center;vertical-align:center;">Tue</th>
+<th style="text-align:center;vertical-align:center;">Wed</th>
+<th style="text-align:center;vertical-align:center;">Thu</th>
+<th style="text-align:center;vertical-align:center;">Fri</th>
+<th style="text-align:center;vertical-align:center;">Sat</th>
+</tr>
+<tr>
+<td colspan="7" style="background-color:white;"><hr style="background-color:white;margin:3px;"></td>
+</tr>
+</thead>
+<tbody id="calendar-body" class="F12">
+</tbody>
+</table>
+</div>
+</div>
+<input type="hidden" name="month" value="" id="month">
+</div>
+</div>   
+
+
+
+
+
+
+
+<div class="fullBody">
+
+<div class="mycontainer mcontainer">
+<div style="text-align:center;font-weight:bold; margin-top:0px;font-family:times;" class="FAA F20">Add Salary</div>
+<table style="width:100%;" class="F8">
+<tr>
+<td style="width:18%;text-align:left;padding-left:3%;"><label class="switch">
+  <input type="checkbox" id="hide" checked>
+  <span class="slider round"></span></label></td>
+<td style="text-align:left;font-weight:bold;font-family:times;">Hide for employee application</td>
+
+<td style="text-align:right;font-weight:bold;font-family:times;"></td><td style="width:18%;text-align:right;padding-right:3%;">
+</td>
+</tr>
+</table>
+<div class="container" style="margin-top:10px;">                                        
+  <div class="dropcontainer myinput">
+    <div style="" type="button" data-toggle="dropdown">
+    <table style="width:100%;">
+    <tr style="height:60px;font-family:times;" class="F20 FAA">
+    <td style="text-align:left;padding-left:10px;font-weight:bold;" id="empname" ></td><td style="width:10%;"><span class="caret" style="text-align:center;"></span></td>
+    </tr>
+    </table>
+    </div>
+    <div class="dropdown-menu " >
+    <div class="myinput mydrop" id="listItem" style="padding-bottom:5px;">
+    
+     
+
+
+     
+     
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container" style="margin-top:10px;">                                        
+  <div class="dropcontainer myinput" style="margin-top:10px;">
+    <input class="F20 FAA" type="number" placeholder="Amount" id="pamount">
+  </div>
+</div>
+
+
+
+<div class="container" style="margin-top:10px;">                                        
+  <div class="dropcontainer myinput">
+    <div style="" type="button" >
+    <table style="width:100%;" onclick="myDT();">
+    <tr style="height:60px;font-family:times;" class="F20 FAA">
+    <td style="text-align:left;padding-left:0px;font-weight:bold;" ><input type="text" id="Tdate"  value="22/05/2022" readonly></td><td style="width:10%;"><i class="far fa-calendar-plus"></i></td>
+    </tr>
+    </table>
+    </div>
+  </div>
+</div>
+
+<div class="container">                                        
+  <div class="dropcontainer myinput">
+    <input class="F20 FAA" type="text" placeholder="Remarks" id="premark">
+  </div>
+</div>
+
+<div class="FAA myinput" id="myDIV" onscroll="swipe()" style="margin-top:15px;height:60px;width:88%;margin-left:6%;overflow: auto;border-radius:5px;">
+<div style="width:168%;">
+<div class="FAA mycontainer swipebutton" id="tbutton"ontouchend="myFunc();" style=" height:50px;width:100px;margin:5px;margin-left:42%;border-radius:2px;padding:5px;">
+<i class="fas fa-forward F40"></i>
+</div>
+</div>
+</div>
+<br>
+<div class="FAA F15" style="text-align:center;font-weight:bold;font-family:times;">Recent Transactions</div>
+<div class="FAA myinput" id="recent" style="width:96%;margin-left:2%;height:180px;padding-top:0px;padding-bottom:5px;overflow:scroll; ">
+
+
+
+</div>
+</div>
+
+
+<script>
+var elmnt = document.getElementById("myDIV");
+elmnt.scrollLeft =elmnt.offsetWidth-111;
+function swipe() {
+ elmnt = document.getElementById("myDIV");
+var x = elmnt.scrollLeft;
+var y = elmnt.scrollTop;
+
+if(x==0)
+{
+    swiped();
+    elmnt.scrollLeft =0;
+    
+}
+}
+function myFunc()
+{
+elmnt = document.getElementById("myDIV");
+elmnt.scrollLeft =elmnt.offsetWidth-111;
+}
+
+
+function swiped()
+{
+
+//   document.getElementById("tbutton").innerHTML="<i class='fa-solid fa-circle-notch fa-spin'></i>";
+addpaid();
+}
+function stoploader()
+{
+   app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"green","msg":"Seccessfully added"}');
+}
+
+
+
+
+
+</script>
+
+<script src="datepicker.js"></script>
+<script>
+  
+ var  rec = JSON.parse(app.LoadText( "userDetails" ));
+       var    id=rec.id;
+       var    User=rec.user;
+       var   token=rec.token;
+        var  uid =rec.uid;
+       var  url = app.LoadText( "url" );
+       var empid = 0;
+       var ff =1;
+
+
+var modal = document.getElementById("myModal");
+//var btn2 = document.getElementById("mybtn");
+//var span = document.getElementsByClassName("close")[0];
+//btn2.onclick = function() {
+//  modal.style.display = "block";
+//}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+function myDT()
+{
+     modal.style.display = "block"; 
+}
+var pcheck =0;
+
+
+var	mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+var letters = /^[A-Z a-z 0-9]+$/;
+
+function addpaid()
+{
+var pamount = document.getElementById("pamount").value;
+var pdate  = document.getElementById("Tdate").value;
+var premark  = document.getElementById("premark").value;
+var hide = document.getElementById("hide").checked ;
+if(pamount<1)
+{
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Please input amout field"}');
+}
+else if (premark.length<1)
+{
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Please input remarks field"}');
+}
+else if (premark.match(letters))
+{
+
+ app.Execute("loader2(1);");   
+	var 	req2=new XMLHttpRequest();
+	req2.open("GET",app.LoadText( "url" )+"addsalary.php?id="+id+"&user="+User+"&token="+token+"&empid="+empid+"&date="+pdate+"&hide="+hide+"&remarks="+premark+"&amount="+pamount+"&check="+pcheck,true);
+	req2.onreadystatechange=function(){
+if(	req2.readyState==4 && 	req2.status==200){if(	req2.responseText=="ufFygf")
+{  
+
+}else{
+ if (req2.responseText.trim()==1)
+ {
+ app.Alert( "error please relogin" );
+     app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Error"}');
+     app.ClearData(  );
+  app.exit();
+ }
+ else if(req2.responseText.trim()==2)
+ {
+  app.Alert( "User is blocked" );
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"User is blocked"}');
+ }
+ else if(req2.responseText.trim()==3)
+ {
+  app.Alert( "Permission denied contact admin" );
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Permission denied"}');
+ }
+ else if(req2.responseText.trim()==4)
+ {
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"green","msg":"Seccessfully added"}');
+   recent();
+ }
+ else if(req2.responseText.trim()==5)
+ {
+    app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"error please retry"}');
+   app.Alert( "Error please retry !" )
+ }
+ else
+ {
+      app.SaveText("msg",'{"color":"green","msg":""}');
+  app.Execute("loader2(4);");   
+    ynd = app.CreateYesNoDialog( "Today already added a record for the "+ req2.responseText.trim()+ " in the "+document.getElementById("empname").innerHTML + " account. Are you sure want to add new record ?");
+    ynd.SetOnTouch( Ynd_OnTouch );
+    ynd.Show();
+ }
+}}}
+	req2.send();
+	}
+	else
+	{
+	app.Alert( "Please remove special charactor in the remarks field" )
+	}
+}
+function Ynd_OnTouch( result )
+{
+   if (result=="Yes")
+   {
+   ynd.Hide();
+   pcheck =1;
+   addpaid();
+   }
+   else
+   {
+    ynd.Hide();
+     app.SaveText("msg",'{"color":"green","msg":""}');
+  app.Execute("loader2(4);");   
+   }
+}
+
+ function getemp()
+ {
+ app.Execute("loader2(1);");   
+	var 	req3=new XMLHttpRequest();
+	req3.open("GET",app.LoadText( "url" )+"salaryemployees.php?id="+id+"&user="+User+"&token="+token,true);
+	req3.onreadystatechange=function(){
+if(	req3.readyState==4 && 	req3.status==200){if(	req3.responseText=="ufFygf")
+{  
+
+}else{
+ if (req3.responseText.trim()==1)
+ {
+ app.Alert( "error please relogin" );
+     app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Error"}');
+ }
+ else if(req3.responseText.trim()==2)
+ {
+  app.Alert( "User is blocked" );
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"User is blocked"}');
+ }
+ else if(req3.responseText.trim()==3)
+ {
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Permission denied"}');
+ }
+ else
+ {
+
+ app.SaveText("msg",'{"color":"green","msg":""}');
+  app.Execute("loader2(4);");   
+     var alluser=req3.responseText.trim().split('@');
+
+   for(var i = 0; i < alluser.length;  i++)
+   {
+   if (alluser[i].length<10)
+   {}
+   else
+   {
+   var  rec = JSON.parse(alluser[i]);
+   var  pid =rec.id;
+   var  pname =rec.name;
+   var  pproject =rec.project;
+   if(ff==1)
+   {
+   empid = pid;
+   document.getElementById("empname").innerHTML =pname;
+   }
+   ff =0;
+   document.getElementById("listItem").innerHTML = document.getElementById("listItem").innerHTML+'<div onclick="setemp('+pid+');"class="mycontainer listitem">'
++'<table width="96%" class="FAA" style="margin:2%;font-weight:bold;font-family:times;">'
++'<tr>'
++'<td style=""colspan="2">'
+
++'</td>'
++'</tr>'
++'<tr>'
++'<td colspan="2" class="F17" style="" id="name'+pid+'">'+pname+'</td>'
++'</tr>'
++'<tr>'
++'<td class="F10"style="text-align:left;">'+pproject+'</td><td class="F5" style="text-align:right;"></td>'
++'</tr>'
++'</table>'
++'</div>'
+  
+ }}
+ 
+ }
+}}}
+	req3.send();
+}
+getemp();
+
+
+ function recent()
+ {
+// app.Execute("loader2(1);");   
+	var 	req4=new XMLHttpRequest();
+	req4.open("GET",app.LoadText( "url" )+"recentsalary.php?id="+id+"&user="+User+"&token="+token,true);
+		req4.onreadystatechange=function(){
+if(	req4.readyState==4 && 	req4.status==200){if(	req4.responseText=="ufFygf")
+{  
+
+}else{
+
+ if (req4.responseText.trim()==1)
+ {
+ app.Alert( "error please relogin" );
+     app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Error"}');
+ }
+ else if(req4.responseText.trim()==2)
+ {
+  app.Alert( "User is blocked" );
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"User is blocked"}');
+ }
+ else if(req4.responseText.trim()==3)
+ {
+       app.Execute("loader2(4);");   
+   app.SaveText("msg",'{"color":"red","msg":"Permission denied"}');
+ }
+ else
+ {
+document.getElementById("recent").innerHTML = "";
+// app.SaveText("msg",'{"color":"green","msg":""}');
+  //app.Execute("loader2(4);");   
+     var alluser=req4.responseText.trim().split('@');
+   for(var i = 0; i < alluser.length;  i++)
+   {
+   if (alluser[i].length<10)
+   {}
+   else
+   {
+   var  rec2 = JSON.parse(alluser[i]);
+   var  pid2 =rec2.id;
+   var  pname2 =rec2.name;
+   var  pdate2  =rec2.date;
+   var  pamount2=rec2.amount;
+   var  pcheck2=rec2.check;
+   var mycheck ="";
+   if(pcheck2=="true")
+   {
+   mycheck ='<i class="fas fa-circle F6" style="color:green;float:right;"></i>';
+   }
+   
+
+document.getElementById("recent").innerHTML = document.getElementById("recent").innerHTML+'<div class="mycontainer" style="width:96%;height:15px;margin-left:2%;padding:2px;margin-top:6px;">'
++'<table style="width:96%;margin-left:2%;font-weight:bold;font-family:times;" class="FAA F12">'
++'<tr>'
++'<td style="text-align:left;width:60%;">'+pname2+'</td><td style="text-align:center;width:20%;">'+pdate2+'</td><td style="text-align:right;width:20%;">'+pamount2+'/- '+mycheck+'</td>'
++'</tr>'
++'</table>'
++'</div>' 
+  
+ }}
+ 
+ 
+ }
+}}}
+	req4.send();
+	}
+	recent();
+
+function setemp(empid2)
+{
+empid = empid2;
+document.getElementById("empname").innerHTML =document.getElementById("name"+empid2).innerHTML ;
+}
+</script>
+
+
+
+
+</div>
+</body>
+</html>
