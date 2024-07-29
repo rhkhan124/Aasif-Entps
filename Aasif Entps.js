@@ -485,6 +485,10 @@ webbar.Execute( "alert1()");
         app.CloseDrawer( "left" );
         }
         
+      
+        
+       // app.SetClipboardText( app.LoadText( "url" )+"fetchsms.php?user="+User+"&token="+token+"&uid="+uid )
+        
         function CreateDrawer()
         {
         //Create a layout for the drawer.
