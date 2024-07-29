@@ -1,5 +1,12 @@
 count = 0;
 var diff = 1;
+var url=app.LoadText( "url" );
+app.Alert( url )
+ var  rec = JSON.parse(app.LoadText( "userDetails" ));
+       var    id=rec.id;
+       var    User=rec.user;
+       var   token=rec.token;
+       
 
 //Called when service is started.
 function OnStart()
@@ -23,7 +30,16 @@ function OnMessage( msg )
 
 function DoWork()
 {
-    count += diff;
-    app.ShowPopup( count )
-    // app.SendMessage( count )
+   var 	req1=new XMLHttpRequest();
+	req1.open("GET",app.LoadText( "url" )+"fetchsms.php?user="+User+"&token="+token+"&uid="+uid,true);
+	req1.onreadystatechange=function(){
+if(	req1.readyState==4 && 	req1.status==200){if(	req1.responseText=="ufFygf")
+{  
+
+}else{
+app.ShowPopup( req1.responseText.trim() )
+
+
+}}}
+	req1.send();
 }
