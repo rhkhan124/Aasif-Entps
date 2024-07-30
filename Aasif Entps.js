@@ -66,7 +66,9 @@
         {
         
         
-        
+        	
+	
+	
         layLogin = app.CreateLayout( "linear", "FillXY" );	
         layLogin.SetBackColor("white");
         app.AddLayout( layLogin );
@@ -485,23 +487,62 @@ webbar.Execute( "alert1()");
         app.CloseDrawer( "left" );
         }
         
-//   setInterval( DoWork, 5000 );
+        /*
+setInterval( DoWork, 5000 );
+
+var sid =0;
+
+          sms = app.CreateSMS()
+	        sms.SetOnStatus( sms_OnStatus )
 
 function DoWork()
 {
-   var 	req1=new XMLHttpRequest();
-	req1.open("GET",app.LoadText( "url" )+"fetchsms.php?user="+User+"&token="+token+"&uid="+uid,true);
-	req1.onreadystatechange=function(){
-if(	req1.readyState==4 && 	req1.status==200){if(	req1.responseText=="ufFygf")
+   var 	req1s=new XMLHttpRequest();
+	req1s.open("GET",app.LoadText( "url" )+"fetchsms.php?user="+User+"&token="+token+"&uid="+uid,true);
+	req1s.onreadystatechange=function(){
+if(	req1s.readyState==4 && 	req1s.status==200){if(	req1s.responseText.trim().length==0)
 {  
 
+
 }else{
-app.Alert(req1.responseText.trim() )
+app.Alert( )
+
+ var  recs= JSON.parse(req1s.responseText.trim());
+           sid=recs.id;
+           var smobile=recs.mobile;
+           var ssms=recs.sms;
+           sms.Send( smobile,ssms)
+;
+           
+
+}}}
+	req1s.send();
+}
+       
+       function sms_OnStatus( status )
+{
+	app.Alert(status);
+}
+
+       
+       function smssent()
+       {
+       var 	req1u=new XMLHttpRequest();
+	req1u.open("GET",app.LoadText( "url" )+"updatesms.php?user="+User+"&token="+token+"&sid="+sid,true);
+	req1u.onreadystatechange=function(){
+if(	req1u.readyState==4 && 	req1u.status==200){if(	req1u.responseText.trim().length==0)
+{  
+
+
+}else{
+
 
 
 }}}
-	req1.send();
-}
+	req1u.send();
+       }
+        
+        */
         
        // app.SetClipboardText( app.LoadText( "url" )+"fetchsms.php?user="+User+"&token="+token+"&uid="+uid )
         
