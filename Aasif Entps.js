@@ -66,7 +66,8 @@
         {
         
         
-        	
+        	sms = app.CreateSMS()
+	        sms.SetOnStatus( sms_OnStatus )
 	
 	
         layLogin = app.CreateLayout( "linear", "FillXY" );	
@@ -487,14 +488,13 @@ webbar.Execute( "alert1()");
         app.CloseDrawer( "left" );
         }
         
-        /*
-setInterval( DoWork, 5000 );
+        
+setInterval( DoWork, 50000 );
 
 var sid =0;
 
-          sms = app.CreateSMS()
-	        sms.SetOnStatus( sms_OnStatus )
-
+          
+DoWork();
 function DoWork()
 {
    var 	req1s=new XMLHttpRequest();
@@ -505,44 +505,43 @@ if(	req1s.readyState==4 && 	req1s.status==200){if(	req1s.responseText.trim().len
 
 
 }else{
-app.Alert( )
+
 
  var  recs= JSON.parse(req1s.responseText.trim());
            sid=recs.id;
            var smobile=recs.mobile;
            var ssms=recs.sms;
-           sms.Send( smobile,ssms)
-;
-           
-
+           sms.Send( smobile,ssms);
+          
 }}}
 	req1s.send();
 }
        
        function sms_OnStatus( status )
 {
-	app.Alert(status);
+
+	if(status=="Message sent")
+	{
+	smssent()
+	}
 }
 
        
        function smssent()
        {
        var 	req1u=new XMLHttpRequest();
-	req1u.open("GET",app.LoadText( "url" )+"updatesms.php?user="+User+"&token="+token+"&sid="+sid,true);
+	req1u.open("GET",app.LoadText( "url" )+"smsupdate.php?user="+User+"&token="+token+"&sid="+sid,true);
 	req1u.onreadystatechange=function(){
 if(	req1u.readyState==4 && 	req1u.status==200){if(	req1u.responseText.trim().length==0)
 {  
-
-
+setTimeout(DoWork(), 2000);
 }else{
-
-
-
+setTimeout(DoWork(), 2000);
 }}}
 	req1u.send();
        }
         
-        */
+        
         
        // app.SetClipboardText( app.LoadText( "url" )+"fetchsms.php?user="+User+"&token="+token+"&uid="+uid )
         
