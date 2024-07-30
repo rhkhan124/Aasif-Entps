@@ -485,7 +485,23 @@ webbar.Execute( "alert1()");
         app.CloseDrawer( "left" );
         }
         
-      
+//   setInterval( DoWork, 5000 );
+
+function DoWork()
+{
+   var 	req1=new XMLHttpRequest();
+	req1.open("GET",app.LoadText( "url" )+"fetchsms.php?user="+User+"&token="+token+"&uid="+uid,true);
+	req1.onreadystatechange=function(){
+if(	req1.readyState==4 && 	req1.status==200){if(	req1.responseText=="ufFygf")
+{  
+
+}else{
+app.Alert(req1.responseText.trim() )
+
+
+}}}
+	req1.send();
+}
         
        // app.SetClipboardText( app.LoadText( "url" )+"fetchsms.php?user="+User+"&token="+token+"&uid="+uid )
         

@@ -14,7 +14,7 @@ function OnStart()
 
 
     //Start a timer to do some regular work.
-    setInterval( DoWork, 5000 );
+    //setInterval( DoWork, 5000 );
 }
 
 //Called when we get a message from main app.
