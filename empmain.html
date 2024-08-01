@@ -1094,6 +1094,17 @@ var letters = /^[A-Z a-z 0-9]+$/;
 var mydld ="";
 var fldr ="";
 var    dldurl ="";
+
+function downloadURI(uri, name) {
+  var link = document.createElement("a");
+  link.download = 'name';
+  link.href = uri;
+  link.click();
+  link.remove();
+}
+
+
+
 function download(dd)
 {
         var Mpaid = document.getElementById("Mpaid").checked;
@@ -1115,7 +1126,8 @@ function download(dd)
     }
     else
 {
-app.OpenUrl( dldurl )
+//app.OpenUrl( dldurl )
+downloadURI('http://aasifenterprises.com/apps2/report.php?id=pUI=&user=r0g5Sx047QSLiQ==&token=3RhhFxo95Af7&emp=225&paid=true&salary=true&work=false&att=&issue=false', 'customefilename.pdf');
 }
     }
 function dload_OnDownload( fileg )

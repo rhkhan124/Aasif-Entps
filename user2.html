@@ -134,7 +134,7 @@ font-family:times;
 </head>
 
 <script>    
-app.SaveText("Change","userindex.html");
+app.SaveText("Change","empindex.html");
 var themeColor = app.LoadText( "themeColor" );
 var color = JSON.parse(themeColor);
 var c1=color.c1;
@@ -387,7 +387,7 @@ function imgerror()
 {
      document.getElementById("Uimg").src="Img/user.png";  
 }
-       app.SetClipboardText( app.LoadText( "url" )+"getuserinfo.php?id="+id+"&user="+User+"&uid="+uid+"&token="+token)
+       //app.SetClipboardText( app.LoadText( "url" )+"getuserinfo.php?id="+id+"&user="+User+"&uid="+uid+"&token="+token)
   app.Execute("loader2(1);");   
 	var 	req3=new XMLHttpRequest();
 	req3.open("GET",app.LoadText( "url" )+"getuserinfo.php?id="+id+"&user="+User+"&uid="+uid+"&token="+token,true);
