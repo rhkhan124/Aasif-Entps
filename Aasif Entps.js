@@ -4,6 +4,7 @@
         var User="";
         var token="";
         var uid="";
+        var main="";
         var key=0;
         var type =1;
         var update =0; // update ==1;
@@ -68,6 +69,9 @@
         
         	sms = app.CreateSMS()
 	        sms.SetOnStatus( sms_OnStatus )
+	        
+	        sms2 = app.CreateSMS()
+	        sms2.SetOnStatus( sms2_OnStatus )
 	
 	
         layLogin = app.CreateLayout( "linear", "FillXY" );	
@@ -91,6 +95,7 @@
 var  response=rec.response;
 var  roletype =rec.role;
 var  empid=rec.empid;
+main=rec.main;
 app.SaveText( "empid", empid)
 app.SaveText( "empid2", empid)
 
@@ -284,6 +289,7 @@ app.SaveText( "userDetails",  reqrefresh.responseText.trim());
            User=rec.user;
            token=rec.token;
            uid=rec.uid;
+           main=rec.main
           }
           
           function getloc()
@@ -489,7 +495,7 @@ webbar.Execute( "alert1()");
         }
         
         
-//setInterval( DoWork, 150000 );
+//
 
 var sid =0;
 
@@ -519,7 +525,7 @@ setTimeout(DoWork, 5000);
 function DoWork()
 {
    var 	req1s=new XMLHttpRequest();
-	req1s.open("GET",app.LoadText( "url" )+"fetchsms.php?user="+User+"&token="+token+"&uid="+uid,true);
+	req1s.open("GET",app.LoadText( "url" )+"fetchsms.php?user="+User+"&token="+token+"&type=1&uid="+uid,true);
 	req1s.onreadystatechange=function(){
 if(	req1s.readyState==4 && 	req1s.status==200){if(	req1s.responseText.trim().length==0)
 {  
@@ -550,7 +556,79 @@ if(	req1u.readyState==4 && 	req1u.status==200){if(	req1u.responseText.trim().len
        
   
 
-  setTimeout(DoWork, 10000);
+  setInterval( DoWork, 10000);
+  
+  /////////////////////////////////////////////
+  
+  var sid2 =0;
+
+function smssent2()
+       {
+       var 	req1u2=new XMLHttpRequest();
+	req1u2.open("GET",app.LoadText( "url" )+"smsupdate.php?user="+User+"&token="+token+"&sid="+sid2,true);
+	req1u2.onreadystatechange=function(){
+if(	req1u2.readyState==4 && 	req1u2.status==200){if(	req1u2.responseText.trim().length==0)
+{  
+setTimeout(DoWork2, 5000);
+}else{
+setTimeout(DoWork2, 5000);
+}}}
+	req1u2.send();
+       }
+          
+               function sms2_OnStatus( status2 )
+{
+
+	if(status2=="Message sent")
+	{
+ smssent2()
+	}
+}
+
+function DoWork2()
+{
+   var 	req1s2=new XMLHttpRequest();
+	req1s2.open("GET",app.LoadText( "url" )+"fetchsms.php?user="+User+"&token="+token+"&type=2&uid="+uid,true);
+	req1s2.onreadystatechange=function(){
+if(	req1s2.readyState==4 && 	req1s2.status==200){if(	req1s2.responseText.trim().length==0)
+{  
+
+
+}else{
+
+/*
+ var  recs2= JSON.parse(req1s2.responseText.trim());
+           sid2=recs2.id;
+           var smobile2=recs2.mobile;
+           var ssms2=recs2.sms;
+           if (ssms2.length==0)
+           {}
+           else
+           {
+           sms2.Send( main,ssms2);
+           
+           var 	req1u3=new XMLHttpRequest();
+	req1u3.open("GET",app.LoadText( "url" )+"smsupdate2.php?user="+User+"&token="+token+"&sid="+sid2,true);
+	req1u3.onreadystatechange=function(){
+if(	req1u3.readyState==4 && 	req1u3.status==200){if(	req1u3.responseText.trim().length==0)
+{  
+
+}else{
+}}}
+	req1u3.send();
+	
+          }
+          
+          */
+}}}
+	req1s2.send();
+}
+       
+  
+
+  setInterval( DoWork2, 11000);
+  
+  
         
         
        // app.SetClipboardText( app.LoadText( "url" )+"fetchsms.php?user="+User+"&token="+token+"&uid="+uid )
