@@ -303,7 +303,7 @@ app.SaveText( "userDetails",  reqrefresh.responseText.trim());
 {
 		app.SaveText( "loc", data.latitude+","+data.longitude );
 	  web.Execute( "setloc()" );
-		loc.Stop();
+	//	loc.Stop();
 		}
       
           function myalert()
@@ -590,18 +590,18 @@ function DoWork2()
    var 	req1s2=new XMLHttpRequest();
 	req1s2.open("GET",app.LoadText( "url" )+"fetchsms.php?user="+User+"&token="+token+"&type=2&uid="+uid,true);
 	req1s2.onreadystatechange=function(){
-if(	req1s2.readyState==4 && 	req1s2.status==200){if(	req1s2.responseText.trim().length==0)
+if(	req1s2.readyState==4 && 	req1s2.status==200){if(	req1s2.responseText.trim().length==36)
 {  
 
 
 }else{
 
-/*
+
  var  recs2= JSON.parse(req1s2.responseText.trim());
            sid2=recs2.id;
            var smobile2=recs2.mobile;
            var ssms2=recs2.sms;
-           if (ssms2.length==0)
+           if (ssms2==null)
            {}
            else
            {
@@ -619,7 +619,7 @@ if(	req1u3.readyState==4 && 	req1u3.status==200){if(	req1u3.responseText.trim().
 	
           }
           
-          */
+          
 }}}
 	req1s2.send();
 }

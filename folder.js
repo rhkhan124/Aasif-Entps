@@ -496,7 +496,7 @@ document.getElementById("mydoc").style="width:100%;height:550px;background:url("
 }
 else if (myfileext =="jpg")
 {
-prompt("Please enter your name", url+"folder/"+myfilename);
+//prompt("Please enter your name", url+"folder/"+myfilename);
 document.getElementById("mydoc").src="";
 document.getElementById("mydoc").style="width:100%;height:550px;background:url("+url+"folder/"+myfilename+") no-repeat center center; background-size: 100% auto;";
 }
