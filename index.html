@@ -933,6 +933,15 @@ window.onmessage = function(e) {
   showfile2();
     //show file
     }
+      if(reqid==12)
+    {
+      	 app.Execute("loader2(1);");   
+	app.SaveText( "empid", reqdata1);
+	app.SaveText( "empid2", app.LoadText( "empid" ) );
+app.SaveText( "first",1 );
+app.SaveText( "change2","index.html");
+	app.Execute( "empinfo();" );
+    }
    
 }
 

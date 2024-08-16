@@ -146,7 +146,9 @@ height:25px;
 
     
 <script>  
-app.SaveText("Change","employees.html");
+
+
+app.SaveText("Change",app.LoadText( "change2" ));
 var themeColor = app.LoadText( "themeColor" );
 var color = JSON.parse(themeColor);
 var c1=color.c1;

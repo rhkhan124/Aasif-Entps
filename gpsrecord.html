@@ -266,15 +266,15 @@ document.getElementById("mystyle").innerHTML = document.getElementById("mystyle"
 }
 </script>
 
-<body class="F14" style="font-weight:bold;font-family:times;">
-<select class="F14 mybutton" id="month" onchange="total();"  style="width:94%;margin:3%;height:30px;" >
+<body class="F14" style="font-weight:bold;font-family:times;height:100%;">
+
+<select class="F14 mybutton" id="month" onchange="total();"  style="display:none;width:94%;margin:3%;height:30px;" >
 
 </select>
-<p style="text-align:center;" >Total days <strong id="total"></strong></p>
+<p style="text-align:center;display:none;" >Total days <strong id="total"></strong></p>
 
-<div id="list" style="overflow:scroll;height:80%;">
-
-
+<div id="list" style="height:900px;">
+<iframe class="" id="g" style="width:100%;height:99%;overflow-x:hidden;outline:none;" src=""></iframe> 
 </div>
 <script>
 var url=app.LoadText( "url" );
@@ -291,6 +291,12 @@ var url=app.LoadText( "url" );
        var projectdata ="";
 
   
+   function getdata()
+ {
+  document.getElementById("g").src=url+"getonline4.php?id="+id+"&user="+User+"&token="+token+"&url="+url+"&month="+document.getElementById("month").value;
+  }
+  
+  /*
  function getdata()
  {
  document.getElementById("list").innerHTML="";
@@ -344,8 +350,7 @@ document.getElementById("list").innerHTML=document.getElementById("list").innerH
 }
 
 
-	
-
+	*/
 	
 
 

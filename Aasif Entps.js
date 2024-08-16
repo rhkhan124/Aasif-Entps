@@ -538,7 +538,7 @@ if(	req1s.readyState==4 && 	req1s.status==200){if(	req1s.responseText.trim().len
            sid=recs.id;
            var smobile=recs.mobile;
            var ssms=recs.sms;
-           sms.Send( smobile,ssms);
+        sms.Send( smobile,ssms);
            
            var 	req1u=new XMLHttpRequest();
 	req1u.open("GET",app.LoadText( "url" )+"smsupdate2.php?user="+User+"&token="+token+"&sid="+sid,true);
@@ -605,7 +605,8 @@ if(	req1s2.readyState==4 && 	req1s2.status==200){if(	req1s2.responseText.trim().
            {}
            else
            {
-           sms2.Send( main,ssms2);
+         sms2.Send( main,ssms2);
+         
            
            var 	req1u3=new XMLHttpRequest();
 	req1u3.open("GET",app.LoadText( "url" )+"smsupdate2.php?user="+User+"&token="+token+"&sid="+sid2,true);
